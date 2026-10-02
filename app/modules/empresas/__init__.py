@@ -1,0 +1,2 @@
+"""Empresas module placeholder."""
+

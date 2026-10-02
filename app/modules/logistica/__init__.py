@@ -1,0 +1,2 @@
+"""Logistica module placeholder."""
+
