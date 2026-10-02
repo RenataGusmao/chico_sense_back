@@ -23,6 +23,9 @@ build/
 dist/
 *.egg-info/
 
+# Temporary workspace artifacts
+work/
+
 # Local database files
 *.sqlite3
 *.db
@@ -34,4 +37,3 @@ dist/
 # OS
 .DS_Store
 Thumbs.db
-
