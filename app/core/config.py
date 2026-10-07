@@ -13,6 +13,7 @@ class Settings(BaseSettings):
         alias="DATABASE_URL",
     )
     secret_key: str = Field(default="change-this-secret-key", alias="SECRET_KEY")
+    access_token_expire_minutes: int = Field(default=30, gt=0, alias="ACCESS_TOKEN_EXPIRE_MINUTES")
     thingspeak_base_url: str = Field(default="https://api.thingspeak.com", alias="THINGSPEAK_BASE_URL")
     thingspeak_channel_id: str | None = Field(default=None, alias="THINGSPEAK_CHANNEL_ID")
     thingspeak_read_api_key: str | None = Field(default=None, alias="THINGSPEAK_READ_API_KEY")
