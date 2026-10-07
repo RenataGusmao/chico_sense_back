@@ -184,4 +184,141 @@ alembic revision --autogenerate -m "descricao_da_migration"
 alembic upgrade head
 ```
 
-Nenhuma tabela de negócio foi criada nesta etapa.
+As entidades existentes sao reutilizadas pela camada operacional.
+
+## Logistica operacional
+
+Esta feature parte da main com head 20261002_0003 e sem autenticacao.
+Endpoints operacionais ainda nao possuem autorizacao. A integracao com
+get_current_user, perfis e escopo de empresa sera feita apos integrar a
+feature de autenticacao; nao publique estes endpoints para uso externo
+antes dessa integracao.
+
+Arquitetura: Route -> Service -> Repository -> Model -> Database.
+Os repositories de logistica ficam juntos em app/repositories/logistica.py;
+um helper compartilha somente busca, filtros, paginacao e persistencia.
+Cada entidade possui service e schemas especificos, com regras no service.
+
+Modelagem:
+- Produto: nome persistido, descricao e ativo. Nao ha enum ou seed de frutas.
+- ParametroProduto: nome_parametro, unidade, valor_minimo/valor_maximo e
+  observacao. Limites sao opcionais, sem valores cientificos padrao.
+  Quando ambos informados, minimo deve ser menor ou igual ao maximo.
+  Esses parametros sao referencias do produto, nao regras por sensor.
+- Veiculo: empresa_id, identificador, placa, modelo, descricao e ativo.
+- Motorista: empresa_id, nome, documento opcional, telefone e ativo.
+- Viagem: transportadora_id e vinculos obrigatorios com veiculo/motorista.
+  saida_em representa inicio previsto; previsao_chegada_em e chegada_em
+  representam fim previsto/real. inicio_real registra o inicio efetivo.
+  Observacoes sao opcionais. Datas de entrada exigem timezone.
+- Carga: viagem_id, produto_id, produtor_id e cliente_id opcional.
+  Mantem identificacao e quantidade_caixas existentes; acrescenta quantidade,
+  unidade, origem_produto e observacoes. Quantidade e unidade sao fornecidas juntas.
+- Caixa: carga_id, identificacao, codigo_externo, peso opcional e observacoes.
+
+Empresas de veiculos/motoristas/viagens devem ser transportadoras.
+Veiculo e motorista da viagem devem pertencer a mesma transportadora.
+Produtor/cliente da carga devem ter os tipos correspondentes.
+Novos registros exigem empresas ativas; viagens iniciadas exigem veiculo
+e motorista ativos. Produtos inativos nao recebem novas cargas.
+
+Nao ha DELETE fisico nem alteracao dos pais de cargas/caixas/parametros.
+Veiculos e motoristas nao mudam de empresa por PATCH. Veiculo e motorista
+da viagem podem mudar apenas enquanto ela esta planejada.
+Unicidade: veiculo por empresa+identificador; carga por viagem+identificacao;
+caixa por carga+identificacao; parametro por produto+nome_parametro.
+Restricoes existentes de nome de produto, placa e documento sao preservadas.
+Duplicidades devolvem HTTP 409; referencias inexistentes, 404; regras invalidas, 422.
+
+### Endpoints
+
+```text
+POST/GET  /api/v1/produtos
+GET/PATCH /api/v1/produtos/{produto_id}
+POST/GET  /api/v1/produtos/{produto_id}/parametros
+PATCH     /api/v1/produtos/{produto_id}/parametros/{parametro_id}
+POST/GET  /api/v1/veiculos
+GET/PATCH /api/v1/veiculos/{veiculo_id}
+POST/GET  /api/v1/motoristas
+GET/PATCH /api/v1/motoristas/{motorista_id}
+POST/GET  /api/v1/viagens
+GET/PATCH /api/v1/viagens/{viagem_id}
+POST/GET  /api/v1/viagens/{viagem_id}/cargas
+GET/PATCH /api/v1/cargas/{carga_id}
+POST/GET  /api/v1/cargas/{carga_id}/caixas
+GET/PATCH /api/v1/caixas/{caixa_id}
+```
+
+Todas as listagens aceitam limit (1 a 100, padrao 50) e offset (>=0).
+Produtos filtram por ativo; veiculos e motoristas por empresa_id e ativo.
+Viagens filtram por empresa_id (transportadora), status, veiculo_id e
+motorista_id. Cargas da viagem filtram por produto_id e status.
+PATCH usa somente os campos fornecidos; null e aceito apenas nos campos
+opcionais. Campos desconhecidos e tentativas de alterar pais sao rejeitados.
+
+### Status
+
+- Viagem: PLANEJADA -> EM_ANDAMENTO -> CONCLUIDA;
+  PLANEJADA -> CANCELADA.
+- Carga: PLANEJADA -> EM_TRANSITO -> ENTREGUE;
+  PLANEJADA -> CANCELADA.
+- Caixa: REGISTRADA -> EM_TRANSITO -> ENTREGUE;
+  REGISTRADA ou EM_TRANSITO -> AVARIADA.
+
+O status e alterado no PATCH da entidade. Repetir o mesmo status e permitido.
+Iniciar/concluir viagem preenche inicio_real/chegada_em com UTC se nao
+foram informados. Chegada nao pode anteceder inicio real.
+Registros legados sem inicio_real podem receber observacoes; ao concluir
+uma viagem legada em andamento, informe seu inicio_real efetivo.
+Carga entra em transito somente com viagem em andamento; caixa entra em
+transito somente com carga em transito. Nao ha propagacao automatica de
+status para filhos: aplique transicoes explicitamente. Entrega exige o pai
+em transito/andamento ou entregue/concluido. Registros encerrados preservam
+sua estrutura, permitindo observacoes. Nao e permitido reabrir registros.
+
+### Fluxo
+
+Cadastre empresas pelos mecanismos existentes. Cadastre um produto e,
+opcionalmente, referencias fornecidas por uma fonte validada. Crie veiculo
+e motorista da transportadora, depois viagem planejada com seus UUIDs.
+Crie carga com produto/produtor e caixas dentro da carga. Inicie viagem,
+coloque carga e caixas em transito e registre entrega/conclusao.
+
+Empresa -> Veiculo/Motorista -> Viagem -> Carga -> Produto
+e Carga -> Caixa -> Sensor/Medicao.
+
+ThingSpeak, setup_prototipo e Medicao nao foram alterados.
+Medicao.viagem_id/carga_id/caixa_id continuam opcionais para PROTOTIPO.
+
+### Migration e validacao
+
+Migration nova: 20261007_0004_logistica, baseada em 20261002_0003.
+Acrescenta apenas campos operacionais e unicidade por escopo; nao remove
+dados nem cria seed. Registros antigos recebem ativo=true para veiculos
+e motoristas; demais campos adicionados sao opcionais.
+Duplicidades preexistentes impedem a aplicacao das restricoes e exigem
+revisao manual. Migrations 0001/0002/0003 permanecem intactas.
+O merge futuro com a branch de auth pode gerar dois heads Alembic;
+crie uma migration de merge depois de revisar ambas, sem renumerar
+migrations ja aplicadas.
+
+```powershell
+python -m pip install -r requirements.txt
+python -m pytest tests
+alembic heads
+alembic history
+git diff --check
+```
+
+Apos revisar o banco de desenvolvimento e resolver eventual divergencia
+de migrations, aplique manualmente:
+
+```powershell
+alembic upgrade head
+alembic check
+python -m uvicorn app.main:app --reload
+```
+
+Os testes operacionais usam SQLite em memoria com foreign keys habilitadas
+e substituem a sessao da API. Nao acessam ThingSpeak ou Supabase.
+As migrations devem ser validadas em PostgreSQL de desenvolvimento.

@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime
+from decimal import Decimal
 from typing import TYPE_CHECKING
 
-from sqlalchemy import DateTime, Enum, ForeignKey, Integer, String, Text
+from sqlalchemy import Boolean, DateTime, Enum, ForeignKey, Integer, Numeric, String, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -23,6 +24,7 @@ if TYPE_CHECKING:
 
 class Veiculo(ModelBase, Base):
     __tablename__ = "veiculos"
+    __table_args__ = (UniqueConstraint("empresa_id", "identificador", name="uq_veiculo_empresa_identificador"),)
 
     empresa_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
@@ -32,6 +34,8 @@ class Veiculo(ModelBase, Base):
     identificador: Mapped[str] = mapped_column(String(80), nullable=False)
     placa: Mapped[str | None] = mapped_column(String(20), unique=True)
     modelo: Mapped[str | None] = mapped_column(String(120))
+    descricao: Mapped[str | None] = mapped_column(Text)
+    ativo: Mapped[bool] = mapped_column(Boolean, default=True, server_default="true", nullable=False)
 
     empresa: Mapped[Empresa] = relationship(back_populates="veiculos")
     viagens: Mapped[list[Viagem]] = relationship(back_populates="veiculo")
@@ -49,6 +53,7 @@ class Motorista(ModelBase, Base):
     nome: Mapped[str] = mapped_column(String(150), nullable=False)
     documento: Mapped[str | None] = mapped_column(String(40), unique=True)
     telefone: Mapped[str | None] = mapped_column(String(40))
+    ativo: Mapped[bool] = mapped_column(Boolean, default=True, server_default="true", nullable=False)
 
     empresa: Mapped[Empresa] = relationship(back_populates="motoristas")
     viagens: Mapped[list[Viagem]] = relationship(back_populates="motorista")
@@ -77,6 +82,8 @@ class Viagem(ModelBase, Base):
     saida_em: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     previsao_chegada_em: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     chegada_em: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    inicio_real: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    observacoes: Mapped[str | None] = mapped_column(Text)
     status: Mapped[StatusViagem] = mapped_column(
         Enum(StatusViagem, name="status_viagem"),
         default=StatusViagem.PLANEJADA,
@@ -100,6 +107,7 @@ class Viagem(ModelBase, Base):
 
 class Carga(ModelBase, Base):
     __tablename__ = "cargas"
+    __table_args__ = (UniqueConstraint("viagem_id", "identificacao", name="uq_carga_viagem_identificacao"),)
 
     viagem_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
@@ -122,6 +130,10 @@ class Carga(ModelBase, Base):
     )
     identificacao: Mapped[str] = mapped_column(String(120), nullable=False, index=True)
     quantidade_caixas: Mapped[int | None] = mapped_column(Integer)
+    quantidade: Mapped[Decimal | None] = mapped_column(Numeric(12, 4))
+    unidade: Mapped[str | None] = mapped_column(String(30))
+    origem_produto: Mapped[str | None] = mapped_column(String(255))
+    observacoes: Mapped[str | None] = mapped_column(Text)
     status: Mapped[StatusCarga] = mapped_column(
         Enum(StatusCarga, name="status_carga"),
         default=StatusCarga.PLANEJADA,
@@ -149,6 +161,7 @@ class Carga(ModelBase, Base):
 
 class Caixa(ModelBase, Base):
     __tablename__ = "caixas"
+    __table_args__ = (UniqueConstraint("carga_id", "identificacao", name="uq_caixa_carga_identificacao"),)
 
     carga_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
@@ -156,6 +169,8 @@ class Caixa(ModelBase, Base):
         nullable=False,
     )
     identificacao: Mapped[str] = mapped_column(String(120), nullable=False, index=True)
+    codigo_externo: Mapped[str | None] = mapped_column(String(120))
+    peso: Mapped[Decimal | None] = mapped_column(Numeric(12, 4))
     status: Mapped[StatusCaixa] = mapped_column(
         Enum(StatusCaixa, name="status_caixa"),
         default=StatusCaixa.REGISTRADA,
