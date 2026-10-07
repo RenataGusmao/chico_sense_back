@@ -49,6 +49,11 @@ class EmpresaService:
 
     def update(self, company_id: UUID, data: EmpresaUpdate) -> Empresa:
         company = self.get(company_id)
+        if data.tipo is not None and data.tipo != company.tipo:
+            if self.companies.has_incompatible_logistics_links(company_id, data.tipo):
+                raise HTTPException(
+                    409, "Tipo de empresa incompativel com os vinculos logisticos existentes."
+                )
         for key, value in data.model_dump(exclude_unset=True).items():
             setattr(company, key, value)
         commit(self.db)

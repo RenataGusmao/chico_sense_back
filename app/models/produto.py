@@ -4,7 +4,7 @@ import uuid
 from decimal import Decimal
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, ForeignKey, Numeric, String, Text
+from sqlalchemy import Boolean, ForeignKey, Numeric, String, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -28,6 +28,7 @@ class Produto(ModelBase, Base):
 
 class ParametroProduto(ModelBase, Base):
     __tablename__ = "parametros_produto"
+    __table_args__ = (UniqueConstraint("produto_id", "nome_parametro", name="uq_parametro_produto_nome"),)
 
     produto_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),

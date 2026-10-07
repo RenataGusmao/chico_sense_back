@@ -4,6 +4,8 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.models.empresa import Empresa
+from app.models.enums import TipoEmpresa
+from app.models.logistica import Veiculo, Motorista, Viagem, Carga
 from app.models.usuario import EmpresaUsuario, Usuario
 
 
@@ -13,6 +15,21 @@ class EmpresaRepository:
 
     def get(self, company_id: UUID) -> Empresa | None:
         return self.db.get(Empresa, company_id)
+
+    def has_incompatible_logistics_links(self, company_id: UUID, new_type: TipoEmpresa) -> bool:
+        links = (
+            (TipoEmpresa.TRANSPORTADORA, Veiculo.empresa_id),
+            (TipoEmpresa.TRANSPORTADORA, Motorista.empresa_id),
+            (TipoEmpresa.TRANSPORTADORA, Viagem.transportadora_id),
+            (TipoEmpresa.PRODUTOR, Carga.produtor_id),
+            (TipoEmpresa.CLIENTE, Carga.cliente_id),
+        )
+        for required_type, company_column in links:
+            if new_type != required_type:
+                query = select(select(company_column).where(company_column == company_id).exists())
+                if self.db.scalar(query):
+                    return True
+        return False
 
     def list(self, offset: int, limit: int, user_id: UUID | None = None) -> list[Empresa]:
         query = select(Empresa)
