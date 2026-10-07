@@ -3,7 +3,7 @@ from __future__ import annotations
 import uuid
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, ForeignKey, String, Text, UniqueConstraint
+from sqlalchemy import Boolean, ForeignKey, String, Text, UniqueConstraint, Index, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -37,6 +37,10 @@ class Usuario(ModelBase, Base):
 
     perfil: Mapped[Perfil | None] = relationship(back_populates="usuarios")
     empresas: Mapped[list[EmpresaUsuario]] = relationship(back_populates="usuario")
+
+    __table_args__ = (
+        Index("uq_usuarios_email_normalizado", func.lower(func.trim(email)), unique=True),
+    )
 
 
 class EmpresaUsuario(ModelBase, Base):
