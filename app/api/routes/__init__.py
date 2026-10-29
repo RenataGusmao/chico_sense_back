@@ -24,3 +24,6 @@ api_router.include_router(monitoramento_router)
 
 from app.modules.monitoramento.historico_routes import router as historico_iot_router
 api_router.include_router(historico_iot_router)
+
+from app.modules.monitoramento.analises_routes import router as analises_etileno_router
+api_router.include_router(analises_etileno_router)

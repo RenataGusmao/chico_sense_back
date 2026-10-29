@@ -36,3 +36,6 @@ __all__ = [
 
 from app.models.historico_iot import FonteSessaoIoT, SincronizacaoIoT, RegistroSessaoIoT, OcorrenciaIoT
 __all__ += ["FonteSessaoIoT", "SincronizacaoIoT", "RegistroSessaoIoT", "OcorrenciaIoT"]
+
+from app.models.analises_etileno import AnaliseEtileno
+__all__ += ["AnaliseEtileno"]
