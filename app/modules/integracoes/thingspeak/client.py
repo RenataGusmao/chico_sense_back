@@ -21,6 +21,17 @@ from app.modules.integracoes.thingspeak.schemas import (
 logger = logging.getLogger(__name__)
 
 
+class _ThingSpeakRequestLogFilter(logging.Filter):
+    """HTTPX logs full query strings at INFO; sanitize keys during every ThingSpeak request."""
+    def filter(self, record: logging.LogRecord) -> bool:
+        import re
+        message = re.sub(r"(?i)(https?://)[^/\s@]+@", r"\1[REDACTED]@", record.getMessage())
+        record.msg = re.sub(r"(?i)([?&](?:api[_-]?key|read_api_key|write_api_key|token|access_token|password|secret)=)[^&\s\"]+",
+                            r"\1[REDACTED]", message)
+        record.args = ()
+        return True
+
+
 class ThingSpeakClient:
     def __init__(
         self,
@@ -58,6 +69,29 @@ class ThingSpeakClient:
         except (KeyError, TypeError, ValidationError) as exc:
             raise ThingSpeakInvalidResponseError("Invalid ThingSpeak feeds response.") from exc
 
+    async def get_feeds_historicos(self, channel_id: str, inicio, fim, results: int = 8000) -> dict[str, Any]:
+        """Raw window response for per-reading validation; reuse the existing HTTP client.
+
+        No averaging, rounding or imputation is requested. Exact microsecond boundaries
+        are enforced by the session consumer after the second-resolution query.
+        """
+        from datetime import timedelta, timezone
+        inicio = inicio.astimezone(timezone.utc).replace(microsecond=0)
+        fim = fim.astimezone(timezone.utc)
+        if fim.microsecond:
+            fim = fim.replace(microsecond=0) + timedelta(seconds=1)
+        payload = await self._get_json(f"/channels/{channel_id}/feeds.json", params={
+            "start": inicio.strftime("%Y-%m-%d %H:%M:%S"),
+            "end": fim.strftime("%Y-%m-%d %H:%M:%S"),
+            "timezone": "UTC", "results": results,
+        })
+        if not isinstance(payload.get("feeds"), list):
+            raise ThingSpeakInvalidResponseError("Invalid ThingSpeak historical feeds response.")
+        channel = payload.get("channel")
+        if channel is not None and (not isinstance(channel, dict) or str(channel.get("id")) != channel_id):
+            raise ThingSpeakInvalidResponseError("Unexpected ThingSpeak historical channel.")
+        return payload
+
     async def get_latest_feed(self, channel_id: str) -> ThingSpeakFeed | None:
         payload = await self._get_json(f"/channels/{channel_id}/feeds/last.json")
         if not payload:
@@ -75,6 +109,9 @@ class ThingSpeakClient:
         safe_params = {key: value for key, value in request_params.items() if key != "api_key"}
         logger.info("Querying ThingSpeak path=%s params=%s", path, safe_params)
 
+        request_logger = logging.getLogger("httpx")
+        safe_filter = _ThingSpeakRequestLogFilter()
+        request_logger.addFilter(safe_filter)
         try:
             if self._http_client is not None:
                 response = await self._http_client.get(path, params=request_params)
@@ -87,6 +124,8 @@ class ThingSpeakClient:
         except httpx.RequestError as exc:
             logger.warning("ThingSpeak request failed for path=%s", path)
             raise ThingSpeakConnectionError("ThingSpeak connection failed.") from exc
+        finally:
+            request_logger.removeFilter(safe_filter)
 
         if response.status_code == 404:
             raise ThingSpeakHTTPError(404, "ThingSpeak channel or resource not found.")

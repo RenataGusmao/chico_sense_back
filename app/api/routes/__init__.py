@@ -21,3 +21,6 @@ api_router.include_router(empresas_router)
 api_router.include_router(produtos_router)
 api_router.include_router(logistica_router)
 api_router.include_router(monitoramento_router)
+
+from app.modules.monitoramento.historico_routes import router as historico_iot_router
+api_router.include_router(historico_iot_router)
