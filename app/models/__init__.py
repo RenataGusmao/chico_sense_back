@@ -7,7 +7,12 @@ from app.models.monitoramento import Alerta, Ocorrencia
 from app.models.produto import ParametroProduto, Produto
 from app.models.usuario import EmpresaUsuario, Perfil, Usuario
 
+from app.models.sessoes_monitoramento import CargaMonitoramento, SessaoMonitoramento, EventoMonitoramento
+
 __all__ = [
+    "CargaMonitoramento",
+    "SessaoMonitoramento",
+    "EventoMonitoramento",
     "Alerta",
     "Caixa",
     "Carga",
