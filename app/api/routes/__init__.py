@@ -9,6 +9,8 @@ from app.modules.empresas.routes import router as empresas_router
 from app.modules.produtos.routes import router as produtos_router
 from app.modules.logistica.routes import router as logistica_router
 
+from app.modules.monitoramento.routes import router as monitoramento_router
+
 api_router = APIRouter()
 api_router.include_router(root_router)
 api_router.include_router(health_router)
@@ -18,3 +20,16 @@ api_router.include_router(usuarios_router)
 api_router.include_router(empresas_router)
 api_router.include_router(produtos_router)
 api_router.include_router(logistica_router)
+api_router.include_router(monitoramento_router)
+
+from app.modules.monitoramento.historico_routes import router as historico_iot_router
+api_router.include_router(historico_iot_router)
+
+from app.modules.monitoramento.analises_routes import router as analises_etileno_router
+api_router.include_router(analises_etileno_router)
+
+from app.modules.monitoramento.preventivo_routes import router as preventivo_router
+api_router.include_router(preventivo_router)
+
+from app.modules.monitoramento.exaustao_routes import router as exaustao_simulada_router
+api_router.include_router(exaustao_simulada_router)

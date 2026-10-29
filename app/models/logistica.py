@@ -5,7 +5,7 @@ from datetime import datetime
 from decimal import Decimal
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, DateTime, Enum, ForeignKey, Integer, Numeric, String, Text, UniqueConstraint
+from sqlalchemy import Boolean, DateTime, Enum, ForeignKey, Index, Integer, Numeric, String, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -107,7 +107,10 @@ class Viagem(ModelBase, Base):
 
 class Carga(ModelBase, Base):
     __tablename__ = "cargas"
-    __table_args__ = (UniqueConstraint("viagem_id", "identificacao", name="uq_carga_viagem_identificacao"),)
+    __table_args__ = (
+        UniqueConstraint("viagem_id", "identificacao", name="uq_carga_viagem_identificacao"),
+        Index("uq_cargas_id_viagem_monitoramento", "id", "viagem_id", unique=True),
+    )
 
     viagem_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),

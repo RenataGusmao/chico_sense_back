@@ -27,7 +27,7 @@ class Usuario(ModelBase, Base):
     __tablename__ = "usuarios"
 
     nome: Mapped[str] = mapped_column(String(150), nullable=False)
-    email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False, index=True)
+    email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
     senha_hash: Mapped[str | None] = mapped_column(String(255))
     ativo: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     perfil_id: Mapped[uuid.UUID | None] = mapped_column(
@@ -39,6 +39,7 @@ class Usuario(ModelBase, Base):
     empresas: Mapped[list[EmpresaUsuario]] = relationship(back_populates="usuario")
 
     __table_args__ = (
+        Index("ix_usuarios_email", email, unique=False),
         Index("uq_usuarios_email_normalizado", func.lower(func.trim(email)), unique=True),
     )
 
