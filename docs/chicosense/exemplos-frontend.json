@@ -1,0 +1,71 @@
+{
+  "CargaCreate": {
+    "produto_id": "00000000-0000-0000-0000-000000000001",
+    "produtor_id": "00000000-0000-0000-0000-000000000002",
+    "identificacao": "DEMO-TOMMY-001",
+    "observacoes": "Carga hipotetica em ambiente de testes."
+  },
+  "CargaMonitoramentoPut": {
+    "produto_identificado": "MANGA_TOMMY_ATKINS",
+    "massa_kg": "1000.0000",
+    "maturacao": "MISTA",
+    "lote_codigo": "DEMO-001",
+    "lote_hipotetico": true,
+    "rastreabilidade": "Dados hipoteticos para demonstracao local."
+  },
+  "SessaoCreate": {
+    "inicio": "2026-10-28T08:00:00Z",
+    "sensor_temperatura_id": "00000000-0000-0000-0000-000000000003",
+    "sensor_umidade_id": "00000000-0000-0000-0000-000000000004",
+    "ambiente_aquisicao": "TRANSPORTE_REFRIGERADO",
+    "chave_idempotencia": "00000000-0000-0000-0000-000000000005"
+  },
+  "SincronizacaoCreate": {
+    "chave_idempotencia": "00000000-0000-0000-0000-000000000006",
+    "origem_dados": "THINGSPEAK"
+  },
+  "AnaliseCreate": {
+    "chave_idempotencia": "00000000-0000-0000-0000-000000000007",
+    "intervalo_maximo_s": "3600",
+    "modo": "MODO_RESTRITO",
+    "fim": "2026-10-28T10:00:00Z",
+    "corte_aquisicao": "2026-10-28T11:00:00Z"
+  },
+  "ConfiguracaoCreate": {
+    "chave_idempotencia": "00000000-0000-0000-0000-000000000008",
+    "temperatura_min_c": "12",
+    "temperatura_max_c": "14",
+    "umidade_min_percentual": "90",
+    "umidade_max_percentual": "95",
+    "intervalo_maximo_s": "3600",
+    "cobertura_min_percentual": "100",
+    "exposicao_continua_s": "3600",
+    "maturacoes_aplicaveis": [
+      "MISTA"
+    ],
+    "ambiente": "TRANSPORTE_REFRIGERADO",
+    "fundamento": "EXPERIMENTAL",
+    "justificativa": "Limites didaticos sem validacao de dano fisiologico.",
+    "prioridade": "ATENCAO"
+  },
+  "AvaliacaoCreate": {
+    "chave_idempotencia": "00000000-0000-0000-0000-000000000009",
+    "fim": "2026-10-28T10:00:00Z",
+    "corte_aquisicao": "2026-10-28T11:00:00Z"
+  },
+  "DecisaoCreate": {
+    "chave_idempotencia": "00000000-0000-0000-0000-000000000010",
+    "acao": "RECONHECER",
+    "justificativa": "Operador examinou a evidencia ambiental."
+  },
+  "IntervencaoCreate": {
+    "chave_idempotencia": "00000000-0000-0000-0000-000000000011",
+    "justificativa": "Solicitacao humana de demonstracao supervisionada.",
+    "duracao_planejada_s": "60"
+  },
+  "AcaoCreate": {
+    "chave_idempotencia": "00000000-0000-0000-0000-000000000012",
+    "acao": "AUTORIZAR",
+    "justificativa": "Gestor autoriza somente a demonstracao virtual."
+  }
+}
