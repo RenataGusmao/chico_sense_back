@@ -245,7 +245,7 @@ def test_sync_multiple_fields_partial_error_keeps_valid_records(monkeypatch) -> 
     assert summary.erros[0].motivo == "persistence_error"
 
 
-def test_sync_endpoint_returns_summary_and_does_not_expose_api_key(monkeypatch) -> None:
+def test_sync_endpoint_returns_summary_and_does_not_expose_api_key(monkeypatch, world) -> None:
     async def fake_sync(self, db, results=None):
         return ThingSpeakSyncSummary(
             feeds_recebidos=1,
@@ -256,17 +256,17 @@ def test_sync_endpoint_returns_summary_and_does_not_expose_api_key(monkeypatch) 
             erros=[],
         )
 
-    def fake_db():
-        yield FakeDB()
-
+    from tests.test_monitoramento_sessoes import headers
+    service = build_service({"channel": {"id": 12345}, "feeds": []}, {})
     monkeypatch.setattr(thingspeak_routes.ThingSpeakService, "sincronizar_feeds", fake_sync)
-    app.dependency_overrides[thingspeak_routes.get_database_session] = fake_db
+    world['application'].dependency_overrides[thingspeak_routes.http_service] = lambda: service
+    response = world['client'].post("/api/v1/integracoes/thingspeak/sincronizar?results=1", headers=headers(world, 'ADMIN'))
 
-    response = TestClient(app).post("/api/v1/integracoes/thingspeak/sincronizar?results=1")
-
-    app.dependency_overrides.clear()
     assert response.status_code == 200
     payload = response.json()
     assert payload["medicoes_criadas"] == 1
     assert "SECRET_READ_KEY" not in response.text
 
+
+# Authenticated HTTP regression uses the existing real-JWT SQLite fixture.
+from tests.test_monitoramento_sessoes import world

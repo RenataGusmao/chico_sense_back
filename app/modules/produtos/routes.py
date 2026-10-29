@@ -3,17 +3,19 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 
-from app.api.deps import get_database_session
+from app.api.deps import get_database_session, require_profiles
+from app.modules.logistica.access import ERROS_ACESSO
 from app.modules.produtos.schemas import (
     ProdutoCreate, ProdutoUpdate, ProdutoResponse,
     ParametroCreate, ParametroUpdate, ParametroResponse,
 )
 from app.modules.produtos.service import ProdutoService, ParametroProdutoService
 
-router = APIRouter(prefix="/api/v1/produtos", tags=["Produtos"])
+router = APIRouter(prefix="/api/v1/produtos", tags=["Produtos"], responses=ERROS_ACESSO,
+    dependencies=[Depends(require_profiles("ADMIN", "GESTOR", "OPERADOR", "CONSULTA"))])
 
 
-@router.post("", response_model=ProdutoResponse, status_code=201)
+@router.post("", response_model=ProdutoResponse, status_code=201, dependencies=[Depends(require_profiles("ADMIN"))])
 def create(data: ProdutoCreate, db: Session = Depends(get_database_session)):
     return ProdutoService(db).create(data)
 
@@ -29,12 +31,12 @@ def get(produto_id: UUID, db: Session = Depends(get_database_session)):
     return ProdutoService(db).get(produto_id)
 
 
-@router.patch("/{produto_id}", response_model=ProdutoResponse)
+@router.patch("/{produto_id}", response_model=ProdutoResponse, dependencies=[Depends(require_profiles("ADMIN"))])
 def update(produto_id: UUID, data: ProdutoUpdate, db: Session = Depends(get_database_session)):
     return ProdutoService(db).update(produto_id, data)
 
 
-@router.post("/{produto_id}/parametros", response_model=ParametroResponse, status_code=201)
+@router.post("/{produto_id}/parametros", response_model=ParametroResponse, status_code=201, dependencies=[Depends(require_profiles("ADMIN"))])
 def create_parameter(produto_id: UUID, data: ParametroCreate, db: Session = Depends(get_database_session)):
     return ParametroProdutoService(db).create(data, produto_id=produto_id)
 
@@ -45,7 +47,7 @@ def parameters(produto_id: UUID, limit: int = Query(50, ge=1, le=100),
     return ParametroProdutoService(db).list_for_product(produto_id, limit, offset)
 
 
-@router.patch("/{produto_id}/parametros/{parametro_id}", response_model=ParametroResponse)
+@router.patch("/{produto_id}/parametros/{parametro_id}", response_model=ParametroResponse, dependencies=[Depends(require_profiles("ADMIN"))])
 def update_parameter(produto_id: UUID, parametro_id: UUID, data: ParametroUpdate,
                      db: Session = Depends(get_database_session)):
     return ParametroProdutoService(db).update_for_product(produto_id, parametro_id, data)

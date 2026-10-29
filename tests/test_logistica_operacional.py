@@ -31,12 +31,14 @@ def db():
 
 
 @pytest.fixture
-def client(db):
+def client(db, admin_headers):
     application = create_app()
     def override():
         yield db
     application.dependency_overrides[get_database_session] = override
     with TestClient(application) as test_client:
+        # Real JWT for administrative business fixtures; no authentication override.
+        test_client.headers.update(admin_headers)
         yield test_client
 
 
