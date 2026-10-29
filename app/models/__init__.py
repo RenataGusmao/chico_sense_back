@@ -39,3 +39,6 @@ __all__ += ["FonteSessaoIoT", "SincronizacaoIoT", "RegistroSessaoIoT", "Ocorrenc
 
 from app.models.analises_etileno import AnaliseEtileno
 __all__ += ["AnaliseEtileno"]
+
+from app.models.preventivo import ConfiguracaoAmbiental, AvaliacaoPreventiva, AlertaSessao, EvidenciaPreventiva, DecisaoAlerta
+__all__ += ["ConfiguracaoAmbiental", "AvaliacaoPreventiva", "AlertaSessao", "EvidenciaPreventiva", "DecisaoAlerta"]
