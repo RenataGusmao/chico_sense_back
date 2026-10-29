@@ -30,3 +30,6 @@ api_router.include_router(analises_etileno_router)
 
 from app.modules.monitoramento.preventivo_routes import router as preventivo_router
 api_router.include_router(preventivo_router)
+
+from app.modules.monitoramento.exaustao_routes import router as exaustao_simulada_router
+api_router.include_router(exaustao_simulada_router)

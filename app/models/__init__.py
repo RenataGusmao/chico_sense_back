@@ -42,3 +42,6 @@ __all__ += ["AnaliseEtileno"]
 
 from app.models.preventivo import ConfiguracaoAmbiental, AvaliacaoPreventiva, AlertaSessao, EvidenciaPreventiva, DecisaoAlerta
 __all__ += ["ConfiguracaoAmbiental", "AvaliacaoPreventiva", "AlertaSessao", "EvidenciaPreventiva", "DecisaoAlerta"]
+
+from app.models.exaustao_simulada import IntervencaoSimulada, AcaoIntervencao
+__all__ += ["IntervencaoSimulada", "AcaoIntervencao"]
