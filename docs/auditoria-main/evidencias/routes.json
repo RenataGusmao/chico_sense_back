@@ -1,0 +1,3106 @@
+[
+  {
+    "path": "/openapi.json",
+    "methods": [
+      "GET",
+      "HEAD"
+    ],
+    "api": false,
+    "function": "FastAPI.setup.<locals>.openapi",
+    "file": ".venv/Lib/site-packages/fastapi/applications.py",
+    "line": 1003,
+    "source": "            async def openapi(req: Request) -> JSONResponse:\n                root_path = req.scope.get(\"root_path\", \"\").rstrip(\"/\")\n                if root_path not in server_urls:\n                    if root_path and self.root_path_in_servers:\n                        self.servers.insert(0, {\"url\": root_path})\n                        server_urls.add(root_path)\n                return JSONResponse(self.openapi())\n",
+    "dependencies": []
+  },
+  {
+    "path": "/docs",
+    "methods": [
+      "GET",
+      "HEAD"
+    ],
+    "api": false,
+    "function": "FastAPI.setup.<locals>.swagger_ui_html",
+    "file": ".venv/Lib/site-packages/fastapi/applications.py",
+    "line": 1014,
+    "source": "            async def swagger_ui_html(req: Request) -> HTMLResponse:\n                root_path = req.scope.get(\"root_path\", \"\").rstrip(\"/\")\n                openapi_url = root_path + self.openapi_url\n                oauth2_redirect_url = self.swagger_ui_oauth2_redirect_url\n                if oauth2_redirect_url:\n                    oauth2_redirect_url = root_path + oauth2_redirect_url\n                return get_swagger_ui_html(\n                    openapi_url=openapi_url,\n                    title=f\"{self.title} - Swagger UI\",\n                    oauth2_redirect_url=oauth2_redirect_url,\n                    init_oauth=self.swagger_ui_init_oauth,\n                    swagger_ui_parameters=self.swagger_ui_parameters,\n                )\n",
+    "dependencies": []
+  },
+  {
+    "path": "/docs/oauth2-redirect",
+    "methods": [
+      "GET",
+      "HEAD"
+    ],
+    "api": false,
+    "function": "FastAPI.setup.<locals>.swagger_ui_redirect",
+    "file": ".venv/Lib/site-packages/fastapi/applications.py",
+    "line": 1032,
+    "source": "                async def swagger_ui_redirect(req: Request) -> HTMLResponse:\n                    return get_swagger_ui_oauth2_redirect_html()\n",
+    "dependencies": []
+  },
+  {
+    "path": "/redoc",
+    "methods": [
+      "GET",
+      "HEAD"
+    ],
+    "api": false,
+    "function": "FastAPI.setup.<locals>.redoc_html",
+    "file": ".venv/Lib/site-packages/fastapi/applications.py",
+    "line": 1042,
+    "source": "            async def redoc_html(req: Request) -> HTMLResponse:\n                root_path = req.scope.get(\"root_path\", \"\").rstrip(\"/\")\n                openapi_url = root_path + self.openapi_url\n                return get_redoc_html(\n                    openapi_url=openapi_url, title=f\"{self.title} - ReDoc\"\n                )\n",
+    "dependencies": []
+  },
+  {
+    "path": "/",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "read_root",
+    "file": "app/api/routes/root.py",
+    "line": 8,
+    "source": "@router.get(\"/\")\ndef read_root() -> dict[str, str]:\n    return {\n        \"service\": settings.app_name,\n        \"status\": \"running\",\n    }\n",
+    "dependencies": []
+  },
+  {
+    "path": "/health",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "health_check",
+    "file": "app/api/routes/health.py",
+    "line": 8,
+    "source": "@router.get(\"/health\")\ndef health_check() -> dict[str, str]:\n    return {\n        \"status\": \"ok\",\n        \"service\": settings.app_name,\n    }\n",
+    "dependencies": []
+  },
+  {
+    "path": "/api/v1/integracoes/thingspeak/status",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "get_status",
+    "file": "app/modules/integracoes/thingspeak/routes.py",
+    "line": 33,
+    "source": "@router.get('/status',response_model=ThingSpeakStatusResponse,\n    summary='Diagnostico administrativo privado da integracao global')\ndef get_status(service:ThingSpeakService=Depends(http_service)):\n    return safe_response(service.get_status(),service)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "http_service",
+        "module": "app.modules.integracoes.thingspeak.routes",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/integracoes/thingspeak/feeds",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "get_feeds",
+    "file": "app/modules/integracoes/thingspeak/routes.py",
+    "line": 39,
+    "source": "@router.get('/feeds',response_model=ThingSpeakMappingResult,\n    summary='Consultar leituras do canal global como ADMIN')\nasync def get_feeds(results:int|None=Query(default=10,ge=1,le=8000),service:ThingSpeakService=Depends(http_service)):\n    \"\"\"Nao e uma consulta por transportadora. Para operacao no escopo empresarial, usar historico por sessao.\"\"\"\n    try:\n        return safe_response(await service.get_mapped_feeds(results=results),service)\n    except ThingSpeakError as exc:\n        _raise_http_error(exc)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "http_service",
+        "module": "app.modules.integracoes.thingspeak.routes",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/integracoes/thingspeak/ultima-leitura",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "get_latest_feed",
+    "file": "app/modules/integracoes/thingspeak/routes.py",
+    "line": 49,
+    "source": "@router.get('/ultima-leitura',response_model=ThingSpeakFeed|None,\n    summary='Consultar ultimo feed do canal global como ADMIN')\nasync def get_latest_feed(service:ThingSpeakService=Depends(http_service)):\n    \"\"\"Campos raw adicionais nao documentados sao omitidos por seguranca; servicos internos preservam o original.\"\"\"\n    try:\n        return safe_latest(await service.get_latest_feed(),service)\n    except ThingSpeakError as exc:\n        _raise_http_error(exc)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "http_service",
+        "module": "app.modules.integracoes.thingspeak.routes",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/integracoes/thingspeak/sincronizar",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "sincronizar_feeds",
+    "file": "app/modules/integracoes/thingspeak/routes.py",
+    "line": 59,
+    "source": "@router.post('/sincronizar',response_model=ThingSpeakSyncSummary,\n    summary='Sincronizacao manual administrativa do canal global')\nasync def sincronizar_feeds(results:int|None=Query(default=100,ge=1,le=8000),\n    db:Session=Depends(get_database_session),service:ThingSpeakService=Depends(http_service)):\n    \"\"\"Escrita global apenas por ADMIN; nao concede associacao a sessoes nem dispensa os controles do historico IoT.\"\"\"\n    try:\n        return safe_response(await service.sincronizar_feeds(db=db,results=results),service)\n    except ThingSpeakError as exc:\n        _raise_http_error(exc)\n    except SQLAlchemyError:\n        db.rollback()\n        raise HTTPException(503,'ThingSpeak synchronization persistence failed.') from None\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      },
+      {
+        "call": "http_service",
+        "module": "app.modules.integracoes.thingspeak.routes",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/auth/login",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "login",
+    "file": "app/modules/auth/routes.py",
+    "line": 12,
+    "source": "@router.post(\"/login\", response_model=TokenResponse)\ndef login(data: LoginRequest, db: Session = Depends(get_database_session)):\n    return AuthService(db).login(data)\n",
+    "dependencies": [
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/auth/me",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "me",
+    "file": "app/modules/auth/routes.py",
+    "line": 17,
+    "source": "@router.get(\"/me\", response_model=CurrentUserResponse)\ndef me(user: Usuario = Depends(get_current_user), db: Session = Depends(get_database_session)):\n    return AuthService(db).describe(user)\n",
+    "dependencies": [
+      {
+        "call": "get_current_user",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+            "module": "fastapi.security.http",
+            "children": []
+          },
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/perfis",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "profiles",
+    "file": "app/api/routes/usuarios.py",
+    "line": 13,
+    "source": "@router.get(\"/perfis\", response_model=list[PerfilResponse])\ndef profiles(db: Session = Depends(get_database_session)):\n    return UsuarioService(db).profiles_list()\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/usuarios",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "create",
+    "file": "app/api/routes/usuarios.py",
+    "line": 18,
+    "source": "@router.post(\"/usuarios\", response_model=UsuarioResponse, status_code=201)\ndef create(data: UsuarioCreate, db: Session = Depends(get_database_session)):\n    return UsuarioService(db).create(data)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/usuarios",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "users",
+    "file": "app/api/routes/usuarios.py",
+    "line": 23,
+    "source": "@router.get(\"/usuarios\", response_model=list[UsuarioResponse])\ndef users(offset: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=100), db: Session = Depends(get_database_session)):\n    return UsuarioService(db).list(offset, limit)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/usuarios/{usuario_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "detail",
+    "file": "app/api/routes/usuarios.py",
+    "line": 28,
+    "source": "@router.get(\"/usuarios/{usuario_id}\", response_model=UsuarioResponse)\ndef detail(usuario_id: UUID, db: Session = Depends(get_database_session)):\n    return UsuarioService(db).get(usuario_id)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/usuarios/{usuario_id}",
+    "methods": [
+      "PATCH"
+    ],
+    "api": true,
+    "function": "update",
+    "file": "app/api/routes/usuarios.py",
+    "line": 33,
+    "source": "@router.patch(\"/usuarios/{usuario_id}\", response_model=UsuarioResponse)\ndef update(usuario_id: UUID, data: UsuarioUpdate, db: Session = Depends(get_database_session)):\n    return UsuarioService(db).update(usuario_id, data)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/empresas",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "create",
+    "file": "app/modules/empresas/routes.py",
+    "line": 16,
+    "source": "@router.post(\"\", response_model=EmpresaResponse, status_code=201, dependencies=[Depends(admin)])\ndef create(data: EmpresaCreate, db: Session = Depends(get_database_session)):\n    return EmpresaService(db).create(data)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/empresas",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "companies",
+    "file": "app/modules/empresas/routes.py",
+    "line": 21,
+    "source": "@router.get(\"\", response_model=list[EmpresaResponse])\ndef companies(offset: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=100), user: Usuario = Depends(get_current_user), db: Session = Depends(get_database_session)):\n    return EmpresaService(db).list(user, offset, limit)\n",
+    "dependencies": [
+      {
+        "call": "get_current_user",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+            "module": "fastapi.security.http",
+            "children": []
+          },
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/empresas/{empresa_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "detail",
+    "file": "app/modules/empresas/routes.py",
+    "line": 26,
+    "source": "@router.get(\"/{empresa_id}\", response_model=EmpresaResponse)\ndef detail(empresa_id: UUID, user: Usuario = Depends(get_current_user), db: Session = Depends(get_database_session)):\n    return EmpresaService(db).authorize(empresa_id, user)\n",
+    "dependencies": [
+      {
+        "call": "get_current_user",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+            "module": "fastapi.security.http",
+            "children": []
+          },
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/empresas/{empresa_id}",
+    "methods": [
+      "PATCH"
+    ],
+    "api": true,
+    "function": "update",
+    "file": "app/modules/empresas/routes.py",
+    "line": 31,
+    "source": "@router.patch(\"/{empresa_id}\", response_model=EmpresaResponse, dependencies=[Depends(admin)])\ndef update(empresa_id: UUID, data: EmpresaUpdate, db: Session = Depends(get_database_session)):\n    return EmpresaService(db).update(empresa_id, data)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/empresas/{empresa_id}/usuarios/{usuario_id}",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "link",
+    "file": "app/modules/empresas/routes.py",
+    "line": 36,
+    "source": "@router.post(\"/{empresa_id}/usuarios/{usuario_id}\", response_model=VinculoResponse, dependencies=[Depends(admin)])\ndef link(empresa_id: UUID, usuario_id: UUID, db: Session = Depends(get_database_session)):\n    return EmpresaService(db).link(empresa_id, usuario_id)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/empresas/{empresa_id}/usuarios",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "users",
+    "file": "app/modules/empresas/routes.py",
+    "line": 41,
+    "source": "@router.get(\"/{empresa_id}/usuarios\", response_model=list[UsuarioResponse], dependencies=[Depends(require_profiles(\"ADMIN\", \"GESTOR\"))])\ndef users(empresa_id: UUID, offset: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=100), user: Usuario = Depends(get_current_user), db: Session = Depends(get_database_session)):\n    return EmpresaService(db).users(empresa_id, user, offset, limit)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_current_user",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+            "module": "fastapi.security.http",
+            "children": []
+          },
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/produtos",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "create",
+    "file": "app/modules/produtos/routes.py",
+    "line": 18,
+    "source": "@router.post(\"\", response_model=ProdutoResponse, status_code=201, dependencies=[Depends(require_profiles(\"ADMIN\"))])\ndef create(data: ProdutoCreate, db: Session = Depends(get_database_session)):\n    return ProdutoService(db).create(data)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/produtos",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "products",
+    "file": "app/modules/produtos/routes.py",
+    "line": 23,
+    "source": "@router.get(\"\", response_model=list[ProdutoResponse])\ndef products(ativo: bool | None = None, limit: int = Query(50, ge=1, le=100),\n             offset: int = Query(0, ge=0), db: Session = Depends(get_database_session)):\n    return ProdutoService(db).list({\"ativo\": ativo}, limit, offset)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/produtos/{produto_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "get",
+    "file": "app/modules/produtos/routes.py",
+    "line": 29,
+    "source": "@router.get(\"/{produto_id}\", response_model=ProdutoResponse)\ndef get(produto_id: UUID, db: Session = Depends(get_database_session)):\n    return ProdutoService(db).get(produto_id)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/produtos/{produto_id}",
+    "methods": [
+      "PATCH"
+    ],
+    "api": true,
+    "function": "update",
+    "file": "app/modules/produtos/routes.py",
+    "line": 34,
+    "source": "@router.patch(\"/{produto_id}\", response_model=ProdutoResponse, dependencies=[Depends(require_profiles(\"ADMIN\"))])\ndef update(produto_id: UUID, data: ProdutoUpdate, db: Session = Depends(get_database_session)):\n    return ProdutoService(db).update(produto_id, data)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/produtos/{produto_id}/parametros",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "create_parameter",
+    "file": "app/modules/produtos/routes.py",
+    "line": 39,
+    "source": "@router.post(\"/{produto_id}/parametros\", response_model=ParametroResponse, status_code=201, dependencies=[Depends(require_profiles(\"ADMIN\"))])\ndef create_parameter(produto_id: UUID, data: ParametroCreate, db: Session = Depends(get_database_session)):\n    return ParametroProdutoService(db).create(data, produto_id=produto_id)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/produtos/{produto_id}/parametros",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "parameters",
+    "file": "app/modules/produtos/routes.py",
+    "line": 44,
+    "source": "@router.get(\"/{produto_id}/parametros\", response_model=list[ParametroResponse])\ndef parameters(produto_id: UUID, limit: int = Query(50, ge=1, le=100),\n               offset: int = Query(0, ge=0), db: Session = Depends(get_database_session)):\n    return ParametroProdutoService(db).list_for_product(produto_id, limit, offset)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/produtos/{produto_id}/parametros/{parametro_id}",
+    "methods": [
+      "PATCH"
+    ],
+    "api": true,
+    "function": "update_parameter",
+    "file": "app/modules/produtos/routes.py",
+    "line": 50,
+    "source": "@router.patch(\"/{produto_id}/parametros/{parametro_id}\", response_model=ParametroResponse, dependencies=[Depends(require_profiles(\"ADMIN\"))])\ndef update_parameter(produto_id: UUID, parametro_id: UUID, data: ParametroUpdate,\n                     db: Session = Depends(get_database_session)):\n    return ParametroProdutoService(db).update_for_product(produto_id, parametro_id, data)\n",
+    "dependencies": [
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "require_profiles.<locals>.dependency",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/veiculos",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "create_veiculos",
+    "file": "app/modules/logistica/routes.py",
+    "line": 24,
+    "source": "@router.post(\"/veiculos\", response_model=VeiculoResponse, status_code=201)\ndef create_veiculos(data: VeiculoCreate, access: LogisticaAccess = Depends(authorized)):\n    return access.create(Veiculo, data)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/veiculos",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "list_veiculos",
+    "file": "app/modules/logistica/routes.py",
+    "line": 29,
+    "source": "@router.get(\"/veiculos\", response_model=list[VeiculoResponse])\ndef list_veiculos(\n    empresa_id: UUID | None = None,\n    ativo: bool | None = None,\n    limit: int = Query(50, ge=1, le=100), offset: int = Query(0, ge=0),\n    access: LogisticaAccess = Depends(authorized),\n):\n    return access.list_owned(Veiculo, {\"empresa_id\": empresa_id, \"ativo\": ativo}, limit, offset)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/veiculos/{veiculo_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "get_veiculos",
+    "file": "app/modules/logistica/routes.py",
+    "line": 39,
+    "source": "@router.get(\"/veiculos/{veiculo_id}\", response_model=VeiculoResponse)\ndef get_veiculos(veiculo_id: UUID, access: LogisticaAccess = Depends(authorized)):\n    return access.resource(Veiculo, veiculo_id)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/veiculos/{veiculo_id}",
+    "methods": [
+      "PATCH"
+    ],
+    "api": true,
+    "function": "update_veiculos",
+    "file": "app/modules/logistica/routes.py",
+    "line": 44,
+    "source": "@router.patch(\"/veiculos/{veiculo_id}\", response_model=VeiculoResponse)\ndef update_veiculos(veiculo_id: UUID, data: VeiculoUpdate, access: LogisticaAccess = Depends(authorized)):\n    return access.update(Veiculo, veiculo_id, data)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/motoristas",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "create_motoristas",
+    "file": "app/modules/logistica/routes.py",
+    "line": 49,
+    "source": "@router.post(\"/motoristas\", response_model=MotoristaResponse, status_code=201)\ndef create_motoristas(data: MotoristaCreate, access: LogisticaAccess = Depends(authorized)):\n    return access.create(Motorista, data)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/motoristas",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "list_motoristas",
+    "file": "app/modules/logistica/routes.py",
+    "line": 54,
+    "source": "@router.get(\"/motoristas\", response_model=list[MotoristaResponse])\ndef list_motoristas(\n    empresa_id: UUID | None = None,\n    ativo: bool | None = None,\n    limit: int = Query(50, ge=1, le=100), offset: int = Query(0, ge=0),\n    access: LogisticaAccess = Depends(authorized),\n):\n    return access.list_owned(Motorista, {\"empresa_id\": empresa_id, \"ativo\": ativo}, limit, offset)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/motoristas/{motorista_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "get_motoristas",
+    "file": "app/modules/logistica/routes.py",
+    "line": 64,
+    "source": "@router.get(\"/motoristas/{motorista_id}\", response_model=MotoristaResponse)\ndef get_motoristas(motorista_id: UUID, access: LogisticaAccess = Depends(authorized)):\n    return access.resource(Motorista, motorista_id)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/motoristas/{motorista_id}",
+    "methods": [
+      "PATCH"
+    ],
+    "api": true,
+    "function": "update_motoristas",
+    "file": "app/modules/logistica/routes.py",
+    "line": 69,
+    "source": "@router.patch(\"/motoristas/{motorista_id}\", response_model=MotoristaResponse)\ndef update_motoristas(motorista_id: UUID, data: MotoristaUpdate, access: LogisticaAccess = Depends(authorized)):\n    return access.update(Motorista, motorista_id, data)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/viagens",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "create_viagens",
+    "file": "app/modules/logistica/routes.py",
+    "line": 74,
+    "source": "@router.post(\"/viagens\", response_model=ViagemResponse, status_code=201)\ndef create_viagens(data: ViagemCreate, access: LogisticaAccess = Depends(authorized)):\n    return access.create(Viagem, data)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/viagens",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "list_viagens",
+    "file": "app/modules/logistica/routes.py",
+    "line": 79,
+    "source": "@router.get(\"/viagens\", response_model=list[ViagemResponse])\ndef list_viagens(\n    empresa_id: UUID | None = None,\n    status: StatusViagem | None = None,\n    veiculo_id: UUID | None = None,\n    motorista_id: UUID | None = None,\n    limit: int = Query(50, ge=1, le=100), offset: int = Query(0, ge=0),\n    access: LogisticaAccess = Depends(authorized),\n):\n    return access.list_owned(Viagem, {\"transportadora_id\": empresa_id, \"status\": status, \"veiculo_id\": veiculo_id, \"motorista_id\": motorista_id}, limit, offset)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/viagens/{viagem_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "get_viagens",
+    "file": "app/modules/logistica/routes.py",
+    "line": 91,
+    "source": "@router.get(\"/viagens/{viagem_id}\", response_model=ViagemResponse)\ndef get_viagens(viagem_id: UUID, access: LogisticaAccess = Depends(authorized)):\n    return access.resource(Viagem, viagem_id)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/viagens/{viagem_id}",
+    "methods": [
+      "PATCH"
+    ],
+    "api": true,
+    "function": "update_viagens",
+    "file": "app/modules/logistica/routes.py",
+    "line": 96,
+    "source": "@router.patch(\"/viagens/{viagem_id}\", response_model=ViagemResponse)\ndef update_viagens(viagem_id: UUID, data: ViagemUpdate, access: LogisticaAccess = Depends(authorized)):\n    return access.update(Viagem, viagem_id, data)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/viagens/{viagem_id}/cargas",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "create_carga",
+    "file": "app/modules/logistica/routes.py",
+    "line": 101,
+    "source": "@router.post(\"/viagens/{viagem_id}/cargas\", response_model=CargaResponse, status_code=201)\ndef create_carga(viagem_id: UUID, data: CargaCreate, access: LogisticaAccess = Depends(authorized)):\n    return access.create(Carga, data, parent_id=viagem_id)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/viagens/{viagem_id}/cargas",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "list_cargas",
+    "file": "app/modules/logistica/routes.py",
+    "line": 106,
+    "source": "@router.get(\"/viagens/{viagem_id}/cargas\", response_model=list[CargaResponse])\ndef list_cargas(viagem_id: UUID, produto_id: UUID | None = None, status: StatusCarga | None = None,\n                limit: int = Query(50, ge=1, le=100), offset: int = Query(0, ge=0),\n                access: LogisticaAccess = Depends(authorized)):\n    return access.list_cargas(viagem_id, {\"produto_id\": produto_id, \"status\": status}, limit, offset)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/cargas/{carga_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "get_carga",
+    "file": "app/modules/logistica/routes.py",
+    "line": 113,
+    "source": "@router.get(\"/cargas/{carga_id}\", response_model=CargaResponse)\ndef get_carga(carga_id: UUID, access: LogisticaAccess = Depends(authorized)):\n    return access.resource(Carga, carga_id)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/cargas/{carga_id}",
+    "methods": [
+      "PATCH"
+    ],
+    "api": true,
+    "function": "update_carga",
+    "file": "app/modules/logistica/routes.py",
+    "line": 118,
+    "source": "@router.patch(\"/cargas/{carga_id}\", response_model=CargaResponse)\ndef update_carga(carga_id: UUID, data: CargaUpdate, access: LogisticaAccess = Depends(authorized)):\n    return access.update(Carga, carga_id, data)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/cargas/{carga_id}/caixas",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "create_caixa",
+    "file": "app/modules/logistica/routes.py",
+    "line": 123,
+    "source": "@router.post(\"/cargas/{carga_id}/caixas\", response_model=CaixaResponse, status_code=201)\ndef create_caixa(carga_id: UUID, data: CaixaCreate, access: LogisticaAccess = Depends(authorized)):\n    return access.create(Caixa, data, parent_id=carga_id)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/cargas/{carga_id}/caixas",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "list_caixas",
+    "file": "app/modules/logistica/routes.py",
+    "line": 128,
+    "source": "@router.get(\"/cargas/{carga_id}/caixas\", response_model=list[CaixaResponse])\ndef list_caixas(carga_id: UUID, limit: int = Query(50, ge=1, le=100), offset: int = Query(0, ge=0),\n                access: LogisticaAccess = Depends(authorized)):\n    return access.list_caixas(carga_id, limit, offset)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/caixas/{caixa_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "get_caixa",
+    "file": "app/modules/logistica/routes.py",
+    "line": 134,
+    "source": "@router.get(\"/caixas/{caixa_id}\", response_model=CaixaResponse)\ndef get_caixa(caixa_id: UUID, access: LogisticaAccess = Depends(authorized)):\n    return access.resource(Caixa, caixa_id)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/caixas/{caixa_id}",
+    "methods": [
+      "PATCH"
+    ],
+    "api": true,
+    "function": "update_caixa",
+    "file": "app/modules/logistica/routes.py",
+    "line": 139,
+    "source": "@router.patch(\"/caixas/{caixa_id}\", response_model=CaixaResponse)\ndef update_caixa(caixa_id: UUID, data: CaixaUpdate, access: LogisticaAccess = Depends(authorized)):\n    return access.update(Caixa, caixa_id, data)\n",
+    "dependencies": [
+      {
+        "call": "authorized",
+        "module": "app.modules.logistica.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/cargas/{carga_id}/monitoramento",
+    "methods": [
+      "PUT"
+    ],
+    "api": true,
+    "function": "configurar",
+    "file": "app/modules/monitoramento/routes.py",
+    "line": 28,
+    "source": "@router.put(\"/cargas/{carga_id}/monitoramento\", response_model=CargaMonitoramentoResponse,\n            summary=\"Declarar ou substituir os dados adicionais da carga\")\ndef configurar(carga_id: UUID, data: CargaMonitoramentoPut, svc: MonitoramentoService = Depends(service)):\n    \"\"\"PUT idempotente, autorizado para ADMIN/GESTOR/OPERADOR da transportadora.\n\n    Identidade Tommy Atkins e lote hipotetico sao declarados pelo operador;\n    o produto existente da carga nao e renomeado ou inferido por seu nome.\n    \"\"\"\n    return svc.configurar(carga_id, data)\n",
+    "dependencies": [
+      {
+        "call": "service",
+        "module": "app.modules.monitoramento.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/cargas/{carga_id}/monitoramento",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "configuracao",
+    "file": "app/modules/monitoramento/routes.py",
+    "line": 39,
+    "source": "@router.get(\"/cargas/{carga_id}/monitoramento\", response_model=CargaMonitoramentoResponse,\n            summary=\"Consultar os dados adicionais de monitoramento\")\ndef configuracao(carga_id: UUID, svc: MonitoramentoService = Depends(service)):\n    return svc.consultar_configuracao(carga_id)\n",
+    "dependencies": [
+      {
+        "call": "service",
+        "module": "app.modules.monitoramento.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/cargas/{carga_id}/monitoramentos",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "iniciar",
+    "file": "app/modules/monitoramento/routes.py",
+    "line": 45,
+    "source": "@router.post(\"/cargas/{carga_id}/monitoramentos\", response_model=SessaoResponse, status_code=201,\n             responses={200: {\"model\": SessaoResponse, \"description\": \"Repeticao idempotente da criacao.\"}},\n             summary=\"Iniciar uma sessao com janela efetiva explicita\")\ndef iniciar(carga_id: UUID, data: SessaoCreate, response: HttpResponse,\n            svc: MonitoramentoService = Depends(service)):\n    \"\"\"Exige viagem EM_ANDAMENTO, carga EM_TRANSITO e configuracao valida.\n\n    Chave idempotente por usuario; repeticao igual retorna 200, conteudo diferente 409.\n    Inicio nao e a data de cadastro. Nao consulta ou associa medicoes.\n    \"\"\"\n    sessao, criada = svc.criar_sessao(carga_id, data)\n    response.status_code = 201 if criada else 200\n    return sessao\n",
+    "dependencies": [
+      {
+        "call": "service",
+        "module": "app.modules.monitoramento.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/cargas/{carga_id}/monitoramentos",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "listar_carga",
+    "file": "app/modules/monitoramento/routes.py",
+    "line": 60,
+    "source": "@router.get(\"/cargas/{carga_id}/monitoramentos\", response_model=list[SessaoResponse],\n            summary=\"Listar sessoes da carga com paginacao\")\ndef listar_carga(carga_id: UUID, limit: int = Query(50, ge=1, le=100), offset: int = Query(0, ge=0),\n                 svc: MonitoramentoService = Depends(service)):\n    return svc.listar_carga(carga_id, limit, offset)\n",
+    "dependencies": [
+      {
+        "call": "service",
+        "module": "app.modules.monitoramento.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/viagens/{viagem_id}/monitoramentos",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "listar_viagem",
+    "file": "app/modules/monitoramento/routes.py",
+    "line": 67,
+    "source": "@router.get(\"/viagens/{viagem_id}/monitoramentos\", response_model=list[SessaoResponse],\n            summary=\"Listar sessoes da viagem com paginacao\")\ndef listar_viagem(viagem_id: UUID, limit: int = Query(50, ge=1, le=100), offset: int = Query(0, ge=0),\n                  svc: MonitoramentoService = Depends(service)):\n    return svc.listar_viagem(viagem_id, limit, offset)\n",
+    "dependencies": [
+      {
+        "call": "service",
+        "module": "app.modules.monitoramento.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "consultar",
+    "file": "app/modules/monitoramento/routes.py",
+    "line": 74,
+    "source": "@router.get(\"/monitoramentos/{sessao_id}\", response_model=SessaoResponse,\n            summary=\"Consultar a sessao e seu snapshot de rastreabilidade\")\ndef consultar(sessao_id: UUID, svc: MonitoramentoService = Depends(service)):\n    return svc.consultar_sessao(sessao_id)\n",
+    "dependencies": [
+      {
+        "call": "service",
+        "module": "app.modules.monitoramento.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/encerrar",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "encerrar",
+    "file": "app/modules/monitoramento/routes.py",
+    "line": 80,
+    "source": "@router.post(\"/monitoramentos/{sessao_id}/encerrar\", response_model=SessaoResponse,\n             summary=\"Encerrar uma sessao ativa, com horario e motivo\")\ndef encerrar(sessao_id: UUID, data: SessaoFinalizar, svc: MonitoramentoService = Depends(service)):\n    \"\"\"Transicao imutavel e auditada. Repeticao identica e idempotente.\"\"\"\n    return svc.finalizar(sessao_id, data, \"ENCERRADA\")\n",
+    "dependencies": [
+      {
+        "call": "service",
+        "module": "app.modules.monitoramento.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/cancelar",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "cancelar",
+    "file": "app/modules/monitoramento/routes.py",
+    "line": 87,
+    "source": "@router.post(\"/monitoramentos/{sessao_id}/cancelar\", response_model=SessaoResponse,\n             summary=\"Cancelar uma sessao ativa, sem apagar sua janela historica\")\ndef cancelar(sessao_id: UUID, data: SessaoFinalizar, svc: MonitoramentoService = Depends(service)):\n    return svc.finalizar(sessao_id, data, \"CANCELADA\")\n",
+    "dependencies": [
+      {
+        "call": "service",
+        "module": "app.modules.monitoramento.routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/sincronizacoes",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "sincronizar",
+    "file": "app/modules/monitoramento/historico_routes.py",
+    "line": 32,
+    "source": "@router.post('/{sessao_id}/sincronizacoes',response_model=SincronizacaoResponse,\n             responses={202:{'model':SincronizacaoResponse,'description':'A mesma requisicao ainda esta em execucao.'}},\n             summary='Sincronizar explicitamente o historico de uma sessao')\nasync def sincronizar(sessao_id:UUID,data:SincronizacaoCreate,response:Response,\n                     db:Session=Depends(get_database_session),user:Usuario=Depends(get_current_user),\n                     thingspeak=Depends(thingspeak_service)):\n    \"\"\"THINGSPEAK usa o cliente existente; BANCO reassocia somente medicoes externas da origem fixada.\n\n    Encerrada exige complementar_encerrada, justificativa e ADMIN/GESTOR. Cancelada nao recebe dados.\n    Falha de aquisicao retorna estado FALHA/PARCIAL auditado; nao e confundida com sucesso de coleta.\n    \"\"\"\n    run=await HistoricoIoTService(db,user,thingspeak).sincronizar(sessao_id,data)\n    if run.estado=='EM_EXECUCAO': response.status_code=202\n    return run\n",
+    "dependencies": [
+      {
+        "call": "get_database_session",
+        "module": "app.api.deps",
+        "children": []
+      },
+      {
+        "call": "get_current_user",
+        "module": "app.api.deps",
+        "children": [
+          {
+            "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+            "module": "fastapi.security.http",
+            "children": []
+          },
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          }
+        ]
+      },
+      {
+        "call": "thingspeak_service",
+        "module": "app.modules.monitoramento.historico_routes",
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/sincronizacoes",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "estado",
+    "file": "app/modules/monitoramento/historico_routes.py",
+    "line": 48,
+    "source": "@router.get('/{sessao_id}/sincronizacoes',response_model=EstadoSincronizacaoResponse,\n            summary='Consultar estado e tentativas de sincronizacao')\ndef estado(sessao_id:UUID,limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=0),svc=Depends(consultas)):\n    return svc.estado(sessao_id,limit,offset)\n",
+    "dependencies": [
+      {
+        "call": "consultas",
+        "module": "app.modules.monitoramento.historico_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/leituras",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "leituras",
+    "file": "app/modules/monitoramento/historico_routes.py",
+    "line": 54,
+    "source": "@router.get('/{sessao_id}/leituras',response_model=HistoricoResponse,\n            summary='Consultar leituras e marcadores invalidos em ordem cronologica')\ndef leituras(sessao_id:UUID,limit:int=Query(100,ge=1,le=1000),offset:int=Query(0,ge=0),\n             tipo:str|None=Query(None,pattern='^(TEMPERATURA|UMIDADE)$'),revisao:int|None=Query(None,ge=1),\n             inicio:AwareDatetime|None=None,fim:AwareDatetime|None=None,svc=Depends(consultas)):\n    \"\"\"Janela inclusiva de amostras [inicio,fim], com amostra final apenas para fechar intervalos.\n\n    Revisoes preservam a incorporacao anterior; nao se altera registro ou valor em silencio.\n    recebida_em=None identifica horario de recebimento desconhecido no historico legado.\n    \"\"\"\n    return svc.historico(sessao_id,limit,offset,tipo,revisao,inicio,fim)\n",
+    "dependencies": [
+      {
+        "call": "consultas",
+        "module": "app.modules.monitoramento.historico_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/qualidade",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "qualidade",
+    "file": "app/modules/monitoramento/historico_routes.py",
+    "line": 67,
+    "source": "@router.get('/{sessao_id}/qualidade',response_model=QualidadeResponse,\n            summary='Consultar lacunas e cobertura temporal, sem estimativa de etileno')\ndef qualidade(sessao_id:UUID,intervalo_maximo_s:Decimal=Query(...,gt=0,max_digits=12,decimal_places=3),\n              revisao:int|None=Query(None,ge=1),inicio:AwareDatetime|None=None,fim:AwareDatetime|None=None,\n              svc=Depends(consultas)):\n    \"\"\"G e parametro operacional obrigatorio, sem valor padrao cientifico.\n\n    Dois extremos utilizaveis, gaps integrais, sem interpolacao ou extrapolacao.\n    Cobertura de aquisicao nao e cobertura de aplicabilidade do modelo cientifico.\n    \"\"\"\n    return svc.qualidade(sessao_id,intervalo_maximo_s,revisao,inicio,fim)\n",
+    "dependencies": [
+      {
+        "call": "consultas",
+        "module": "app.modules.monitoramento.historico_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/analises-etileno",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "executar",
+    "file": "app/modules/monitoramento/analises_routes.py",
+    "line": 18,
+    "source": "@router.post('/{sessao_id}/analises-etileno',response_model=AnaliseResponse,\n    responses={503:{'description':'Falha de persistencia; consulte ou repita a mesma chave idempotente.'}},\n    summary='Calcular e persistir producao potencial com o motor cientifico existente')\ndef executar(sessao_id:UUID,data:AnaliseCreate,svc=Depends(servico)):\n    \"\"\"Fixa janela, corte, revisao e snapshots. ATIVA exige corte explicito; CANCELADA rejeita novas analises.\n\n    G ausente gera CONFIGURACAO_INCOMPLETA. Subtotal coberto nunca substitui total da janela.\n    Mesma chave/autor/payload recupera o resultado anterior. Nova chave cria outra analise.\n    Decimais sao strings JSON. Risco permanece NAO_AVALIADO, sem inferir concentracao real.\n    \"\"\"\n    return svc.executar(sessao_id,data)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.analises_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/analises-etileno",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "listar",
+    "file": "app/modules/monitoramento/analises_routes.py",
+    "line": 31,
+    "source": "@router.get('/{sessao_id}/analises-etileno',response_model=AnaliseLista,summary='Listar analises preservadas da sessao')\ndef listar(sessao_id:UUID,limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=0),svc=Depends(servico)):\n    return svc.listar(sessao_id,limit,offset)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.analises_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/analises-etileno/{analise_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "consultar",
+    "file": "app/modules/monitoramento/analises_routes.py",
+    "line": 36,
+    "source": "@router.get('/{sessao_id}/analises-etileno/{analise_id}',response_model=AnaliseResponse,\n    summary='Consultar resultado e entradas fixados, sem recalcular')\ndef consultar(sessao_id:UUID,analise_id:UUID,svc=Depends(servico)):\n    return svc.consultar(sessao_id,analise_id)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.analises_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/configuracoes-ambientais",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "configurar",
+    "file": "app/modules/monitoramento/preventivo_routes.py",
+    "line": 20,
+    "source": "@router.post('/configuracoes-ambientais',response_model=ConfiguracaoResponse,summary='Registrar versao imutavel de parametros operacionais')\ndef configurar(sessao_id:UUID,data:ConfiguracaoCreate,svc=Depends(servico)):\n    \"\"\"ADMIN/GESTOR. Sem faixas ou duracoes cientificas automaticas. Maturacao/ambiente precisam corresponder explicitamente a sessao.\"\"\"\n    return svc.configurar(sessao_id,data)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.preventivo_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/configuracoes-ambientais",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "configuracoes",
+    "file": "app/modules/monitoramento/preventivo_routes.py",
+    "line": 26,
+    "source": "@router.get('/configuracoes-ambientais',response_model=ListaConfiguracoes,summary='Listar versoes da configuracao operacional')\ndef configuracoes(sessao_id:UUID,limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=0),svc=Depends(servico)):\n    return svc.listar(sessao_id,'configuracoes',limit,offset)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.preventivo_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/avaliacoes-preventivas",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "avaliar",
+    "file": "app/modules/monitoramento/preventivo_routes.py",
+    "line": 31,
+    "source": "@router.post('/avaliacoes-preventivas',response_model=AvaliacaoResponse,summary='Avaliar dados ambientais e registrar alertas explicaveis')\ndef avaliar(sessao_id:UUID,data:AvaliacaoCreate,svc=Depends(servico)):\n    \"\"\"ATIVA exige corte explicito. Fixa revisao, configuracao e evidencias. Nova chave gera avaliacao relacionada a anterior.\n\n    Evidencia igual reutiliza alerta. Evidencia nova se vincula ao caso aberto da regra/configuracao; sem sobrescrita.\n    Ausencia de dados e inconclusiva. Analise de etileno opcional e somente contextual, da mesma janela/revisao.\n    Nao mede gas, nao classifica risco cientifico e nao determina intervencao. Risco etileno NAO_AVALIADO.\n    \"\"\"\n    return svc.avaliar(sessao_id,data)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.preventivo_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/avaliacoes-preventivas",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "avaliacoes",
+    "file": "app/modules/monitoramento/preventivo_routes.py",
+    "line": 42,
+    "source": "@router.get('/avaliacoes-preventivas',response_model=ListaAvaliacoes,summary='Listar avaliacoes imutaveis')\ndef avaliacoes(sessao_id:UUID,limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=0),svc=Depends(servico)):\n    return svc.listar(sessao_id,'avaliacoes',limit,offset)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.preventivo_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/avaliacoes-preventivas/{avaliacao_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "avaliacao",
+    "file": "app/modules/monitoramento/preventivo_routes.py",
+    "line": 47,
+    "source": "@router.get('/avaliacoes-preventivas/{avaliacao_id}',response_model=AvaliacaoResponse,summary='Consultar snapshot e resultado sem reavaliar')\ndef avaliacao(sessao_id:UUID,avaliacao_id:UUID,svc=Depends(servico)):\n    return svc.consultar_avaliacao(sessao_id,avaliacao_id)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.preventivo_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/alertas",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "alertas",
+    "file": "app/modules/monitoramento/preventivo_routes.py",
+    "line": 52,
+    "source": "@router.get('/alertas',response_model=ListaAlertas,summary='Listar alertas operacionais da sessao')\ndef alertas(sessao_id:UUID,limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=0),\n    status:str|None=Query(None,pattern='^(ABERTO|EM_ANALISE|RESOLVIDO|DESCARTADO)$'),svc=Depends(servico)):\n    return svc.listar(sessao_id,'alertas',limit,offset,status)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.preventivo_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/alertas/{alerta_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "alerta",
+    "file": "app/modules/monitoramento/preventivo_routes.py",
+    "line": 58,
+    "source": "@router.get('/alertas/{alerta_id}',response_model=AlertaResponse,summary='Consultar alerta ambiental')\ndef alerta(sessao_id:UUID,alerta_id:UUID,svc=Depends(servico)):\n    return svc.consultar_alerta(sessao_id,alerta_id)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.preventivo_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/alertas/{alerta_id}/decisoes",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "decidir",
+    "file": "app/modules/monitoramento/preventivo_routes.py",
+    "line": 63,
+    "source": "@router.post('/alertas/{alerta_id}/decisoes',response_model=DecisaoResponse,summary='Reconhecer, observar, resolver ou descartar com justificativa')\ndef decidir(sessao_id:UUID,alerta_id:UUID,data:DecisaoCreate,svc=Depends(servico)):\n    \"\"\"RECONHECER: ABERTO→EM_ANALISE (estado legado). Resolver/descartar: ABERTO ou EM_ANALISE→terminal.\n\n    Justificativa, ator e horario sao obrigatorios. OBSERVAR acrescenta nota sem mudar estado, inclusive apos fechamento.\n    Nenhuma transicao ou leitura posterior reabre ou encerra automaticamente um alerta.\n    \"\"\"\n    return svc.decidir(sessao_id,alerta_id,data)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.preventivo_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/alertas/{alerta_id}/decisoes",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "decisoes",
+    "file": "app/modules/monitoramento/preventivo_routes.py",
+    "line": 73,
+    "source": "@router.get('/alertas/{alerta_id}/decisoes',response_model=ListaDecisoes,summary='Consultar historico auditavel de decisoes')\ndef decisoes(sessao_id:UUID,alerta_id:UUID,limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=0),svc=Depends(servico)):\n    return svc.historico(sessao_id,alerta_id,'decisoes',limit,offset)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.preventivo_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/alertas/{alerta_id}/evidencias",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "evidencias",
+    "file": "app/modules/monitoramento/preventivo_routes.py",
+    "line": 78,
+    "source": "@router.get('/alertas/{alerta_id}/evidencias',response_model=ListaEvidencias,summary='Consultar evidencias e avaliacoes que sustentam o alerta')\ndef evidencias(sessao_id:UUID,alerta_id:UUID,limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=0),svc=Depends(servico)):\n    return svc.historico(sessao_id,alerta_id,'evidencias',limit,offset)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.preventivo_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/intervencoes-simuladas",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "solicitar",
+    "file": "app/modules/monitoramento/exaustao_routes.py",
+    "line": 19,
+    "source": "@router.post('',response_model=IntervencaoResponse,summary='Solicitar intervencao virtual com justificativa humana')\ndef solicitar(sessao_id:UUID,data:IntervencaoCreate,svc=Depends(servico)):\n    \"\"\"Sessao/logistica ativas; alerta opcional da mesma sessao, ABERTO ou EM_ANALISE.\n\n    Uma solicitacao nao autoriza nem inicia. Duracao de demonstracao <=86400s, sem eficacia cientifica.\n    Referencias sao contextuais. Payload nao aceita dispositivos, protocolo, comandos fisicos ou estado imposto.\n    \"\"\"\n    return svc.solicitar(sessao_id,data)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.exaustao_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/intervencoes-simuladas",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "listar",
+    "file": "app/modules/monitoramento/exaustao_routes.py",
+    "line": 29,
+    "source": "@router.get('',response_model=ListaIntervencoes,summary='Listar intervencoes da sessao')\ndef listar(sessao_id:UUID,limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=0),estado:EstadoIntervencao|None=None,svc=Depends(servico)):\n    return svc.listar(sessao_id,limit,offset,estado)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.exaustao_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/intervencoes-simuladas/{intervencao_id}",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "consultar",
+    "file": "app/modules/monitoramento/exaustao_routes.py",
+    "line": 34,
+    "source": "@router.get('/{intervencao_id}',response_model=IntervencaoResponse,summary='Consultar estado logico e permissoes atuais')\ndef consultar(sessao_id:UUID,intervencao_id:UUID,svc=Depends(servico)):\n    \"\"\"virtual_ligado reflete apenas EM_EXECUCAO persistido. Prazo excedido nao conclui a execucao.\n\n    consultado_em fixa o instante da projecao; nenhuma consulta altera estado. Nao estima remocao de gas.\n    \"\"\"\n    return svc.consultar(sessao_id,intervencao_id)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.exaustao_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/intervencoes-simuladas/{intervencao_id}/acoes",
+    "methods": [
+      "POST"
+    ],
+    "api": true,
+    "function": "agir",
+    "file": "app/modules/monitoramento/exaustao_routes.py",
+    "line": 43,
+    "source": "@router.post('/{intervencao_id}/acoes',response_model=AcaoResponse,summary='Registrar decisao humana ou transicao virtual')\ndef agir(sessao_id:UUID,intervencao_id:UUID,data:AcaoCreate,svc=Depends(servico)):\n    \"\"\"GESTOR/ADMIN autoriza, recusa, inicia, cancela e registra falha. Solicitante OPERADOR retira\n    SOLICITADA ou encerra a propria execucao. CONSULTA somente le. Encerramento administrativo funciona\n    mesmo apos fim/cancelamento da sessao. Autorizacao e inicio sao acoes separadas; nao ha scheduler.\n    Justificativa obrigatoria, sem credenciais. Repeticao idempotente recupera a mesma acao historica.\n    \"\"\"\n    return svc.agir(sessao_id,intervencao_id,data)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.exaustao_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/api/v1/monitoramentos/{sessao_id}/intervencoes-simuladas/{intervencao_id}/acoes",
+    "methods": [
+      "GET"
+    ],
+    "api": true,
+    "function": "historico",
+    "file": "app/modules/monitoramento/exaustao_routes.py",
+    "line": 53,
+    "source": "@router.get('/{intervencao_id}/acoes',response_model=ListaAcoes,summary='Consultar trilha ordenada de decisoes e transicoes')\ndef historico(sessao_id:UUID,intervencao_id:UUID,limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=0),svc=Depends(servico)):\n    return svc.historico(sessao_id,intervencao_id,limit,offset)\n",
+    "dependencies": [
+      {
+        "call": "servico",
+        "module": "app.modules.monitoramento.exaustao_routes",
+        "children": [
+          {
+            "call": "get_database_session",
+            "module": "app.api.deps",
+            "children": []
+          },
+          {
+            "call": "get_current_user",
+            "module": "app.api.deps",
+            "children": [
+              {
+                "call": "<fastapi.security.http.HTTPBearer object at 0x000001A30469FB60>",
+                "module": "fastapi.security.http",
+                "children": []
+              },
+              {
+                "call": "get_database_session",
+                "module": "app.api.deps",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

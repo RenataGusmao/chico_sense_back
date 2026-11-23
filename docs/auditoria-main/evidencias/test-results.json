@@ -1,0 +1,5304 @@
+{
+  "exitstatus": 0,
+  "results": [
+    {
+      "id": "tests/test_analises_etileno.py::test_real_engine_end_to_end_700_9000_and_persistence",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.21139599999878556,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_snapshot_replays_actual_public_engine_without_live_queries",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.19010239996714517,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_get_and_paginated_stable_history",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.30562080000527203,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_restricted_and_exploratory_delegate_rates_to_engine[MODO_RESTRITO-SEM_ESTIMATIVA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.18228479998651892,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_restricted_and_exploratory_delegate_rates_to_engine[MODO_EXPLORATORIO-COMPLETO_NO_MODELO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1724945000023581,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_gaps_are_partial_subtotal_never_window_total",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.23012710001785308,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_or_out_of_domain_is_not_zero[25]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17426870000781491,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_or_out_of_domain_is_not_zero[9]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.206376799964346,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_or_out_of_domain_is_not_zero[None0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16587829997297376,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_or_out_of_domain_is_not_zero[None1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1753249000175856,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_or_out_of_domain_is_not_zero[NaN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1449824000010267,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_no_measurements_and_no_acquisition_revision",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06485619995510206,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_g_not_supplied_is_persisted_configuration_incomplete",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.20176259998697788,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_gap_rejected_at_api[0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.011228199990000576,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_gap_rejected_at_api[-1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005481300002429634,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_gap_rejected_at_api[NaN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006578599975910038,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_gap_rejected_at_api[Infinity]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0050549000152386725,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_gap_rejected_at_api[True]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0118337000021711,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_gap_rejected_at_api[0.0001]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.016009799961466342,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_unknown_maturity_is_not_corrected_and_snapshot_mass_used",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.19825240003410727,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_adapter_preserves_invalid_snapshot_mass_for_engine[None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008903999696485698,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_adapter_preserves_invalid_snapshot_mass_for_engine[mass1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007820999599061906,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_adapter_preserves_invalid_snapshot_mass_for_engine[mass2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0006419999990612268,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_adapter_preserves_invalid_snapshot_mass_for_engine[mass3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0006703999824821949,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_mass_constraint_rejects_corrupt_session",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006958600017242134,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_precision_tiny_mass_no_binary_float_in_snapshot",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.19749670004239306,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_active_requires_explicit_cutoff_and_freezes_window",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.18350759998429567,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_window_cutoff_and_mode_rejected[changes0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.160092500038445,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_window_cutoff_and_mode_rejected[changes1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16705889999866486,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_window_cutoff_and_mode_rejected[changes2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.19866880000336096,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_window_cutoff_and_mode_rejected[changes3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1947603999869898,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_window_cutoff_and_mode_rejected[changes4]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2067121000145562,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_window_cutoff_and_mode_rejected[changes5]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1602590000256896,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_window_cutoff_and_mode_rejected[changes6]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16135619999840856,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_window_cutoff_and_mode_rejected[changes7]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.18522569997003302,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_cancelled_preserves_old_analyses_and_exact_replay",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.3016625000163913,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_duplicate_request_is_stable_after_new_revision",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.29641609999816865,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_future_conflict_revision_does_not_mutate_old_analysis",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.29970769997453317,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_late_complement_requires_new_analysis_not_mutation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.3916490999981761,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_historical_cut_excludes_later_consolidated_revision",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2871360999997705,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_invalid_interior_sample_is_a_barrier",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1762313999934122,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_unlocatable_temperature_timestamp_prevents_false_complete",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22857619996648282,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_humidity_invalidity_cannot_change_temperature_calculation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1466253999969922,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_same_timestamp_equal_temperature_does_not_duplicate_exposure",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.20704269997077063,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_out_of_order_input_is_sorted_by_existing_engine",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17621759994653985,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_authentication_required[post]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006736700015608221,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_authentication_required[list]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0065531000145711005,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_authentication_required[get]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006706099957227707,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_write_role_denied[CONSULTA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.017753800028003752,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_write_role_denied[OUTRO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.017839499982073903,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_reader_can_read_but_other_company_cannot",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2700380999594927,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_missing_session_and_analysis_or_wrong_session",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.28596760000800714,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_transaction_failure_rolls_back_analysis_and_audit[audit]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1908621999900788,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_transaction_failure_rolls_back_analysis_and_audit[commit]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.20124229998327792,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_openapi_documents_three_authenticated_operations",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.3287712999735959,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_active_without_explicit_end_uses_exact_frozen_cutoff",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16523489996325225,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_unsealed_revision_cannot_leak_into_analysis",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.19556000002194196,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_humidity_conflict_is_context_only",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2307629000279121,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_all_readings_are_used_beyond_history_default_page",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 1.7493391999742016,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_missing_configuration_is_explicit_conflict",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.034244899987243116,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_locatable_persistence_error_is_a_temperature_barrier",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15289780002785847,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_database_checks_reject_inconsistent_analysis[classificacao_risco_etileno-BAIXO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.24488510005176067,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_database_checks_reject_inconsistent_analysis[status_calculo-SUCESSO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2199405999854207,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_database_checks_reject_inconsistent_analysis[revisao_aquisicao--1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22025059995939955,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_database_checks_reject_inconsistent_analysis[fim-value3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22679500002413988,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno.py::test_real_engine_called_once_and_get_never_recalculates",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.299087600025814,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno_migration.py::test_single_head_and_stable_parent_chain",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07842380000511184,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno_migration.py::test_upgrade_columns_types_and_constraints_match_model",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.010801299999002367,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno_migration.py::test_no_backfill_and_downgrade_preserves_previous_data",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0065734999952837825,
+      "detail": null
+    },
+    {
+      "id": "tests/test_analises_etileno_migration.py::test_postgresql_offline_upgrade_and_downgrade",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.009480200009420514,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_password_hash",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.4565555999870412,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_hash",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004579999949783087,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_create_user",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.18210549996001646,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_email_unique",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013762699963990599,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_database_email_identity",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.002536299987696111,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_valid_login",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17177539999829605,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_login[missing@example.com-test-only-password-123]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16045399999711663,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_login[admin@example.com-wrong]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1484677999978885,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_inactive_login",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15832919999957085,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_jwt_creation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0011045000283047557,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_jwt[expired]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006881900015287101,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_jwt[tampered]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.007167699979618192,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_jwt[algorithm]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.008429399982560426,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_jwt[missing]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.007059100025799125,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_jwt[subject]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.008744099992327392,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_jwt[audience]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00766429997747764,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_jwt[type]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0076021000277251005,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_me_without_token",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.008107700035907328,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_me_multi_company",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2833813999895938,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_company_types[PRODUTOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03382399998372421,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_company_types[TRANSPORTADORA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01935689995298162,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_company_types[CLIENTE]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02126100001623854,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_invalid_company_type",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013263700006064028,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_link_idempotent",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.197656599979382,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_lists_and_detail",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0801287000067532,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_logical_deactivation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.20175920001929626,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_non_admin_forbidden[GESTOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.18254159996286035,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_non_admin_forbidden[OPERADOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17270830000052229,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_non_admin_forbidden[CONSULTA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1788181000156328,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_company_isolation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.24552689999109134,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_inactive_membership",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22760669997660443,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_setup_admin_idempotent",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17468850000295788,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_setup_does_not_promote_existing_user",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15539320005336776,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_placeholder_key_rejected",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15667599998414516,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_patch_company",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04591169999912381,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_missing_records",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.029053099977318197,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_patch_user_password_email",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.46572489995742217,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_patch_explicit_null_rejected",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01200089999474585,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_validation_does_not_expose_password",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.019067500019446015,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_inactive_company_excluded",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22493239998584613,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_missing_profile",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01921909995144233,
+      "detail": null
+    },
+    {
+      "id": "tests/test_auth_usuarios_empresas.py::test_duplicate_email_update",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17869119998067617,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_documented_complete_examples[points0-7200-1000-expected0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0012168000102974474,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_documented_complete_examples[points1-7200-1000-expected1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0010017000022344291,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_documented_complete_examples[points2-3600-500-expected2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009619999909773469,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e04_long_gap_is_excluded_in_full",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009447999764233828,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e05_empty_or_single_reading_never_returns_zero[points0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000706199964042753,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e05_empty_or_single_reading_never_returns_zero[points1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007845999789424241,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e05_empty_or_single_reading_never_returns_zero[points2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008157999836839736,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e05_empty_or_single_reading_never_returns_zero[points3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008047999581322074,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e06_out_of_domain_blocks_both_adjacent_intervals",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00105489999987185,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e07_maturity_does_not_invent_corrections[VERDE_MADURA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008467999869026244,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e07_maturity_does_not_invent_corrections[EM_AMADURECIMENTO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009169999975711107,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e07_maturity_does_not_invent_corrections[MADURA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009736999636515975,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e07_maturity_does_not_invent_corrections[MISTA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008876000065356493,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e07_maturity_does_not_invent_corrections[DESCONHECIDA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009321999968960881,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e07_maturity_does_not_invent_corrections[None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009283000254072249,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e08_invalid_mass_is_unavailable[None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008871000027284026,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e08_invalid_mass_is_unavailable[0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0006125000072643161,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e08_invalid_mass_is_unavailable[-1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0006037999992258847,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e08_invalid_mass_is_unavailable[NaN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001256300020031631,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e08_invalid_mass_is_unavailable[Infinity]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0005741000059060752,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e08_invalid_mass_is_unavailable[True]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000756199995521456,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e08_invalid_mass_is_unavailable[False]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007597000221721828,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e08_invalid_mass_is_unavailable[10 caixas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000824799994006753,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e08_invalid_mass_is_unavailable[mass8]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0005133000086061656,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e09_interpolation_requires_exploratory_mode",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007949999999254942,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e10_source_duplicates_and_input_permutations",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.003159100015182048,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e10_conflicting_temperature_is_a_barrier",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007080999785102904,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e11_borders_are_not_extrapolated",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001103100017644465,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_gap_boundary_is_exact[3600-COMPLETO_NO_MODELO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004553999751806259,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_gap_boundary_is_exact[3601-SEM_ESTIMATIVA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0011206999770365655,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_e12_engine_has_no_humidity_or_fan_input",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008908000309020281,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_reference_points_are_identical_in_both_modes[10-expected0-MODO_RESTRITO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0011606999905779958,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_reference_points_are_identical_in_both_modes[10-expected0-MODO_EXPLORATORIO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009830999770201743,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_reference_points_are_identical_in_both_modes[13-expected1-MODO_RESTRITO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009894000249914825,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_reference_points_are_identical_in_both_modes[13-expected1-MODO_EXPLORATORIO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007542999810539186,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_reference_points_are_identical_in_both_modes[15-expected2-MODO_RESTRITO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007741000154055655,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_reference_points_are_identical_in_both_modes[15-expected2-MODO_EXPLORATORIO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000754699984099716,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_reference_points_are_identical_in_both_modes[20-expected3-MODO_RESTRITO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00032300001475960016,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_reference_points_are_identical_in_both_modes[20-expected3-MODO_EXPLORATORIO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000506000011228025,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_no_extrapolation[9.999-MODO_RESTRITO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004050999996252358,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_no_extrapolation[9.999-MODO_EXPLORATORIO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0010074999881908298,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_no_extrapolation[20.001-MODO_RESTRITO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008464999846182764,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_no_extrapolation[20.001-MODO_EXPLORATORIO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0010940000065602362,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_no_extrapolation[25-MODO_RESTRITO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0010851999977603555,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_no_extrapolation[25-MODO_EXPLORATORIO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008741000201553106,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_no_extrapolation[-10-MODO_RESTRITO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0013476000167429447,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_no_extrapolation[-10-MODO_EXPLORATORIO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008963000145740807,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_gap_is_required_and_validated[None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0011270999675616622,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_gap_is_required_and_validated[0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0006842000293545425,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_gap_is_required_and_validated[-1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0006963000050745904,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_gap_is_required_and_validated[True]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001123499998357147,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_gap_is_required_and_validated[NaN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008292999700643122,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_gap_is_required_and_validated[Infinity]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00045519997365772724,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_gap_is_required_and_validated[bad]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008310000412166119,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_temperature_is_preserved_without_bridging[None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00107709999429062,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_temperature_is_preserved_without_bridging[bad]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007518000202253461,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_temperature_is_preserved_without_bridging[NaN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009862000006251037,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_temperature_is_preserved_without_bridging[Infinity]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009584000217728317,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_temperature_is_preserved_without_bridging[True]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000929800036828965,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_explicit_mass_conversions[500000-g-500]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009025000035762787,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_explicit_mass_conversions[0.5-t-500]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001227899978403002,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_explicit_mass_conversions[500-kg-500]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004841999616473913,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_explicit_temperature_conversions[55.4-F]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008120999555103481,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_explicit_temperature_conversions[55.4-\\xb0F]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0006643999950028956,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_explicit_temperature_conversions[286.15-K]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0014078000094741583,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_explicit_temperature_conversions[13-C]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001178500009700656,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_explicit_temperature_conversions[13-\\xb0C]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0010775999980978668,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_fahrenheit_conversion_does_not_snap_to_point",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0010756999836303294,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_unknown_mass_units_are_not_guessed[caixas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000591500021982938,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_unknown_mass_units_are_not_guessed[lb]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000875100027769804,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_unknown_mass_units_are_not_guessed[]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0011082999990321696,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_unknown_temperature_units_create_an_invalid_marker",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0013501000357791781,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_request_metadata[changes0-JANELA_INVALIDA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008594000246375799,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_request_metadata[changes1-JANELA_INVALIDA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004097000346519053,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_request_metadata[changes2-JANELA_INVALIDA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007291999645531178,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_request_metadata[changes3-MODO_INVALIDO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000721300020813942,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_request_metadata[changes4-MATURACAO_INVALIDA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000674000009894371,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_request_metadata[changes5-IDENTIDADE_INVALIDA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0005619999719783664,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_request_metadata[changes6-HORARIO_INVALIDO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0005356000037863851,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_explicit_none_mode_is_not_a_silent_default",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001254800008609891,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_input_precedes_incomplete_configuration",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008546000462956727,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_timestamp_cannot_be_silently_dropped",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0011366000398993492,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_future_reading_against_explicit_cutoff_invalidates_analysis",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008753999718464911,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_source_id_with_different_timestamps_invalidates_identity",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0010993999894708395,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_source_id_payload_conflict_at_same_time_is_a_barrier",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0010419999598525465,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_distinct_ids_with_equal_normalized_temperature_are_one_point",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0013117999769747257,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_invalid_and_valid_same_timestamp_are_conflicting",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001040400005877018,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_multiple_exclusion_causes_do_not_double_count_time",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008701999904587865,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_sensor_session_and_window_are_selected_before_integration",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0010001000482589006,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_timezone_offsets_represent_elapsed_absolute_time",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0012653999729081988,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_fractional_seconds_are_not_truncated",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0011671999818645418,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_only_final_sum_is_rounded",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0016996999620459974,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_positive_below_display_resolution_is_explicit",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001284099998883903,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_global_decimal_context_does_not_change_results",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0014687000075355172,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_inputs_results_and_reference_parameters_are_immutable",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007357000140473247,
+      "detail": null
+    },
+    {
+      "id": "tests/test_etileno_motor.py::test_import_is_independent_of_framework_database_and_network",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14631509996252134,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_request_without_alert_is_pending_and_audited",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11186419997829944,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_authorization_is_separate_from_start_and_explicit_end",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.25805110001238063,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_refusal_never_resolves_original_alert",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.3915358000085689,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_operator_cannot_make_privileged_decisions[AUTORIZAR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08039459999417886,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_operator_cannot_make_privileged_decisions[RECUSAR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08002870000200346,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_operator_cannot_make_privileged_decisions[INICIAR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08414849999826401,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_operator_cannot_make_privileged_decisions[REGISTRAR_FALHA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08097960002487525,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_start_without_authorization_and_terminal_reopening_rejected",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.29133209999417886,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_manager_cancels_each_nonterminal_state[SOLICITADA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12732789997244254,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_manager_cancels_each_nonterminal_state[AUTORIZADA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.13418900000397116,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_manager_cancels_each_nonterminal_state[EM_EXECUCAO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.19814639998367056,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_failure_is_explicit_simulated_and_terminal",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.21714239998254925,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.012174099974799901,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02346850000321865,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.012952500022947788,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.012337099993601441,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes4]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.010569300036877394,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes5]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013742399984039366,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes6]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.011543000000528991,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes7]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.011589300003834069,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes8]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0137137999990955,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes9]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.011156099964864552,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes10]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013304000021889806,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes11]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.010791799984872341,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes12]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013130599982105196,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes13]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.009343600017018616,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes14]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.012129600043408573,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_invalid_request_or_hardware_fields_rejected[changes15]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.011108900012914091,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_sensitive_justification_not_persisted[api_key=DEMONSTRATION_SECRET]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.016769299982115626,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_sensitive_justification_not_persisted[Bearer DUMMY_TOKEN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.014252400025725365,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_sensitive_justification_not_persisted[password: DUMMY_PASSWORD]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.017960800032597035,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_sensitive_justification_not_persisted[token=DUMMY_TOKEN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015639399993233383,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_sensitive_justification_not_persisted[-----BEGIN PRIVATE KEY----- DEMO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01684300001943484,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_sensitive_justification_not_persisted[https://usuario:senha@example.invalid]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01751560001866892,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_action_secret_validation_and_justification",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10515849996590987,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_idempotent_request_and_actions_return_existing_records",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2846904000034556,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_terminal_session_blocks_new_actions_but_allows_administrative_stop[encerrar]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.3262531000073068,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_terminal_session_blocks_new_actions_but_allows_administrative_stop[cancelar]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.3379268000135198,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_closed_session_after_authorization_prevents_start",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22035240003606305,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_terminal_alert_blocks_request_authorization_and_start[RESOLVER]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.5496850999770686,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_terminal_alert_blocks_request_authorization_and_start[DESCARTAR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.5222650000359863,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_recognized_alert_is_context_not_automatic_authorization",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.4303652999806218,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_logical_conflict_and_partial_unique_index",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.33073699998203665,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_precision_and_deadline_are_not_a_scientific_effect",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.21458169998368248,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_clock_regression_rejects_transition_without_partial_state",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10927680000895634,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_inactive_company_allows_cleanup_but_not_start",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.312764199974481,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_vehicle_change_does_not_move_execution_or_allow_new_start",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2900058999657631,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_reader_pagination_and_ownership_rules",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.31104729999788105,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_all_routes_require_authentication[request]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00864509999519214,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_all_routes_require_authentication[list]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006849700002931058,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_all_routes_require_authentication[get]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.009691599989309907,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_all_routes_require_authentication[action]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0074902999913319945,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_all_routes_require_authentication[history]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005632899992633611,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_transport_scope_applies_to_reads_writes_and_cleanup",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22318700002506375,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_transaction_failure_request_and_action_rollback",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1657015000237152,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_commit_failure_rolls_back_request",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04928599996492267,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_scientific_records_and_alerts_are_unchanged_and_no_io",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.541725100018084,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_openapi_is_virtual_authenticated_and_minimal",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.9386706000077538,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_one_vehicle_excludes_simultaneous_runs_from_different_sessions",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.39295720000518486,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_foreign_session_alert_evaluation_analysis_and_intervention_are_denied",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.5504590000491589,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_evaluation_must_sustain_selected_alert",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.39124899997841567,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_inconsistent_references_do_not_prevent_administrative_stop",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.4593830000376329,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_no_automatic_actions_or_data_changes_when_time_passes",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.44807099999161437,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_approval_by_admin_and_self_approval_policy_is_explicit",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15476419997867197,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_database_checks_reject_inconsistent_intervention[modalidade-FISICA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08388699998613447,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_database_checks_reject_inconsistent_intervention[estado-LIGADO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08889320003800094,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_database_checks_reject_inconsistent_intervention[duracao_planejada_s-value2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08323650003876537,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_database_checks_reject_inconsistent_intervention[iniciada_em-value3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08447020000312477,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_start_failure_rolls_back_all_execution_fields",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15092189999995753,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_request_replay_after_session_close_keeps_same_history",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12387489998945966,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_exemplo_executavel_solicitar_autorizar_iniciar_encerrar",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.8775749999913387,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada.py::test_decisions_pin_evidence_set_as_it_existed_at_each_action",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.4269666000036523,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada_migration.py::test_single_head_and_previous_revisions_unchanged",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.05063960002735257,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada_migration.py::test_migration_matches_model_constraints_and_precision[IntervencaoSimulada]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.012198299984447658,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada_migration.py::test_migration_matches_model_constraints_and_precision[AcaoIntervencao]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.004962799954228103,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada_migration.py::test_upgrade_and_downgrade_preserve_previous_tables_and_data",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006037699989974499,
+      "detail": null
+    },
+    {
+      "id": "tests/test_exaustao_simulada_migration.py::test_postgresql_offline_ddl_has_exclusion_and_no_hardware_or_legacy_mutation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01880770002026111,
+      "detail": null
+    },
+    {
+      "id": "tests/test_health.py::test_health_check",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.010437200020533055,
+      "detail": null
+    },
+    {
+      "id": "tests/test_health.py::test_root",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.008561700000427663,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_acquires_mapped_fields_and_reuses_existing_measurement_tables",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1853547000209801,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_original_measurement_receipt_and_processing_are_distinct",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12135540001327172,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_repeat_sync_and_same_request_do_not_duplicate_readings",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.21020680002402514,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_idempotency_rejects_different_payload",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11974739999277517,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_wrong_sensor_mapping_is_rejected_before_network",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.030955800029914826,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_binding_snapshot_does_not_follow_later_config_changes",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.18561509996652603,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_session_window_filters_before_and_after_and_keeps_endpoint_sample",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16439079999690875,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_closed_session_requires_explicit_elevated_audited_complement",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22120229998836294,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_cancelled_session_is_readable_but_not_synchronizable",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.21423100004903972,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_out_of_order_readings_are_sorted_without_changing_their_times",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15034589997958392,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_missing_or_bad_numeric_field_preserves_a_barrier_and_valid_sibling",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17279630003031343,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_source_payload_conflict_creates_new_revision_not_a_value_overwrite",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22253659996204078,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_empty_history_and_no_operational_gap_default",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0793153999838978,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_temporal_gaps_are_not_filled",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14661920000799,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_communication_failure_is_persisted_without_secrets[exception0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10616369999479502,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_communication_failure_is_persisted_without_secrets[exception1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.09734480001498014,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_history_pagination_and_type_filter",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16060980001930147,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_reuses_legacy_external_history_without_fabricating_receipt_time",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14171229995554313,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_existing_source_identity_of_other_sensor_is_not_reassigned",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16877150000073016,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_late_complement_adds_revision_without_changing_previous_history",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2374540999880992,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_operational_lateness_limit_is_explicit_and_not_scientific",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1186327000032179,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_acquisition_parameters_are_rejected[change0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.010518199997022748,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_acquisition_parameters_are_rejected[change1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.009183900023344904,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_acquisition_parameters_are_rejected[change2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.012914199964143336,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_acquisition_parameters_are_rejected[change3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.010588600009214133,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_acquisition_parameters_are_rejected[change4]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08878879999974743,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_values_are_markers_not_zero[None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11903180001536384,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_values_are_markers_not_zero[NaN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1224864999530837,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_values_are_markers_not_zero[Infinity]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11860520002664998,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_values_are_markers_not_zero[13.12345]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1181240999721922,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_values_are_markers_not_zero[100000000]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12242099997820333,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_values_are_markers_not_zero[True]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11817980004707351,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_timestamp_is_audited_and_prevents_false_complete_coverage[2026-10-01T12:00:00]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1712347000138834,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_timestamp_is_audited_and_prevents_false_complete_coverage[invalid]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15839919995050877,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_invalid_timestamp_is_audited_and_prevents_false_complete_coverage[None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11013950000051409,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_same_timestamp_conflicting_values_block_coverage_without_overwriting",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11288839997723699,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_unrelated_channel_fields_are_not_imported",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12606979999691248,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_split_historical_requests_recover_more_than_one_page",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17885759996715933,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_request_budget_reports_partial_instead_of_silent_truncation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1375349999871105,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_partial_network_failure_preserves_already_received_pages",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10603269998682663,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_partial_persistence_failure_keeps_the_other_fields",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10301370004890487,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_http_provider_errors_are_auditable_failures[404]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06363789999159053,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_http_provider_errors_are_auditable_failures[429]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06599269999423996,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_http_provider_errors_are_auditable_failures[500]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06633539998438209,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_expired_execution_is_recoverable_and_old_key_is_not_reexecuted",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1837029000162147,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_running_request_replay_returns_202_and_second_key_is_blocked",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14917839999543503,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_new_endpoints_require_authentication[get-leituras-params0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0069249999942258,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_new_endpoints_require_authentication[get-sincronizacoes-params1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006833299994468689,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_new_endpoints_require_authentication[get-qualidade-params2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005754699988756329,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_new_endpoints_require_authentication[post-sincronizacoes-params3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.007068999984767288,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_unauthorized_roles_cannot_sync[CONSULTA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.016993099998217076,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_unauthorized_roles_cannot_sync[OUTRO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.017679599986877292,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_other_company_cannot_read_acquisition[leituras]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14089989999774843,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_other_company_cannot_read_acquisition[sincronizacoes]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.13157570001203567,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_other_company_cannot_read_acquisition[qualidade]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.13140389998443425,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_consulta_can_read_history_but_not_incorporate",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1605379999964498,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_httpx_info_logging_does_not_disclose_read_key",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1073772000381723,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_math_engine_is_not_called",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15706060000229627,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_quality_requires_positive_operational_gap",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.017470300022978336,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_same_timestamp_same_value_is_not_double_exposure",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1408740999759175,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_queries_cannot_extend_session_window",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17152969999006018,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_closed_replay_is_not_a_new_complementation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.18956680002156645,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_old_thingSpeak_endpoints_and_routes_are_still_registered",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.36327779997373,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_midflight_end_requires_a_new_explicit_complement_request",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08314629999222234,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_global_deduplication_is_backed_by_existing_unique_identity",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11374460003571585,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot.py::test_late_local_incorporation_does_not_fabricate_late_receipt",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14379030000418425,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot_migration.py::test_current_head_and_complete_revision_chain",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.05261220003012568,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot_migration.py::test_no_backfill_or_rewrite_of_legacy_cargo_or_sessions",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.003924799966625869,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot_migration.py::test_new_tables_match_models[FonteSessaoIoT]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005524500040337443,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot_migration.py::test_new_tables_match_models[SincronizacaoIoT]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00499460002174601,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot_migration.py::test_new_tables_match_models[RegistroSessaoIoT]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0062243000138551,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot_migration.py::test_new_tables_match_models[OcorrenciaIoT]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0038344000349752605,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot_migration.py::test_downgrade_keeps_previous_tables_and_rows",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0043759000254794955,
+      "detail": null
+    },
+    {
+      "id": "tests/test_historico_iot_migration.py::test_postgresql_offline_ddl_has_expected_constraints_and_no_destructive_updates",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01991880004061386,
+      "detail": null
+    },
+    {
+      "id": "tests/test_integracao_etapa8.py::test_shared_thingspeak_client_masks_httpx_api_key_for_every_operation[channel]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005363600037526339,
+      "detail": null
+    },
+    {
+      "id": "tests/test_integracao_etapa8.py::test_shared_thingspeak_client_masks_httpx_api_key_for_every_operation[feeds]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005209800030570477,
+      "detail": null
+    },
+    {
+      "id": "tests/test_integracao_etapa8.py::test_shared_thingspeak_client_masks_httpx_api_key_for_every_operation[latest]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005181299988180399,
+      "detail": null
+    },
+    {
+      "id": "tests/test_integracao_etapa8.py::test_shared_thingspeak_client_masks_httpx_api_key_for_every_operation[historical]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.004615299985744059,
+      "detail": null
+    },
+    {
+      "id": "tests/test_integracao_etapa8.py::test_fluxo_integrado_ponta_a_ponta_etapa8",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 1.4728630000026897,
+      "detail": null
+    },
+    {
+      "id": "tests/test_integracao_etapa8.py::test_entire_migration_chain_compiles_postgresql_offline",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.32150210003601387,
+      "detail": null
+    },
+    {
+      "id": "tests/test_integracao_etapa8.py::test_all_new_monitoring_routes_declare_and_enforce_bearer_auth",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.5038348000380211,
+      "detail": null
+    },
+    {
+      "id": "tests/test_integracao_etapa8.py::test_validation_errors_and_cors_do_not_expose_request_secrets",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.019640800019260496,
+      "detail": null
+    },
+    {
+      "id": "tests/test_integracao_etapa8.py::test_concurrent_mock_http_requests_keep_log_redaction_and_cleanup",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0071446000365540385,
+      "detail": null
+    },
+    {
+      "id": "tests/test_integracao_etapa8.py::test_request_log_filter_is_removed_after_http_failure",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.004358600010164082,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_creation_and_detail[produtos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.011665300000458956,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_creation_and_detail[veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.014275500026997179,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_creation_and_detail[motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01442640001187101,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_creation_and_detail[viagens]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013959000003524125,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_creation_and_detail[cargas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.014806299994233996,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_creation_and_detail[caixas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01751869998406619,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_record[produtos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.016002299962565303,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_record[veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015913700044620782,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_record[motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.016151399991940707,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_record[viagens]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015447600046172738,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_record[cargas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01671080000232905,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_record[caixas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013302700011990964,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_lists[produtos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.012702499981969595,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_lists[veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013339700002688915,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_lists[motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.014253400033339858,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_lists[viagens]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01155960001051426,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_updates[produtos-data0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.018030400038696826,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_updates[veiculos-data1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.025662100000772625,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_updates[motoristas-data2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.025049899995792657,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_updates[viagens-data3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.023447500017937273,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_updates[cargas-data4]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.024355000001378357,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_updates[caixas-data5]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.028084599995054305,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_parameter_has_no_default_scientific_values",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08064569998532534,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_parameter_merged_range_validation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.035775600001215935,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_parameter_wrong_product",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.046511099964845926,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_nonexistent_company[veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0180386999854818,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_nonexistent_company[motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015962200006470084,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_filter[veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.021879400010220706,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_filter[motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02545700001064688,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_trip_reference[veiculo_id]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015255100035574287,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_trip_reference[motorista_id]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.019603600027039647,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_trip_reference[transportadora_id]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013003500003833324,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_trip_status_transitions",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07619019999401644,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_trip_cancellation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03486169996904209,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_skipping_trip_status_rejected",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01596140000037849,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_trip_company_mismatch",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.037997899984475225,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_inactive_vehicle_trip_start",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.036416999995708466,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_cargo_reference[viagem_id]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.011827899958007038,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_cargo_reference[produto_id]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.028113899985328317,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_list_cargos_filters",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03162349999183789,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_missing_box_parent",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01675680000334978,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_list_boxes",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01913939998485148,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_relationships",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02229520003311336,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_scoped_duplicates[vehicle]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.019050000002607703,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_scoped_duplicates[cargo]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.017324799962807447,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_scoped_duplicates[box]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.018781899998430163,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_scoped_duplicates[parameter]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.037753400043584406,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_same_identifier_different_scope",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0347745000035502,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_cargo_and_box_status_coherence",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16721169999800622,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_no_reparenting_or_physical_delete",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.011638200026936829,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_invalid_box_input[data0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.009332899993751198,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_invalid_box_input[data1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.009245599969290197,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_invalid_box_input[data2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.009338299976661801,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_invalid_box_input[data3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00956079998286441,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_requires_unit",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02021180000156164,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_trip_time_order",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.017995300004258752,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_pagination",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0474590000230819,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_prototype_measurement_nullable_unchanged",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004273999948054552,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_legacy_trip_can_receive_notes",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.033958899963181466,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_new_cargo_in_closed_trip_rejected",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03790689999004826,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_vehicle_requires_transportadora",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01324539998313412,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_type_change_preserves_logistics[transportadora-CLIENTE]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0763019000296481,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_type_change_preserves_logistics[transportadora-PRODUTOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0687803000328131,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_type_change_preserves_logistics[produtor-TRANSPORTADORA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06773359997896478,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_type_change_preserves_logistics[produtor-CLIENTE]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07521820004330948,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_type_change_preserves_logistics[cliente-TRANSPORTADORA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07139319996349514,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_type_change_preserves_logistics[cliente-PRODUTOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11253830004716292,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_type_change_with_only_one_inactive_link[veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06147770001552999,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_type_change_with_only_one_inactive_link[motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07665970001835376,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_same_type_update_allowed",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.017266099981497973,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_company_without_logistics_can_change_type",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03220080002211034,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_new_box_in_cancelled_trip_rejected_without_changing_children",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08277539996197447,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_boxes_schema_boundaries[0-True-CargaCreate]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0005845000268891454,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_boxes_schema_boundaries[0-True-CargaUpdate]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004713000380434096,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_boxes_schema_boundaries[2147483647-True-CargaCreate]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004700000281445682,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_boxes_schema_boundaries[2147483647-True-CargaUpdate]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0003201999934390187,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_boxes_schema_boundaries[2147483648-False-CargaCreate]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0008459999808110297,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_boxes_schema_boundaries[2147483648-False-CargaUpdate]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00048749998677521944,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_boxes_schema_boundaries[-1-False-CargaCreate]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0005061000119894743,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_boxes_schema_boundaries[-1-False-CargaUpdate]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00045900000259280205,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_boxes_overflow_rejected_before_service[create]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.009189500007778406,
+      "detail": null
+    },
+    {
+      "id": "tests/test_logistica_operacional.py::test_quantity_boxes_overflow_rejected_before_service[update]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00744939997093752,
+      "detail": null
+    },
+    {
+      "id": "tests/test_models_metadata.py::test_models_are_importable",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00039930001366883516,
+      "detail": null
+    },
+    {
+      "id": "tests/test_models_metadata.py::test_main_tables_exist_in_metadata",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004037999897263944,
+      "detail": null
+    },
+    {
+      "id": "tests/test_models_metadata.py::test_medicoes_indexes_are_declared",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00025179999647662044,
+      "detail": null
+    },
+    {
+      "id": "tests/test_models_metadata.py::test_core_relationships_are_mapped",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0002552000223658979,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_migration.py::test_revision_has_single_expected_parent_and_head",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0565855999593623,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_migration.py::test_sqlite_upgrade_preserves_legacy_rows_without_backfill",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00228009995771572,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_migration.py::test_migration_columns_checks_and_indexes_match_models[CargaMonitoramento]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.003949100035242736,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_migration.py::test_migration_columns_checks_and_indexes_match_models[SessaoMonitoramento]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0065882999915629625,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_migration.py::test_migration_columns_checks_and_indexes_match_models[EventoMonitoramento]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0023598999832756817,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_migration.py::test_local_downgrade_preserves_existing_cargo",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.004717100004199892,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_migration.py::test_postgresql_ddl_compiles_offline_without_loading_database_settings",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02297069999622181,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_configure_preserves_legacy_cargo_and_product",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.054889600025489926,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_invalid_mass_rejected_without_persistence[0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015985600010026246,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_invalid_mass_rejected_without_persistence[-1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.023979299992788583,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_invalid_mass_rejected_without_persistence[NaN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.017704099998809397,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_invalid_mass_rejected_without_persistence[Infinity]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0172622999525629,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_invalid_mass_rejected_without_persistence[True]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015150600054766983,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_invalid_mass_rejected_without_persistence[None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.018572699977084994,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_invalid_mass_rejected_without_persistence[100000000]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.024621899996418506,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_invalid_mass_rejected_without_persistence[0.00001]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.017511899990495294,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_valid_mass_limits[0.0001]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04482119996100664,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_valid_mass_limits[1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.044810199993662536,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_valid_mass_limits[99999999.9999]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04238559998339042,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_all_maturity_stages[VERDE_MADURA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04413679998833686,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_all_maturity_stages[EM_AMADURECIMENTO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04495640000095591,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_all_maturity_stages[MADURA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04296619998058304,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_all_maturity_stages[MISTA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04758439998840913,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_all_maturity_stages[DESCONHECIDA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.043755299993790686,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_unknown_stage_when_not_informed",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04830350005067885,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_declaration_validation[changes0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015209399978630245,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_declaration_validation[changes1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.020137600018642843,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_declaration_validation[changes2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01881189999403432,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_declaration_validation[changes3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.016792300040833652,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_declaration_validation[changes4]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02183430001605302,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_declaration_validation[changes5]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015041499980725348,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_legacy_cargo_still_works_without_monitoring_configuration",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06140479998430237,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_config_put_is_idempotent_and_versioned",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.09144769998965785,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_records_real_window_cargo_trip_and_source_snapshot",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.09535499999765307,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_requires_configuration",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04125410004053265,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_requires_in_progress_trip[PLANEJADA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07520839996868744,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_requires_in_progress_trip[CONCLUIDA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0947046999935992,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_requires_in_progress_trip[CANCELADA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11215020000236109,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_requires_in_transit_cargo[PLANEJADA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1028840999933891,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_requires_in_transit_cargo[ENTREGUE]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0793423000141047,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_requires_in_transit_cargo[CANCELADA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0763691000174731,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_rejects_bad_times[<lambda>0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06574389996239915,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_rejects_bad_times[<lambda>1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07207200000993907,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_start_rejects_bad_times[<lambda>2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.05971739999949932,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_same_creation_key_is_idempotent_even_after_end",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.176616600016132,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_idempotency_key_different_content_conflicts",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11242429999401793,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_second_active_session_of_same_cargo_conflicts",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10936870001023635,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_same_source_cannot_monitor_two_cargos_simultaneously",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15039889997569844,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_finish_is_audited_and_idempotent[encerrar-ENCERRADA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.15296680002938956,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_finish_is_audited_and_idempotent[cancelar-CANCELADA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1954814000055194,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_bad_final_times_do_not_change_session[<lambda>0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17449880001368,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_bad_final_times_do_not_change_session[<lambda>1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14929049997590482,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_bad_final_times_do_not_change_session[<lambda>2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1482073999941349,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_bad_final_times_do_not_change_session[<lambda>3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1140031999675557,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_historical_overlap_rejected_and_next_adjacent_window_allowed",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.30678109999280423,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_active_configuration_frozen_but_terminal_snapshot_survives_later_edit",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22542269999394193,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_every_new_endpoint_requires_authentication[put-/cargas/{cargo}/monitoramento-config]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.019968200009316206,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_every_new_endpoint_requires_authentication[get-/cargas/{cargo}/monitoramento-None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.018411399971228093,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_every_new_endpoint_requires_authentication[post-/cargas/{cargo}/monitoramentos-start]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.026656300004106015,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_every_new_endpoint_requires_authentication[get-/cargas/{cargo}/monitoramentos-None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.023314100049901754,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_every_new_endpoint_requires_authentication[get-/viagens/{trip}/monitoramentos-None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0204830999718979,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_every_new_endpoint_requires_authentication[get-/monitoramentos/{session}-None]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.020879099960438907,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_every_new_endpoint_requires_authentication[post-/monitoramentos/{session}/encerrar-end]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.019274999969638884,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_every_new_endpoint_requires_authentication[post-/monitoramentos/{session}/cancelar-end]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03223269997397438,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_allowed_roles_can_configure_and_start[ADMIN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.094711699988693,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_allowed_roles_can_configure_and_start[GESTOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08792850002646446,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_allowed_roles_can_configure_and_start[OPERADOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.09714379999786615,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_consulta_can_read_but_not_write",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1756898999447003,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_unknown_profile_is_denied",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04208959999959916,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_inactive_identity_membership_or_company_denied[user]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02878479997161776,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_inactive_identity_membership_or_company_denied[membership]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03551429999060929,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_inactive_identity_membership_or_company_denied[company]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03350690001389012,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_other_company_cannot_access_objects_or_lists[config]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1192977000027895,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_other_company_cannot_access_objects_or_lists[start]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11525309999706224,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_other_company_cannot_access_objects_or_lists[session]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11642559996107593,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_other_company_cannot_access_objects_or_lists[list_cargo]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12295580003410578,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_other_company_cannot_access_objects_or_lists[list_trip]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.13436830003047362,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_lists_are_scoped_paginated_and_stably_ordered",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2040438000112772,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_source_validation[missing-404]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07336059998488054,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_source_validation[wrong_type-422]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07086629996774718,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_source_validation[same-422]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06943309999769554,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_source_validation[inactive_sensor-409]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08839470002567396,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_source_validation[inactive_device-409]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.083691900013946,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_source_validation[other_context-409]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.09231480001471937,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_source_validation[unit-422]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10768400004599243,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_source_validation[prototype-422]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08188830001745373,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_unbound_sensor_requires_admin_and_laboratory",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11592129996279255,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_humidity_sensor_is_optional",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08629499998642132,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_session_end_must_not_exceed_real_trip_arrival",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1293537999736145,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_cancelled_sessions_reserve_their_historical_window",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22620510001434013,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_database_rejects_wrong_trip_even_with_existing_foreign_keys",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2904536999994889,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_database_partial_uniqueness_rejects_duplicate_active_session",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12233910005306825,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_database_lifecycle_check_rejects_terminal_session_without_end",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.21681859996169806,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_terminal_session_has_no_implicit_measurement_association_endpoint",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 1.7214586000191048,
+      "detail": null
+    },
+    {
+      "id": "tests/test_monitoramento_sessoes.py::test_openapi_documents_authentication_schemas_and_status_codes",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.33804120001150295,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_no_opt_in_ignores_even_production_database_url",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00025399995502084494,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_unsafe_urls_rejected_before_connection[postgresql+psycopg://chicosense_test_user:fake@remote.invalid:35432/chicosense_test_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0009029999491758645,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_unsafe_urls_rejected_before_connection[postgresql+psycopg://chicosense_test_user:fake@localhost:35432/chicosense_test_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004961999948136508,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_unsafe_urls_rejected_before_connection[postgresql+psycopg://chicosense_test_user:fake@127.0.0.1:35432/production]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004800999886356294,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_unsafe_urls_rejected_before_connection[postgresql+psycopg://postgres:fake@127.0.0.1:35432/chicosense_test_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00042830000165849924,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_unsafe_urls_rejected_before_connection[postgresql+psycopg://chicosense_test_user:fake@127.0.0.1/chicosense_test_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004808999947272241,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_unsafe_urls_rejected_before_connection[postgresql+psycopg://chicosense_test_user:fake@127.0.0.1:35432/chicosense_test_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?host=remote.invalid]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0007125000120140612,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_unsafe_urls_rejected_before_connection[postgresql+psycopg://chicosense_test_user:fake@127.0.0.1:35432/chicosense_test_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?service=production]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000589400005992502,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_unsafe_urls_rejected_before_connection[postgresql+psycopg://chicosense_test_user:fake@127.0.0.1:35432/chicosense_test_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?options=-csearch_path=production]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0005970000056549907,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_unsafe_urls_rejected_before_connection[sqlite:///test.db]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004983000108040869,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_unsafe_urls_rejected_before_connection[invalid]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004852000274695456,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_partial_configuration_is_error[CHICOSENSE_TEST_DATABASE_URL]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004172999761067331,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_partial_configuration_is_error[CHICOSENSE_TEST_DISPOSABLE_TOKEN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004276999970898032,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_partial_configuration_is_error[CHICOSENSE_TEST_SYSTEM_IDENTIFIER]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00044430000707507133,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_allowed_target_and_identity",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000464299984741956,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_wrong_server_or_database_identity_blocks_destruction[changes0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0005233000265434384,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_wrong_server_or_database_identity_blocks_destruction[changes1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0004589000018313527,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_wrong_server_or_database_identity_blocks_destruction[changes2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0005920999683439732,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_wrong_server_or_database_identity_blocks_destruction[changes3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00048149999929592013,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_wrong_server_or_database_identity_blocks_destruction[changes4]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00033929996425285935,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_wrong_server_or_database_identity_blocks_destruction[changes5]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0003086999640800059,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_wrong_server_or_database_identity_blocks_destruction[changes6]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0002924000145867467,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_wrong_server_or_database_identity_blocks_destruction[changes7]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00034499994944781065,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_wrong_server_or_database_identity_blocks_destruction[changes8]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0003000000142492354,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_invalid_markers_rejected[CHICOSENSE_TEST_DISPOSABLE_TOKEN-not-a-token]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0002558000269345939,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_invalid_markers_rejected[CHICOSENSE_TEST_SYSTEM_IDENTIFIER-not-a-server-id]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0002838000073097646,
+      "detail": null
+    },
+    {
+      "id": "tests/test_pg_test_safety.py::test_alembic_uses_supplied_connection_without_opening_default_engine",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.009050099994055927,
+      "detail": null
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_01_complete_migration_downgrade_upgrade",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.0008106000022962689,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 61, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_02_catalog_columns_foreign_keys_checks_indexes_types",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.0004887999966740608,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 85, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_03_real_check_fk_and_transaction_rollback",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.0005407999851740897,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 145, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_04_conflicting_session_creation",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.0005041000549681485,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 165, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_05_simultaneous_same_session_end",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.0006695000338368118,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 174, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_06_simultaneous_acquisition_same_key",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.0004982000100426376,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 185, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_07_deduplication_across_transactions",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.0004330999800004065,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 195, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_08_analysis_simultaneous_idempotency_and_snapshot",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.0007852999842725694,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 207, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_09_late_concurrent_complement_and_old_snapshot",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.000623099971562624,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 222, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_10_equivalent_alerts_and_concurrent_decisions",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.00045200000749900937,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 239, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_11_two_sessions_start_same_vehicle",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.00034850003430619836,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 290, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_postgresql_real.py::test_pg_12_stop_while_another_session_starts",
+      "phase": "setup",
+      "outcome": "skipped",
+      "duration": 0.0007933999877423048,
+      "detail": "('C:\\\\Users\\\\Lenovo\\\\Downloads\\\\Gerenciador de Tarefas\\\\chico_sense_back\\\\tests\\\\test_postgresql_real.py', 299, 'Skipped: PostgreSQL real pendente: URL, token descartavel e identidade do servidor ausentes.')"
+    },
+    {
+      "id": "tests/test_preventivo.py::test_in_range_has_no_alert_and_reproduces_without_io",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.23857290000887588,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_observed_outside_range_has_explainable_evidence[15-92-TEMPERATURA_FORA_DA_FAIXA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.3542744999867864,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_observed_outside_range_has_explainable_evidence[11-92-TEMPERATURA_FORA_DA_FAIXA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1794194999965839,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_observed_outside_range_has_explainable_evidence[13-89-UMIDADE_FORA_DA_FAIXA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17014729999937117,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_observed_outside_range_has_explainable_evidence[13-96-UMIDADE_FORA_DA_FAIXA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1677190000191331,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_observed_outside_range_has_explainable_evidence[25-92-TEMPERATURA_FORA_DA_FAIXA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22856230003526434,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_range_boundaries_are_inclusive[12-90]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.09644290001597255,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_range_boundaries_are_inclusive[14-95]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.18158370000310242,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_isolated_outlier_does_not_prove_prolonged_exposure",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16526440001325682,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_gaps_are_not_bridged_and_coverage_is_inconclusive",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12785629997961223,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_no_readings_never_means_safe",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0608743000193499,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_maturity_requires_explicit_applicability[MISTA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11102710000704974,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_maturity_requires_explicit_applicability[DESCONHECIDA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11362949997419491,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_missing_configuration_is_informational_not_scientific_guess",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10415649996139109,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006681200000457466,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.004449400003068149,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006100500002503395,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes3]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.004641300009097904,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes4]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005162399960681796,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes5]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.006265700038056821,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes6]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005384400021284819,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes7]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00831919995835051,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes8]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.008008300035726279,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes9]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.004585199989378452,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes10]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.007635899994056672,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes11]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005653100030031055,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes12]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005230799957644194,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_configuration_rejected[changes13]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00576779997209087,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_config_versions_immutable_and_old_evaluation_frozen",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.13541500002611428,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_config_idempotency_and_role",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04254920000676066,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_evaluation_idempotency_and_alert_dedup_across_duplicate_revision",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1564374000299722,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_revision_conflict_creates_new_evidence_preserves_previous",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16302969999378547,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_return_to_range_never_auto_resolves_alerts",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12751620000926778,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_unknown_timestamp_disables_duration_and_coverage_claims",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10443180002039298,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_decision_lifecycle_reuses_existing_alert_occurrence_models",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2410995999816805,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_discard_requires_justification_and_terminal_evidence_stays",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.24018569994950667,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_cancelled_keeps_decisions_and_rejects_new_eval_config",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14283339999383315,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_environment_never_invokes_ethylene_calculation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08103060000576079,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_persisted_ethylen_analysis_context_preserved",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.13050679996376857,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_read_auth_required[/configuracoes-ambientais]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0034082999918609858,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_read_auth_required[/avaliacoes-preventivas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.002534199971705675,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_read_auth_required[/alertas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.002468000049702823,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_writes_require_operational_role[CONSULTA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07474020001245663,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_writes_require_operational_role[OUTRO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06450579996453598,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_reader_scope_and_pagination",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22754029999487102,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_active_cutoff_revision_window_and_session_scoping",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.11795429995981976,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_evaluation_atomic_on_failure[audit]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.09484320000046864,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_evaluation_atomic_on_failure[commit]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10938589996658266,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_decision_failure_rolls_back_status_and_history",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12303249997785315,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_openapi_and_no_gas_detection_labels",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.2168688999954611,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_active_extension_attaches_evidence_to_existing_open_cases",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1392976000206545,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_real_new_condition_after_resolution_creates_new_case",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14237499999580905,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_closed_late_complement_adds_evidence_without_rewriting_old",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.13110249995952472,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_historical_cut_and_running_revision_exclude_future_data",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.12163369997870177,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_cross_session_api_and_composite_evidence_fk",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14577429997734725,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_sensor_data_is_not_treated_as_normal[-1000-92]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08974690001923591,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_sensor_data_is_not_treated_as_normal[NaN-92]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10855740000260994,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_invalid_sensor_data_is_not_treated_as_normal[13-NaN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.10051940003177151,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_out_of_order_and_duplicates_do_not_extend_exposure",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08679850003682077,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_tolerance_threshold_is_configured_and_not_physiological",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08059049997245893,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_configuration_can_disable_duration_rule_explicitly",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.09999359998619184,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo.py::test_exemplo_executavel_alerta_reconhecimento_historico",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.13431819999823347,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo_migration.py::test_single_incremental_head",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02112459996715188,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo_migration.py::test_model_and_migration_constraints_agree[ConfiguracaoAmbiental]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0013617000076919794,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo_migration.py::test_model_and_migration_constraints_agree[AvaliacaoPreventiva]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001581299991812557,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo_migration.py::test_model_and_migration_constraints_agree[AlertaSessao]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.00104160001501441,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo_migration.py::test_model_and_migration_constraints_agree[EvidenciaPreventiva]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0016398999723605812,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo_migration.py::test_model_and_migration_constraints_agree[DecisaoAlerta]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001901599986013025,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo_migration.py::test_upgrade_downgrade_preserves_old_rows_and_tables",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.004324599984101951,
+      "detail": null
+    },
+    {
+      "id": "tests/test_preventivo_migration.py::test_postgresql_offline_ddl_has_composite_guards_without_legacy_changes",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.010973100026603788,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_all_27_routes_reject_missing_invalid_or_expired_jwt[missing]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.18609879998257384,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_all_27_routes_reject_missing_invalid_or_expired_jwt[invalid]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.21277649997500703,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_all_27_routes_reject_missing_invalid_or_expired_jwt[expired]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.5176629000343382,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[GESTOR-veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.019261599984019995,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[GESTOR-motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.022718499996699393,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[GESTOR-viagens]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015620699967257679,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[GESTOR-cargas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0225930999731645,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[GESTOR-caixas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.020674999977927655,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[OPERADOR-veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.016529700020328164,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[OPERADOR-motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01558350003324449,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[OPERADOR-viagens]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0167166999890469,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[OPERADOR-cargas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.018504399980884045,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[OPERADOR-caixas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.024531900009606034,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[CONSULTA-veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.020516599994152784,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[CONSULTA-motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.018051200022455305,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[CONSULTA-viagens]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.024620399984996766,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[CONSULTA-cargas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.025682399980723858,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_detail_isolation_by_stored_ancestry[CONSULTA-caixas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06600399996386841,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_unfiltered_and_explicit_lists_scope_before_pagination[veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14094409998506308,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_unfiltered_and_explicit_lists_scope_before_pagination[motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.13466670003253967,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_unfiltered_and_explicit_lists_scope_before_pagination[viagens]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.14199159998679534,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_nested_lists_cannot_use_foreign_parent_ids[viagens-cargas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03638349997345358,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_nested_lists_cannot_use_foreign_parent_ids[cargas-caixas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.041599699994549155,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_foreign_update_is_denied_and_preserves_record[veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.020870300009846687,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_foreign_update_is_denied_and_preserves_record[motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02314269996713847,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_foreign_update_is_denied_and_preserves_record[viagens]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.023243900039233267,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_foreign_update_is_denied_and_preserves_record[cargas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.025806400051806122,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_foreign_update_is_denied_and_preserves_record[caixas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02864670002600178,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_fleet_management_requires_gestor_and_own_carrier[veiculos]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.08612280001398176,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_fleet_management_requires_gestor_and_own_carrier[motoristas]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.09324939997168258,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_trip_creation_does_not_trust_client_company_or_foreign_fleet",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1378926999750547,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_cargo_and_box_writes_follow_parent_not_request_payload",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.17050680000102147,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_global_product_catalog_is_read_only_for_non_admin[GESTOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1072273000027053,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_global_product_catalog_is_read_only_for_non_admin[OPERADOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16967690002638847,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_global_product_catalog_is_read_only_for_non_admin[CONSULTA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1388302999548614,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_inactive_membership_company_and_multiple_carrier_links",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.1302733999909833,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_unknown_profile_inactive_user_and_missing_profile_are_denied",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.05684169998858124,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_secured_logistics_preserves_monitoring_snapshot_and_scope",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.16172410000581294,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_logistica.py::test_openapi_documents_bearer_for_every_logistics_and_product_operation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.3256249999976717,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_all_global_operations_require_valid_active_jwt_before_factory[missing]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02308960002847016,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_all_global_operations_require_valid_active_jwt_before_factory[invalid]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.025170500040985644,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_all_global_operations_require_valid_active_jwt_before_factory[expired]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02829549997113645,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_all_global_operations_require_valid_active_jwt_before_factory[inactive]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0342839999939315,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_global_channel_denies_non_admin_even_if_sensor_belongs_to_user[GESTOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.037157899991143495,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_global_channel_denies_non_admin_even_if_sensor_belongs_to_user[OPERADOR]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04316689999541268,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_global_channel_denies_non_admin_even_if_sensor_belongs_to_user[CONSULTA]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.040636699995957315,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_global_channel_denies_non_admin_even_if_sensor_belongs_to_user[OUTRO]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03290940000442788,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_scoped_reader_can_see_own_session_history_but_not_global_channel",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.22315989999333397,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_admin_queries_preserve_dtos_and_sanitize_last_feed_without_mutation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.06337749998783693,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_admin_sync_uses_real_deduplication_and_internal_services_need_no_http_token",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.07149379997281358,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_unsafe_base_url_rejected_without_network_or_value_in_response[https://user:FAKE_PASSWORD@example.invalid]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.04582649999065325,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_unsafe_base_url_rejected_without_network_or_value_in_response[https://api.thingspeak.com?api_key=FAKE]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03958129999227822,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_unsafe_base_url_rejected_without_network_or_value_in_response[https://api.thingspeak.com#FAKE_TOKEN]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.033966599963605404,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_unsafe_base_url_rejected_without_network_or_value_in_response[file:///etc/example]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.037748899951111525,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_unsafe_base_url_rejected_without_network_or_value_in_response[https://api.thingspeak.com:invalid]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.03394829999888316,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_configured_channel_cannot_inject_path_or_parameters[12345/../other]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01192389999050647,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_configured_channel_cannot_inject_path_or_parameters[12345?api_key=FAKE]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013650299981236458,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_configured_channel_cannot_inject_path_or_parameters[abc]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013953100016806275,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_configured_channel_cannot_inject_path_or_parameters[0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013530900003388524,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_missing_channel_remains_private_diagnostic_and_queries_fail_generically",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.035538600001018494,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_upstream_error_messages_are_not_echoed[exc0-400]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015075100003741682,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_upstream_error_messages_are_not_echoed[exc1-503]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015428300015628338,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_upstream_error_messages_are_not_echoed[exc2-504]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015989899984560907,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_upstream_error_messages_are_not_echoed[exc3-429]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.013907899963669479,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_upstream_error_messages_are_not_echoed[exc4-502]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.014125300047453493,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_upstream_error_messages_are_not_echoed[exc5-500]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015750100021250546,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_configuration_parse_failure_never_exposes_values",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015086899977177382,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_known_secret_in_original_field_is_sanitized_on_copy",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.01879860000917688,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_private_global_endpoints_preserve_shared_http_log_protection",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.05995760002406314,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_openapi_and_runtime_router_inventory",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.4194475999684073,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_internal_http_logging_masks_sensitive_urls_even_without_http_boundary[https://FAKE_USER:FAKE_PASS@api.thingspeak.com-hidden0]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.005337400012649596,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_internal_http_logging_masks_sensitive_urls_even_without_http_boundary[https://api.thingspeak.com?token=FAKE_URL_TOKEN-hidden1]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.003992399957496673,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_internal_http_logging_masks_sensitive_urls_even_without_http_boundary[https://api.thingspeak.com?api_key=FAKE_URL_KEY-hidden2]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.004802600014954805,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_admin_last_reading_still_returns_null_when_no_feed",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.015154400025494397,
+      "detail": null
+    },
+    {
+      "id": "tests/test_seguranca_thingspeak.py::test_sync_persistence_failure_rolls_back_without_connection_details",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.024976399959996343,
+      "detail": null
+    },
+    {
+      "id": "tests/test_setup_prototipo.py::test_contexto_medicao_has_prototipo",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000407799961976707,
+      "detail": null
+    },
+    {
+      "id": "tests/test_setup_prototipo.py::test_setup_creates_device_and_two_sensors",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0017681000172160566,
+      "detail": null
+    },
+    {
+      "id": "tests/test_setup_prototipo.py::test_setup_second_execution_reuses_records_without_duplication",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0013336000265553594,
+      "detail": null
+    },
+    {
+      "id": "tests/test_setup_prototipo.py::test_mapping_uses_only_field1_and_field2",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001125600014347583,
+      "detail": null
+    },
+    {
+      "id": "tests/test_setup_prototipo.py::test_build_mapping_has_expected_sensor_ids",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.001119700027629733,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_integration.py::test_valid_feed_reading_is_parsed",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0035101999528706074,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_integration.py::test_channel_with_empty_feeds_returns_empty_list",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.002946699969470501,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_integration.py::test_mapper_handles_null_field_without_failing",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0005227999645285308,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_integration.py::test_timeout_is_mapped_to_domain_exception",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0018177999882027507,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_integration.py::test_http_404_is_mapped_to_domain_exception",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0036345000262372196,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_integration.py::test_invalid_json_response_is_rejected",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0032627999898977578,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_integration.py::test_configurable_field_mapping_converts_values",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0006245000404305756,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_integration.py::test_missing_channel_id_does_not_crash_status_and_blocks_queries",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.003560999990440905,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_integration.py::test_api_key_is_not_exposed_in_status_response_or_logs",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0028782000299543142,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_integration.py::test_external_deduplication_key_is_preserved_for_future_persistence",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.000637899967841804,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_sync.py::test_sync_valid_feed_creates_medicao_and_external_tracking",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0038141999975778162,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_sync.py::test_sync_same_reading_twice_does_not_duplicate",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.004802700015716255,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_sync.py::test_sync_ignores_null_empty_and_non_numeric_values",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.002532400016207248,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_sync.py::test_sync_ignores_missing_sensor_and_unconfigured_field",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0026472999597899616,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_sync.py::test_sync_multiple_fields_partial_error_keeps_valid_records",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.0024067999911494553,
+      "detail": null
+    },
+    {
+      "id": "tests/test_thingspeak_sync.py::test_sync_endpoint_returns_summary_and_does_not_expose_api_key",
+      "phase": "call",
+      "outcome": "passed",
+      "duration": 0.02038519998313859,
+      "detail": null
+    }
+  ]
+}

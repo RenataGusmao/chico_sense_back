@@ -1,0 +1,6886 @@
+[
+  {
+    "name": "empresas",
+    "columns": [
+      {
+        "name": "nome",
+        "type": "VARCHAR(180)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "documento",
+        "type": "VARCHAR(40)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(14)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "PRODUTOR",
+          "TRANSPORTADORA",
+          "CLIENTE"
+        ]
+      },
+      {
+        "name": "ativo",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": "True",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "documento"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_empresas_nome",
+        "unique": false,
+        "expressions": [
+          "empresas.nome"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "perfis",
+    "columns": [
+      {
+        "name": "nome",
+        "type": "VARCHAR(80)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "descricao",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "nome"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "produtos",
+    "columns": [
+      {
+        "name": "nome",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "descricao",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "ativo",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": "True",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "nome"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "motoristas",
+    "columns": [
+      {
+        "name": "empresa_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "empresas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "nome",
+        "type": "VARCHAR(150)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "documento",
+        "type": "VARCHAR(40)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "telefone",
+        "type": "VARCHAR(40)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "ativo",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": "True",
+        "server_default": "true",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "empresa_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "documento"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "parametros_produto",
+    "columns": [
+      {
+        "name": "produto_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "produtos.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "nome_parametro",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "unidade",
+        "type": "VARCHAR(30)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "valor_minimo",
+        "type": "NUMERIC(12, 4)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "valor_maximo",
+        "type": "NUMERIC(12, 4)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "observacao",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "produto_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "uq_parametro_produto_nome",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "produto_id",
+          "nome_parametro"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "usuarios",
+    "columns": [
+      {
+        "name": "nome",
+        "type": "VARCHAR(150)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "email",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "senha_hash",
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "ativo",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": "True",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "perfil_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "perfis.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "perfil_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "email"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_usuarios_email",
+        "unique": false,
+        "expressions": [
+          "usuarios.email"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "uq_usuarios_email_normalizado",
+        "unique": true,
+        "expressions": [
+          "lower(trim(usuarios.email))"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "veiculos",
+    "columns": [
+      {
+        "name": "empresa_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "empresas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "identificador",
+        "type": "VARCHAR(80)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "placa",
+        "type": "VARCHAR(20)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "modelo",
+        "type": "VARCHAR(120)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "descricao",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "ativo",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": "True",
+        "server_default": "true",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": "uq_veiculo_empresa_identificador",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "empresa_id",
+          "identificador"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "placa"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "empresa_id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "empresas_usuarios",
+    "columns": [
+      {
+        "name": "empresa_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "empresas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "usuario_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "cargo",
+        "type": "VARCHAR(120)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "ativo",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": "True",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "empresa_id"
+        ]
+      },
+      {
+        "name": "uq_empresa_usuario",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "empresa_id",
+          "usuario_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "usuario_id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "viagens",
+    "columns": [
+      {
+        "name": "transportadora_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "empresas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "veiculo_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "veiculos.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "motorista_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "motoristas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "origem",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "destino",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "saida_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "previsao_chegada_em",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "chegada_em",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "inicio_real",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "observacoes",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR(12)",
+        "nullable": false,
+        "pk": false,
+        "default": "StatusViagem.PLANEJADA",
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "PLANEJADA",
+          "EM_ANDAMENTO",
+          "CONCLUIDA",
+          "CANCELADA"
+        ]
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "motorista_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "veiculo_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "transportadora_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "cargas",
+    "columns": [
+      {
+        "name": "viagem_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "viagens.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "produto_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "produtos.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "produtor_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "empresas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "cliente_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "empresas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "identificacao",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "quantidade_caixas",
+        "type": "INTEGER",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "quantidade",
+        "type": "NUMERIC(12, 4)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "unidade",
+        "type": "VARCHAR(30)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "origem_produto",
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "observacoes",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR(11)",
+        "nullable": false,
+        "pk": false,
+        "default": "StatusCarga.PLANEJADA",
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "PLANEJADA",
+          "EM_TRANSITO",
+          "ENTREGUE",
+          "CANCELADA"
+        ]
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "cliente_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "produto_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "produtor_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "viagem_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "uq_carga_viagem_identificacao",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "viagem_id",
+          "identificacao"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_cargas_identificacao",
+        "unique": false,
+        "expressions": [
+          "cargas.identificacao"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "uq_cargas_id_viagem_monitoramento",
+        "unique": true,
+        "expressions": [
+          "cargas.id",
+          "cargas.viagem_id"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "caixas",
+    "columns": [
+      {
+        "name": "carga_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "identificacao",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "codigo_externo",
+        "type": "VARCHAR(120)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "peso",
+        "type": "NUMERIC(12, 4)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR(11)",
+        "nullable": false,
+        "pk": false,
+        "default": "StatusCaixa.REGISTRADA",
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "REGISTRADA",
+          "EM_TRANSITO",
+          "ENTREGUE",
+          "AVARIADA"
+        ]
+      },
+      {
+        "name": "observacoes",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "uq_caixa_carga_identificacao",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id",
+          "identificacao"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_caixas_identificacao",
+        "unique": false,
+        "expressions": [
+          "caixas.identificacao"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "cargas_monitoramento",
+    "columns": [
+      {
+        "name": "carga_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "produto_identificado",
+        "type": "VARCHAR(40)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "massa_kg",
+        "type": "NUMERIC(12, 4)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "maturacao",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "lote_codigo",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "lote_hipotetico",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "rastreabilidade",
+        "type": "TEXT",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "versao",
+        "type": "INTEGER",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "atualizado_por_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": "ck_config_monitoramento_massa",
+        "type": "CheckConstraint",
+        "sql": "massa_kg > 0 AND massa_kg < 100000000",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id"
+        ]
+      },
+      {
+        "name": "ck_config_monitoramento_maturacao",
+        "type": "CheckConstraint",
+        "sql": "maturacao IN ('VERDE_MADURA','EM_AMADURECIMENTO','MADURA','MISTA','DESCONHECIDA')",
+        "columns": []
+      },
+      {
+        "name": "uq_config_monitoramento_carga",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id"
+        ]
+      },
+      {
+        "name": "uq_config_monitoramento_id_carga",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "id",
+          "carga_id"
+        ]
+      },
+      {
+        "name": "ck_config_monitoramento_produto",
+        "type": "CheckConstraint",
+        "sql": "produto_identificado = 'MANGA_TOMMY_ATKINS'",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "atualizado_por_id"
+        ]
+      },
+      {
+        "name": "ck_config_monitoramento_versao",
+        "type": "CheckConstraint",
+        "sql": "versao > 0",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "dispositivos",
+    "columns": [
+      {
+        "name": "identificador",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "descricao",
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR(10)",
+        "nullable": false,
+        "pk": false,
+        "default": "StatusDispositivo.ATIVO",
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "ATIVO",
+          "INATIVO",
+          "MANUTENCAO"
+        ]
+      },
+      {
+        "name": "veiculo_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "veiculos.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "viagem_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "viagens.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "carga_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "veiculo_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "viagem_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "identificador"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "dados_externos",
+    "columns": [
+      {
+        "name": "viagem_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "viagens.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "carga_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "caixa_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "caixas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "fonte",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "dados",
+        "type": "JSONB",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "coletado_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "viagem_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "caixa_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "ocorrencias",
+    "columns": [
+      {
+        "name": "viagem_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "viagens.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "carga_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "caixa_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "caixas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "titulo",
+        "type": "VARCHAR(180)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "descricao",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "registrada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR(80)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "viagem_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "caixa_id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "recomendacoes_ia",
+    "columns": [
+      {
+        "name": "viagem_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "viagens.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "carga_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "caixa_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "caixas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "texto",
+        "type": "TEXT",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "nivel_risco",
+        "type": "VARCHAR(80)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "justificativa",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "fatores_considerados",
+        "type": "JSONB",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "gerada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "caixa_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "viagem_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "sensores",
+    "columns": [
+      {
+        "name": "dispositivo_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "dispositivos.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "identificador",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(11)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "TEMPERATURA",
+          "UMIDADE"
+        ]
+      },
+      {
+        "name": "contexto",
+        "type": "VARCHAR(9)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "AMBIENTE",
+          "PRODUTO",
+          "CAIXA",
+          "PROTOTIPO"
+        ]
+      },
+      {
+        "name": "unidade",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR(10)",
+        "nullable": false,
+        "pk": false,
+        "default": "StatusSensor.ATIVO",
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "ATIVO",
+          "INATIVO",
+          "MANUTENCAO"
+        ]
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": "uq_sensor_dispositivo_identificador",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "dispositivo_id",
+          "identificador"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "dispositivo_id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "medicoes",
+    "columns": [
+      {
+        "name": "sensor_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sensores.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "viagem_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "viagens.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "carga_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "caixa_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "caixas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "medida_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "contexto",
+        "type": "VARCHAR(9)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "AMBIENTE",
+          "PRODUTO",
+          "CAIXA",
+          "PROTOTIPO"
+        ]
+      },
+      {
+        "name": "valor",
+        "type": "NUMERIC(12, 4)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "unidade",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sensor_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "caixa_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "viagem_id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_medicoes_medida_em",
+        "unique": false,
+        "expressions": [
+          "medicoes.medida_em"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "ix_medicoes_sensor_id",
+        "unique": false,
+        "expressions": [
+          "medicoes.sensor_id"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "ix_medicoes_caixa_id",
+        "unique": false,
+        "expressions": [
+          "medicoes.caixa_id"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "ix_medicoes_sensor_medida_em",
+        "unique": false,
+        "expressions": [
+          "medicoes.sensor_id",
+          "medicoes.medida_em"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "ix_medicoes_carga_id",
+        "unique": false,
+        "expressions": [
+          "medicoes.carga_id"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "ix_medicoes_viagem_id",
+        "unique": false,
+        "expressions": [
+          "medicoes.viagem_id"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "sessoes_monitoramento",
+    "columns": [
+      {
+        "name": "carga_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "cargas_monitoramento.carga_id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "viagem_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.viagem_id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "viagens.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "configuracao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "inicio",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "fim",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "estado",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "sensor_temperatura_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sensores.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "sensor_umidade_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sensores.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "ambiente_aquisicao",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "observacoes",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "configuracao_versao",
+        "type": "INTEGER",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "produto_identificado",
+        "type": "VARCHAR(40)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "massa_kg",
+        "type": "NUMERIC(12, 4)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "maturacao",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "lote_codigo",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "lote_hipotetico",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "rastreabilidade",
+        "type": "TEXT",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "origem_sensor",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "criada_por_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "finalizada_por_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "motivo_fim",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "chave_idempotencia",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "assinatura_requisicao",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": "ck_sessao_ciclo",
+        "type": "CheckConstraint",
+        "sql": "(estado = 'ATIVA' AND fim IS NULL AND finalizada_por_id IS NULL AND motivo_fim IS NULL) OR (estado <> 'ATIVA' AND fim IS NOT NULL AND fim > inicio AND finalizada_por_id IS NOT NULL AND motivo_fim IS NOT NULL)",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "finalizada_por_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sensor_umidade_id"
+        ]
+      },
+      {
+        "name": "uq_sessao_autor_idempotencia",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "criada_por_id",
+          "chave_idempotencia"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "viagem_id"
+        ]
+      },
+      {
+        "name": "fk_sessao_carga_viagem",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id",
+          "viagem_id"
+        ]
+      },
+      {
+        "name": "ck_sessao_sensores_distintos",
+        "type": "CheckConstraint",
+        "sql": "sensor_umidade_id IS NULL OR sensor_umidade_id <> sensor_temperatura_id",
+        "columns": []
+      },
+      {
+        "name": "ck_sessao_maturacao",
+        "type": "CheckConstraint",
+        "sql": "maturacao IN ('VERDE_MADURA','EM_AMADURECIMENTO','MADURA','MISTA','DESCONHECIDA')",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "ck_sessao_estado",
+        "type": "CheckConstraint",
+        "sql": "estado IN ('ATIVA','ENCERRADA','CANCELADA')",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "criada_por_id"
+        ]
+      },
+      {
+        "name": "ck_sessao_ambiente",
+        "type": "CheckConstraint",
+        "sql": "ambiente_aquisicao IN ('LABORATORIO','TRANSPORTE_REFRIGERADO')",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sensor_temperatura_id"
+        ]
+      },
+      {
+        "name": "ck_sessao_massa",
+        "type": "CheckConstraint",
+        "sql": "massa_kg > 0 AND massa_kg < 100000000",
+        "columns": []
+      },
+      {
+        "name": "fk_sessao_config_carga",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "configuracao_id",
+          "carga_id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_sessoes_viagem_inicio",
+        "unique": false,
+        "expressions": [
+          "sessoes_monitoramento.viagem_id",
+          "sessoes_monitoramento.inicio"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "uq_sessao_ativa_umidade",
+        "unique": true,
+        "expressions": [
+          "sessoes_monitoramento.sensor_umidade_id"
+        ],
+        "where": "estado = 'ATIVA'"
+      },
+      {
+        "name": "ix_sessoes_carga_inicio",
+        "unique": false,
+        "expressions": [
+          "sessoes_monitoramento.carga_id",
+          "sessoes_monitoramento.inicio"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "uq_sessao_ativa_carga",
+        "unique": true,
+        "expressions": [
+          "sessoes_monitoramento.carga_id"
+        ],
+        "where": "estado = 'ATIVA'"
+      },
+      {
+        "name": "uq_sessao_ativa_temperatura",
+        "unique": true,
+        "expressions": [
+          "sessoes_monitoramento.sensor_temperatura_id"
+        ],
+        "where": "estado = 'ATIVA'"
+      }
+    ]
+  },
+  {
+    "name": "alertas",
+    "columns": [
+      {
+        "name": "viagem_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "viagens.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "carga_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "caixa_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "caixas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "medicao_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "medicoes.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "nivel",
+        "type": "VARCHAR(11)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "INFORMATIVO",
+          "ATENCAO",
+          "CRITICO"
+        ]
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR(10)",
+        "nullable": false,
+        "pk": false,
+        "default": "StatusAlerta.ABERTO",
+        "server_default": null,
+        "fks": [],
+        "enum": [
+          "ABERTO",
+          "EM_ANALISE",
+          "RESOLVIDO",
+          "DESCARTADO"
+        ]
+      },
+      {
+        "name": "limite_considerado",
+        "type": "NUMERIC(12, 4)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "valor_registrado",
+        "type": "NUMERIC(12, 4)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "unidade",
+        "type": "VARCHAR(30)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "iniciado_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "finalizado_em",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "duracao_segundos",
+        "type": "INTEGER",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "caixa_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "viagem_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "medicao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "analises_etileno",
+    "columns": [
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "usuario_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "chave_idempotencia",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "assinatura_requisicao",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "executada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "inicio",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "fim",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "corte_aquisicao",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "revisao_aquisicao",
+        "type": "INTEGER",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "massa_kg",
+        "type": "NUMERIC(12, 4)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "maturacao",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "modo",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "intervalo_maximo_s",
+        "type": "NUMERIC(12, 3)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "versao_modelo",
+        "type": "VARCHAR(80)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "status_calculo",
+        "type": "VARCHAR(40)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "classificacao_risco_etileno",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "hash_entrada",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "hash_resultado",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "entrada_snapshot",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "resultado",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "ck_analise_status",
+        "type": "CheckConstraint",
+        "sql": "status_calculo IN ('ENTRADA_INVALIDA','CONFIGURACAO_INCOMPLETA','SEM_ESTIMATIVA','PARCIAL','COMPLETO_NO_MODELO')",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "uq_analise_sessao_chave",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id",
+          "chave_idempotencia"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "usuario_id"
+        ]
+      },
+      {
+        "name": "ck_analise_risco",
+        "type": "CheckConstraint",
+        "sql": "classificacao_risco_etileno = 'NAO_AVALIADO'",
+        "columns": []
+      },
+      {
+        "name": "ck_analise_revisao",
+        "type": "CheckConstraint",
+        "sql": "revisao_aquisicao >= 0",
+        "columns": []
+      },
+      {
+        "name": "ck_analise_janela",
+        "type": "CheckConstraint",
+        "sql": "fim > inicio AND corte_aquisicao >= fim AND executada_em >= corte_aquisicao",
+        "columns": []
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_analise_sessao_execucao",
+        "unique": false,
+        "expressions": [
+          "analises_etileno.sessao_id",
+          "analises_etileno.executada_em",
+          "analises_etileno.id"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "configuracoes_ambientais",
+    "columns": [
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "usuario_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "chave_idempotencia",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "assinatura",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "versao",
+        "type": "INTEGER",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "registrada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "parametros",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": "uq_config_ambiental_id_sessao",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "uq_config_ambiental_versao",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id",
+          "versao"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "usuario_id"
+        ]
+      },
+      {
+        "name": "ck_config_ambiental_versao",
+        "type": "CheckConstraint",
+        "sql": "versao > 0",
+        "columns": []
+      },
+      {
+        "name": "uq_config_ambiental_chave",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id",
+          "chave_idempotencia"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "eventos_monitoramento",
+    "columns": [
+      {
+        "name": "configuracao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "usuario_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(40)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "registrado_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "dados",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "usuario_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "configuracao_id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_eventos_monitoramento_sessao_id",
+        "unique": false,
+        "expressions": [
+          "eventos_monitoramento.sessao_id"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "ix_eventos_monitoramento_configuracao_id",
+        "unique": false,
+        "expressions": [
+          "eventos_monitoramento.configuracao_id"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "fontes_sessao_iot",
+    "columns": [
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "sensor_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sensores.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "origem",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "channel_id",
+        "type": "VARCHAR(80)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "field_name",
+        "type": "VARCHAR(40)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "contexto",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "unidade",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "snapshot",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sensor_id"
+        ]
+      },
+      {
+        "name": "uq_fonte_sessao_channel_field",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id",
+          "channel_id",
+          "field_name"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "uq_fonte_sessao_sensor",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id",
+          "sensor_id"
+        ]
+      },
+      {
+        "name": "uq_fonte_id_sessao",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "id",
+          "sessao_id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "leituras_externas",
+    "columns": [
+      {
+        "name": "origem",
+        "type": "VARCHAR(80)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "channel_id",
+        "type": "VARCHAR(80)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "entry_id",
+        "type": "INTEGER",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "field_name",
+        "type": "VARCHAR(40)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "medicao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "medicoes.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "medicao_id"
+        ]
+      },
+      {
+        "name": "uq_leitura_externa_origem_channel_entry_field",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "origem",
+          "channel_id",
+          "entry_id",
+          "field_name"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_leituras_externas_medicao_id",
+        "unique": false,
+        "expressions": [
+          "leituras_externas.medicao_id"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "ix_leituras_externas_origem_channel",
+        "unique": false,
+        "expressions": [
+          "leituras_externas.origem",
+          "leituras_externas.channel_id"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "sincronizacoes_iot",
+    "columns": [
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "usuario_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "revisao",
+        "type": "INTEGER",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "chave_idempotencia",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "assinatura",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "origem_dados",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "estado",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "inicio_janela",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "fim_janela",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "iniciada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "finalizada_em",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "expira_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "complementacao",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "justificativa",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "resumo",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": "uq_sync_sessao_chave",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id",
+          "chave_idempotencia"
+        ]
+      },
+      {
+        "name": "ck_sync_estado",
+        "type": "CheckConstraint",
+        "sql": "estado IN ('EM_EXECUCAO','CONCLUIDA','PARCIAL','FALHA','INTERROMPIDA')",
+        "columns": []
+      },
+      {
+        "name": "uq_sync_sessao_revisao",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id",
+          "revisao"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "usuario_id"
+        ]
+      },
+      {
+        "name": "uq_sync_id_sessao",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "ck_sync_janela_revisao",
+        "type": "CheckConstraint",
+        "sql": "revisao > 0 AND fim_janela >= inicio_janela",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "uq_sync_executando_sessao",
+        "unique": true,
+        "expressions": [
+          "sincronizacoes_iot.sessao_id"
+        ],
+        "where": "estado = 'EM_EXECUCAO'"
+      }
+    ]
+  },
+  {
+    "name": "alertas_sessao",
+    "columns": [
+      {
+        "name": "alerta_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "alertas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "identidade",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "regra",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "alerta_id"
+        ]
+      },
+      {
+        "name": "uq_alerta_sessao_id_sessao",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "alerta_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "uq_alerta_sessao_identidade",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id",
+          "identidade"
+        ]
+      },
+      {
+        "name": "uq_alerta_sessao_alerta",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "alerta_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "avaliacoes_preventivas",
+    "columns": [
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "configuracoes_ambientais.sessao_id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "avaliacoes_preventivas.sessao_id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "usuario_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "configuracao_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "configuracoes_ambientais.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "anterior_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "avaliacoes_preventivas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "analise_etileno_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "analises_etileno.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "chave_idempotencia",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "assinatura",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "executada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "inicio",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "fim",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "corte_aquisicao",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "revisao",
+        "type": "INTEGER",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "hash_entrada",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "hash_resultado",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "entrada_snapshot",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "resultado",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": "ck_avaliacao_preventiva_janela",
+        "type": "CheckConstraint",
+        "sql": "fim > inicio AND corte_aquisicao >= fim AND executada_em >= corte_aquisicao AND revisao >= 0",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "analise_etileno_id"
+        ]
+      },
+      {
+        "name": "uq_avaliacao_preventiva_id_sessao",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "fk_avaliacao_config_sessao",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "configuracao_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "fk_avaliacao_anterior_sessao",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "anterior_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "usuario_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "uq_avaliacao_preventiva_chave",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id",
+          "chave_idempotencia"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_avaliacao_preventiva_sessao",
+        "unique": false,
+        "expressions": [
+          "avaliacoes_preventivas.sessao_id",
+          "avaliacoes_preventivas.executada_em",
+          "avaliacoes_preventivas.id"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "ocorrencias_iot",
+    "columns": [
+      {
+        "name": "sincronizacao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sincronizacoes_iot.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "fonte_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "fontes_sessao_iot.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "entry_id",
+        "type": "INTEGER",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "medida_em",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "codigo",
+        "type": "VARCHAR(80)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "detalhes",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "processada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sincronizacao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "fonte_id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_ocorrencias_iot_sincronizacao_id",
+        "unique": false,
+        "expressions": [
+          "ocorrencias_iot.sincronizacao_id"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "registros_sessao_iot",
+    "columns": [
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sincronizacoes_iot.sessao_id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "fontes_sessao_iot.sessao_id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "fonte_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "fontes_sessao_iot.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "sincronizacao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sincronizacoes_iot.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "medicao_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "medicoes.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "entry_id",
+        "type": "INTEGER",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "medida_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "timestamp_origem",
+        "type": "VARCHAR(80)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "recebida_em",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "processada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "valor",
+        "type": "NUMERIC(12, 4)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "estado",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "motivo",
+        "type": "VARCHAR(80)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "assinatura",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "tardia",
+        "type": "BOOLEAN",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "apos_encerramento",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "fora_de_ordem",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": "fk_registro_fonte_sessao",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "fonte_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "ck_registro_entry",
+        "type": "CheckConstraint",
+        "sql": "entry_id > 0",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "medicao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "ck_registro_estado",
+        "type": "CheckConstraint",
+        "sql": "(estado = 'VALIDA' AND valor IS NOT NULL AND medicao_id IS NOT NULL) OR (estado = 'INVALIDA' AND valor IS NULL AND medicao_id IS NULL)",
+        "columns": []
+      },
+      {
+        "name": "uq_registro_fonte_entry",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "fonte_id",
+          "entry_id"
+        ]
+      },
+      {
+        "name": "fk_registro_sync_sessao",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sincronizacao_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_registro_sessao_medida",
+        "unique": false,
+        "expressions": [
+          "registros_sessao_iot.sessao_id",
+          "registros_sessao_iot.medida_em",
+          "registros_sessao_iot.id"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "decisoes_alerta",
+    "columns": [
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "alertas_sessao.sessao_id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "alerta_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "alertas_sessao.alerta_id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "ocorrencia_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "ocorrencias.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "usuario_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "chave_idempotencia",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "assinatura",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "acao",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "estado_anterior",
+        "type": "VARCHAR(30)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "estado_posterior",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "registrada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "uq_decisao_alerta_ocorrencia",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "ocorrencia_id"
+        ]
+      },
+      {
+        "name": "fk_decisao_alerta_sessao",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "alerta_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "usuario_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "ck_decisao_alerta_acao",
+        "type": "CheckConstraint",
+        "sql": "acao IN ('CRIAR','RECONHECER','OBSERVAR','RESOLVER','DESCARTAR')",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "ocorrencia_id"
+        ]
+      },
+      {
+        "name": "uq_decisao_alerta_chave",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "alerta_id",
+          "chave_idempotencia"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_decisao_alerta_historico",
+        "unique": false,
+        "expressions": [
+          "decisoes_alerta.alerta_id",
+          "decisoes_alerta.registrada_em",
+          "decisoes_alerta.id"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "evidencias_preventivas",
+    "columns": [
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "avaliacoes_preventivas.sessao_id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "alertas_sessao.sessao_id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "avaliacao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "avaliacoes_preventivas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "alerta_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "alertas_sessao.alerta_id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "identidade",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "evidencia",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "fk_evidencia_alerta_sessao",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "alerta_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "fk_evidencia_avaliacao_sessao",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "avaliacao_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "uq_evidencia_preventiva_avaliacao_alerta",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "avaliacao_id",
+          "alerta_id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_evidencia_preventiva_identidade",
+        "unique": false,
+        "expressions": [
+          "evidencias_preventivas.sessao_id",
+          "evidencias_preventivas.identidade"
+        ],
+        "where": "None"
+      }
+    ]
+  },
+  {
+    "name": "intervencoes_simuladas",
+    "columns": [
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "alertas_sessao.sessao_id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "avaliacoes_preventivas.sessao_id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "viagem_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.viagem_id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "viagens.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "carga_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "cargas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "veiculo_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "veiculos.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "alerta_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "alertas_sessao.alerta_id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "avaliacao_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "avaliacoes_preventivas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "analise_etileno_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "analises_etileno.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "solicitante_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "decidida_por_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "iniciada_por_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "finalizada_por_id",
+        "type": "UUID",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "modalidade",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "estado",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "chave_idempotencia",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "assinatura",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "justificativa_solicitacao",
+        "type": "TEXT",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "motivo_fim",
+        "type": "TEXT",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "solicitada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "decidida_em",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "iniciada_em",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "prazo_planejado_em",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "finalizada_em",
+        "type": "DATETIME",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "duracao_planejada_s",
+        "type": "NUMERIC(12, 3)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "duracao_registrada_s",
+        "type": "NUMERIC(20, 6)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "referencias_snapshot",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "hash_referencias",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": "ck_intervencao_estado",
+        "type": "CheckConstraint",
+        "sql": "estado IN ('SOLICITADA','AUTORIZADA','RECUSADA','EM_EXECUCAO','CONCLUIDA','CANCELADA','FALHA_SIMULACAO')",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "iniciada_por_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "finalizada_por_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "uq_intervencao_sessao_chave",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id",
+          "chave_idempotencia"
+        ]
+      },
+      {
+        "name": "fk_intervencao_avaliacao_sessao",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "avaliacao_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "uq_intervencao_id_sessao",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "ck_intervencao_virtual",
+        "type": "CheckConstraint",
+        "sql": "modalidade = 'SIMULADA'",
+        "columns": []
+      },
+      {
+        "name": "fk_intervencao_alerta_sessao",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "alerta_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "ck_intervencao_duracoes",
+        "type": "CheckConstraint",
+        "sql": "duracao_planejada_s > 0 AND duracao_planejada_s <= 86400 AND (duracao_registrada_s IS NULL OR duracao_registrada_s >= 0)",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "viagem_id"
+        ]
+      },
+      {
+        "name": "ck_intervencao_ciclo",
+        "type": "CheckConstraint",
+        "sql": "((estado IN ('SOLICITADA','AUTORIZADA','RECUSADA')) AND iniciada_em IS NULL AND finalizada_em IS NULL AND duracao_registrada_s IS NULL) OR (estado = 'EM_EXECUCAO' AND iniciada_em IS NOT NULL AND finalizada_em IS NULL AND duracao_registrada_s IS NULL) OR (estado IN ('CONCLUIDA','FALHA_SIMULACAO') AND iniciada_em IS NOT NULL AND finalizada_em IS NOT NULL AND duracao_registrada_s IS NOT NULL) OR (estado = 'CANCELADA' AND finalizada_em IS NOT NULL AND ((iniciada_em IS NULL AND duracao_registrada_s IS NULL) OR (iniciada_em IS NOT NULL AND duracao_registrada_s IS NOT NULL)))",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "veiculo_id"
+        ]
+      },
+      {
+        "name": "ck_intervencao_decisao",
+        "type": "CheckConstraint",
+        "sql": "(estado = 'SOLICITADA' AND decidida_em IS NULL AND decidida_por_id IS NULL) OR (estado IN ('AUTORIZADA','RECUSADA','EM_EXECUCAO','CONCLUIDA','FALHA_SIMULACAO') AND decidida_em IS NOT NULL AND decidida_por_id IS NOT NULL) OR estado = 'CANCELADA'",
+        "columns": []
+      },
+      {
+        "name": "ck_intervencao_inicio",
+        "type": "CheckConstraint",
+        "sql": "(iniciada_em IS NULL AND iniciada_por_id IS NULL AND prazo_planejado_em IS NULL) OR (iniciada_em IS NOT NULL AND iniciada_por_id IS NOT NULL AND prazo_planejado_em IS NOT NULL)",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "analise_etileno_id"
+        ]
+      },
+      {
+        "name": "fk_intervencao_carga_viagem",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "carga_id",
+          "viagem_id"
+        ]
+      },
+      {
+        "name": "ck_intervencao_finalizacao",
+        "type": "CheckConstraint",
+        "sql": "(finalizada_em IS NULL AND finalizada_por_id IS NULL AND motivo_fim IS NULL) OR (finalizada_em IS NOT NULL AND finalizada_por_id IS NOT NULL AND motivo_fim IS NOT NULL)",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "solicitante_id"
+        ]
+      },
+      {
+        "name": "ck_intervencao_horarios",
+        "type": "CheckConstraint",
+        "sql": "(decidida_em IS NULL OR decidida_em >= solicitada_em) AND (iniciada_em IS NULL OR iniciada_em >= decidida_em) AND (prazo_planejado_em IS NULL OR prazo_planejado_em > iniciada_em) AND (finalizada_em IS NULL OR finalizada_em >= solicitada_em) AND (iniciada_em IS NULL OR finalizada_em IS NULL OR finalizada_em >= iniciada_em)",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "decidida_por_id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_intervencao_sessao_solicitada",
+        "unique": false,
+        "expressions": [
+          "intervencoes_simuladas.sessao_id",
+          "intervencoes_simuladas.solicitada_em",
+          "intervencoes_simuladas.id"
+        ],
+        "where": "None"
+      },
+      {
+        "name": "uq_exaustor_virtual_executando",
+        "unique": true,
+        "expressions": [
+          "intervencoes_simuladas.veiculo_id"
+        ],
+        "where": "estado = 'EM_EXECUCAO'"
+      }
+    ]
+  },
+  {
+    "name": "acoes_intervencao",
+    "columns": [
+      {
+        "name": "sessao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "sessoes_monitoramento.id",
+            "ondelete": null,
+            "onupdate": null
+          },
+          {
+            "target": "intervencoes_simuladas.sessao_id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "intervencao_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "intervencoes_simuladas.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "ocorrencia_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "ocorrencias.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "usuario_id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [
+          {
+            "target": "usuarios.id",
+            "ondelete": null,
+            "onupdate": null
+          }
+        ],
+        "enum": null
+      },
+      {
+        "name": "chave_idempotencia",
+        "type": "UUID",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "assinatura",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "numero",
+        "type": "INTEGER",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "acao",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "estado_anterior",
+        "type": "VARCHAR(30)",
+        "nullable": true,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "estado_posterior",
+        "type": "VARCHAR(30)",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "registrada_em",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "contexto_snapshot",
+        "type": "JSON",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "nullable": false,
+        "pk": true,
+        "default": "<function uuid4 at 0x000001A302D97C40>",
+        "server_default": null,
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      },
+      {
+        "name": "updated_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "pk": false,
+        "default": null,
+        "server_default": "now()",
+        "fks": [],
+        "enum": null
+      }
+    ],
+    "constraints": [
+      {
+        "name": null,
+        "type": "PrimaryKeyConstraint",
+        "sql": "",
+        "columns": [
+          "id"
+        ]
+      },
+      {
+        "name": "uq_acao_intervencao_chave",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "intervencao_id",
+          "chave_idempotencia"
+        ]
+      },
+      {
+        "name": "uq_acao_intervencao_ocorrencia",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "ocorrencia_id"
+        ]
+      },
+      {
+        "name": "fk_acao_intervencao_sessao",
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "intervencao_id",
+          "sessao_id"
+        ]
+      },
+      {
+        "name": "ck_acao_intervencao_numero",
+        "type": "CheckConstraint",
+        "sql": "numero > 0",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "ocorrencia_id"
+        ]
+      },
+      {
+        "name": "uq_acao_intervencao_numero",
+        "type": "UniqueConstraint",
+        "sql": "",
+        "columns": [
+          "intervencao_id",
+          "numero"
+        ]
+      },
+      {
+        "name": "ck_acao_intervencao_acao",
+        "type": "CheckConstraint",
+        "sql": "acao IN ('SOLICITAR','AUTORIZAR','RECUSAR','INICIAR','ENCERRAR','CANCELAR','REGISTRAR_FALHA')",
+        "columns": []
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "usuario_id"
+        ]
+      },
+      {
+        "name": null,
+        "type": "ForeignKeyConstraint",
+        "sql": "",
+        "columns": [
+          "sessao_id"
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_acao_intervencao_historico",
+        "unique": false,
+        "expressions": [
+          "acoes_intervencao.intervencao_id",
+          "acoes_intervencao.numero"
+        ],
+        "where": "None"
+      }
+    ]
+  }
+]
