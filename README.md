@@ -236,6 +236,21 @@ real, SQLite descartável e HTTP ThingSpeak mockado; não requer sensores ou con
 O frontend deve tratar 401/403/404/409/422, mostrar cobertura/limitações e preservar
 chaves de idempotência em retries. Acesso visual não substitui autorização no backend.
 CORS de desenvolvimento permite localhost:5173 e 127.0.0.1:5173 (HTTP).
+Origens adicionais são configuradas por `CORS_ALLOWED_ORIGINS`, uma lista JSON
+de origens exatas (protocolo, domínio e porta, sem caminho). No Render, configurar:
+
+```json
+["https://chico-sense-frontend.vercel.app","https://chico-sense-frontend-q5lqczbcw-juuvalentin95-1633s-projects.vercel.app"]
+```
+
+O padrão é `[]`, que mantém somente as duas origens locais. Não usar `*` ou
+curingas de previews Vercel. A URL longa é um deployment específico protegido
+pela Vercel; removê-la quando deixar de ser necessária. Novos previews exigem
+inclusão explícita. Reiniciar/republicar o processo após mudar a variável.
+`allow_credentials=True` permanece; métodos e headers continuam permitidos pelo
+middleware existente, incluindo GET/POST/OPTIONS e Content-Type/Authorization.
+Preflight não autentica o usuário: as requisições efetivas continuam sujeitas a
+JWT, perfil e escopo empresarial. Não há alteração nas regras de login.
 
 Não há frontend nesta entrega, dashboard agregador, refresh JWT, CRUD de sensores
 ou identidade de máquina. Provisionamento de sensores/mapping, calibração, validade
