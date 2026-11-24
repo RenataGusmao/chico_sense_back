@@ -37,12 +37,14 @@ class MonitoramentoRepository:
         ).limit(1)) is not None
 
     def listar(self, *, carga_id: UUID | None = None, viagem_id: UUID | None = None,
-               limit: int = 50, offset: int = 0) -> list[SessaoMonitoramento]:
+               limit: int = 50, offset: int = 0, cargas_visiveis=None) -> list[SessaoMonitoramento]:
         query = select(SessaoMonitoramento)
         if carga_id is not None:
             query = query.where(SessaoMonitoramento.carga_id == carga_id)
         if viagem_id is not None:
             query = query.where(SessaoMonitoramento.viagem_id == viagem_id)
+        if cargas_visiveis is not None:
+            query = query.where(SessaoMonitoramento.carga_id.in_(cargas_visiveis))
         return list(self.db.scalars(query.order_by(
             SessaoMonitoramento.inicio, SessaoMonitoramento.id,
         ).limit(limit).offset(offset)))

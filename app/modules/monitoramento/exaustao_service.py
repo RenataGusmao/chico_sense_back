@@ -65,6 +65,8 @@ class ExaustaoSimuladaService(HistoricoIoTService):
         carga=self.base.obter(Carga,original.carga_id)
         viagem=self.base.obter(Viagem,carga.viagem_id,lock=True)
         self.base.autorizar_viagem(viagem,escrita=False)
+        self.base.escopo.autorizar_carga(carga.id)
+        self.base.escopo.autorizar_operacao(viagem.transportadora_id)
         carga=self.base.obter(Carga,carga.id,lock=True)
         s=self.base.obter(SessaoMonitoramento,sessao_id,lock=True)
         if carga.viagem_id!=viagem.id or s.carga_id!=carga.id or s.viagem_id!=viagem.id:
@@ -159,6 +161,8 @@ class ExaustaoSimuladaService(HistoricoIoTService):
         return self._dto(i,s)
 
     def _papel_permite(self,i,acao):
+        viagem=self.base.obter(Viagem,i.viagem_id)
+        if not self.base.escopo.opera_transportadora(viagem.transportadora_id): return False
         perfil=self.user.perfil.nome
         if perfil in ('ADMIN','GESTOR'): return True
         if perfil!='OPERADOR' or i.solicitante_id!=self.user.id: return False

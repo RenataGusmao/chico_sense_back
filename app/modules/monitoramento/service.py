@@ -17,6 +17,7 @@ from app.models.produto import Produto
 from app.models.usuario import Usuario
 from app.models.sessoes_monitoramento import CargaMonitoramento, EventoMonitoramento, SessaoMonitoramento
 from app.modules.empresas.service import EmpresaService, is_admin
+from app.modules.logistica.escopo import EscopoLogistico
 from app.modules.monitoramento.schemas import CargaMonitoramentoPut, SessaoCreate, SessaoFinalizar
 from app.repositories.monitoramento import MonitoramentoRepository
 
@@ -32,6 +33,7 @@ class MonitoramentoService:
     def __init__(self, db: Session, user: Usuario):
         self.db, self.user = db, user
         self.repo = MonitoramentoRepository(db)
+        self.escopo = EscopoLogistico(db, user)
 
     @contextmanager
     def transacao(self):
@@ -61,14 +63,20 @@ class MonitoramentoService:
         perfil = self.user.perfil.nome
         if perfil not in (("ADMIN", "GESTOR", "OPERADOR") if escrita else ("ADMIN", "GESTOR", "OPERADOR", "CONSULTA")):
             raise HTTPException(403, "Perfil sem permissao para esta operacao.")
-        empresa = EmpresaService(self.db).authorize(viagem.transportadora_id, self.user)
-        if escrita and not empresa.ativo:
-            raise HTTPException(409, "Transportadora inativa.")
+        if escrita:
+            self.escopo.autorizar_operacao(viagem.transportadora_id)
+            empresa = EmpresaService(self.db).get(viagem.transportadora_id)
+            if not empresa.ativo:
+                raise HTTPException(409, "Transportadora inativa.")
+        else:
+            self.escopo.autorizar_viagem(viagem.id)
 
     def carga(self, carga_id: UUID, escrita: bool = False) -> tuple[Carga, Viagem]:
         carga = self.obter(Carga, carga_id)
         viagem = self.obter(Viagem, carga.viagem_id, lock=escrita)
         self.autorizar_viagem(viagem, escrita)
+        if not escrita:
+            self.escopo.autorizar_carga(carga.id)
         if escrita:
             carga = self.obter(Carga, carga_id, lock=True)
             if carga.viagem_id != viagem.id:
@@ -202,7 +210,7 @@ class MonitoramentoService:
 
     def consultar_sessao(self, sessao_id: UUID) -> SessaoMonitoramento:
         sessao = self.obter(SessaoMonitoramento, sessao_id)
-        self.autorizar_viagem(self.obter(Viagem, sessao.viagem_id))
+        self.carga(sessao.carga_id)
         return sessao
 
     def listar_carga(self, carga_id: UUID, limit: int, offset: int):
@@ -211,7 +219,8 @@ class MonitoramentoService:
 
     def listar_viagem(self, viagem_id: UUID, limit: int, offset: int):
         self.autorizar_viagem(self.obter(Viagem, viagem_id))
-        return self.repo.listar(viagem_id=viagem_id, limit=limit, offset=offset)
+        return self.repo.listar(viagem_id=viagem_id, limit=limit, offset=offset,
+                               cargas_visiveis=self.escopo.cargas_visiveis())
 
     def finalizar(self, sessao_id: UUID, data: SessaoFinalizar, estado: str) -> SessaoMonitoramento:
         if estado not in ("ENCERRADA", "CANCELADA"):

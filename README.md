@@ -67,6 +67,13 @@ inexistente: 404; conflito de estado/idempotência: 409; entrada inválida: 422.
 A política existente usa 403 genérico para fora de escopo, sem retornar o recurso.
 Não há DELETE físico dos registros logísticos ou históricos.
 
+Usuários vinculados a empresas PRODUTOR ou CLIENTE podem consultar somente as
+cargas em que sua empresa consta como produtora ou cliente, incluindo o respectivo
+monitoramento. Viagens compartilhadas não liberam as demais cargas ou sessões.
+Escrita permanece restrita ao papel apropriado e ao vínculo com a transportadora;
+essas empresas não recebem acesso à frota ou ao ThingSpeak global.
+Consultar [as regras de escopo e o plano de demonstração](docs/chicosense/escopo-produtor-cliente.md).
+
 ## Logística, cargas e sessões
 
 Cadastre empresas, produto, veículo/motorista da transportadora e viagem. Crie a
