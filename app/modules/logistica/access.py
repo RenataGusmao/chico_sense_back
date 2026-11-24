@@ -6,6 +6,7 @@ from app.models.usuario import EmpresaUsuario
 from app.models.logistica import Veiculo,Motorista,Viagem,Carga,Caixa
 from app.models.enums import TipoEmpresa
 from app.modules.empresas.service import EmpresaService
+from app.modules.logistica.escopo import EscopoLogistico
 from app.modules.logistica.service import VeiculoService,MotoristaService,ViagemService,CargaService,CaixaService
 
 SERVICES={Veiculo:VeiculoService,Motorista:MotoristaService,Viagem:ViagemService,Carga:CargaService,Caixa:CaixaService}
@@ -17,6 +18,7 @@ ERROS_ACESSO={401:{'description':'JWT ausente, invalido, expirado ou usuario ina
 class LogisticaAccess:
     def __init__(self,db,user):
         self.db,self.user=db,user
+        self.escopo=EscopoLogistico(db,user)
 
     def perfil(self,write=False,gestao=False):
         allowed=('ADMIN','GESTOR') if gestao else (('ADMIN','GESTOR','OPERADOR') if write else ('ADMIN','GESTOR','OPERADOR','CONSULTA'))
@@ -33,8 +35,12 @@ class LogisticaAccess:
         self.perfil(write,gestao=write and model in (Veiculo,Motorista))
         record=SERVICES[model](self.db).get(record_id)
         if model in (Veiculo,Motorista): self.company(record.empresa_id,write)
-        elif model is Viagem: self.company(record.transportadora_id,write)
-        elif model is Carga: self.resource(Viagem,record.viagem_id,write)
+        elif model is Viagem:
+            if write: self.company(record.transportadora_id,True)
+            else: self.escopo.autorizar_viagem(record.id)
+        elif model is Carga:
+            if write: self.resource(Viagem,record.viagem_id,True)
+            else: self.escopo.autorizar_carga(record.id)
         elif model is Caixa: self.resource(Carga,record.carga_id,write)
         return record
 
@@ -67,9 +73,13 @@ class LogisticaAccess:
     def list_owned(self,model,filters,limit,offset):
         self.perfil()
         owner='transportadora_id' if model is Viagem else 'empresa_id'
-        if filters.get(owner) is not None: self.company(filters[owner])
+        if filters.get(owner) is not None:
+            if model is Viagem: self.escopo.autorizar_filtro_transportadora(filters[owner])
+            else: self.company(filters[owner])
         query=select(model)
-        if self.user.perfil.nome!='ADMIN':
+        if model is Viagem:
+            query=query.where(self.escopo.condicao_viagem())
+        elif self.user.perfil.nome!='ADMIN':
             companies=select(EmpresaUsuario.empresa_id).join(Empresa,Empresa.id==EmpresaUsuario.empresa_id).where(
                 EmpresaUsuario.usuario_id==self.user.id,EmpresaUsuario.ativo.is_(True),
                 Empresa.ativo.is_(True),Empresa.tipo==TipoEmpresa.TRANSPORTADORA)
@@ -81,7 +91,10 @@ class LogisticaAccess:
 
     def list_cargas(self,trip_id,filters,limit,offset):
         self.resource(Viagem,trip_id)
-        return CargaService(self.db).list_for_trip(trip_id,filters,limit,offset)
+        query=select(Carga).where(Carga.viagem_id==trip_id,self.escopo.condicao_carga())
+        for name,value in filters.items():
+            if value is not None: query=query.where(getattr(Carga,name)==value)
+        return list(self.db.scalars(query.order_by(Carga.created_at,Carga.id).limit(limit).offset(offset)))
 
     def list_caixas(self,cargo_id,limit,offset):
         self.resource(Carga,cargo_id)
