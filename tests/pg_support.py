@@ -13,7 +13,7 @@ from alembic.config import Config
 from scripts.pg_test_safety import validate_target, open_verified, verify_connection, UnsafeTestDatabase
 
 ROOT=Path(__file__).resolve().parents[1]
-HEAD='20261028_0010_exaustao_virtual'
+HEAD='20261124_0011_parceiros'
 
 
 class Database:

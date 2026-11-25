@@ -64,6 +64,30 @@ def quality(w,**params):
                            params={'intervalo_maximo_s':'600','fim':stamp(40)}|params)
 
 
+def test_revision_zero_remains_empty_after_a_new_acquisition(iot):
+    assert history(iot,{'revisao':0,'fim':stamp(40)}).json()['total']==0
+    assert sync(iot).status_code==200
+    pinned=history(iot,{'revisao':0,'fim':stamp(40)})
+    assert pinned.status_code==200 and pinned.json()['revisao']==0 and pinned.json()['leituras']==[]
+    assert history(iot,{'fim':stamp(40)}).json()['total']>0
+
+
+def test_quality_summary_and_interval_pages_preserve_indicators(iot):
+    assert sync(iot).status_code==200
+    params=dict(intervalo_maximo_s='600',fim=stamp(40),revisao=1)
+    full=quality(iot,**params).json()
+    compact=quality(iot,**params,incluir_intervalos=False).json()
+    for before,after in zip(full['indicadores'],compact['indicadores']):
+        assert after['intervalos_total']==len(before['intervalos'])
+        assert {k:v for k,v in after.items() if k!='intervalos_total'}=={k:v for k,v in before.items() if k!='intervalos'}
+    url=f'/api/v1/monitoramentos/{iot["session"]["id"]}/qualidade/intervalos'
+    first=iot['client'].get(url,headers=headers(iot),params=params|{'limit':1}).json()
+    count=sum(len(row['intervalos']) for row in full['indicadores'])
+    assert first['total']==count and len(first['intervalos'])==1
+    assert iot['client'].get(url,headers=headers(iot),params=params|{'offset':count}).json()['intervalos']==[]
+    assert iot['client'].get(url,headers=headers(iot,'OUTRO'),params=params).status_code==403
+
+
 def test_acquires_mapped_fields_and_reuses_existing_measurement_tables(iot):
     w=iot; response=sync(w)
     assert response.status_code==200,response.text

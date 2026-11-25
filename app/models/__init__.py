@@ -45,3 +45,6 @@ __all__ += ["ConfiguracaoAmbiental", "AvaliacaoPreventiva", "AlertaSessao", "Evi
 
 from app.models.exaustao_simulada import IntervencaoSimulada, AcaoIntervencao
 __all__ += ["IntervencaoSimulada", "AcaoIntervencao"]
+
+from app.models.parceiro_comercial import ParceiroComercial
+__all__ += ["ParceiroComercial"]

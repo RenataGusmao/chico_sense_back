@@ -32,8 +32,8 @@ def migrated(preventive_migrated):
 def test_single_head_and_previous_revisions_unchanged():
     cfg=Config(str(ROOT/'alembic.ini')); cfg.set_main_option('script_location',str(ROOT/'alembic'))
     script=ScriptDirectory.from_config(cfg)
-    assert script.get_heads()==['20261028_0010_exaustao_virtual']
-    assert script.get_revision(script.get_current_head()).down_revision=='20261028_0009_preventivo'
+    assert script.get_heads()==['20261124_0011_parceiros']
+    assert script.get_revision('20261028_0010_exaustao_virtual').down_revision=='20261028_0009_preventivo'
 
 
 @pytest.mark.parametrize('model',MODELS)

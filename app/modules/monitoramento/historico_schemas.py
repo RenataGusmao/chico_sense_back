@@ -103,3 +103,15 @@ class QualidadeResponse(Input):
     indicadores: list[dict]
     codigos_ocorrencias: list[str]
     limites: str
+
+
+class IntervalosQualidadeResponse(Input):
+    sessao_id: UUID
+    revisao: int
+    inicio: datetime
+    fim: datetime
+    intervalo_maximo_s: Decimal
+    total: int
+    limit: int
+    offset: int
+    intervalos: list[dict]
