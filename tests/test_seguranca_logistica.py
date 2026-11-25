@@ -135,8 +135,13 @@ def test_trip_creation_does_not_trust_client_company_or_foreign_fleet(secured):
 
 def test_cargo_and_box_writes_follow_parent_not_request_payload(secured):
     w=secured; body=dict(produto_id=str(w['product'].id),produtor_id=str(w['producer'].id),identificacao='CARGA-NOVA')
+    from app.models.parceiro_comercial import ParceiroComercial
+    ParceiroComercial.__table__.create(w['db'].get_bind())
     assert call(w,'POST',f'/viagens/{w["b"]["viagens"].id}/cargas','OPERADOR',body).status_code==403
     assert call(w,'POST',f'/viagens/{w["trip"].id}/cargas','CONSULTA',body).status_code==403
+    assert call(w,'POST',f'/viagens/{w["trip"].id}/cargas','OPERADOR',body).status_code==403
+    assert call(w,'PUT',f'/transportadoras/{w["transport"].id}/parceiros/{w["producer"].id}','ADMIN',
+        {'ativo':True,'justificativa':'Aprovacao do parceiro da carga de teste'}).status_code==200
     r=call(w,'POST',f'/viagens/{w["trip"].id}/cargas','OPERADOR',body); assert r.status_code==201,r.text
     assert r.json()['viagem_id']==str(w['trip'].id)
     assert call(w,'POST',f'/cargas/{w["b"]["cargas"].id}/caixas','OPERADOR',{'identificacao':'Nao criar'}).status_code==403

@@ -33,3 +33,11 @@ api_router.include_router(preventivo_router)
 
 from app.modules.monitoramento.exaustao_routes import router as exaustao_simulada_router
 api_router.include_router(exaustao_simulada_router)
+
+from app.modules.empresas.parceiros import router as parceiros_router
+api_router.include_router(parceiros_router)
+
+from app.modules.monitoramento.catalogo_routes import router as catalogo_router
+from app.modules.monitoramento.resumo_routes import router as resumo_router
+api_router.include_router(catalogo_router)
+api_router.include_router(resumo_router)

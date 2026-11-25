@@ -8,6 +8,9 @@ não comprova experimentalmente eficácia de exaustão ou conservação da fruta
 
 ## Problema, objetivo e escopo
 
+Preparação da integração operacional em branch de desenvolvimento:
+[novos contratos, migration e roteiro de testes](outputs/ChicoSense-integracao-backend-frontend.md).
+
 Temperatura, tempo de exposição, lacunas de aquisição e condições da carga precisam
 ser rastreáveis durante o transporte. O ChicoSense reúne logística, histórico IoT,
 estimativas reproduzíveis, avaliação ambiental e auditoria das decisões.

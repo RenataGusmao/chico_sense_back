@@ -1,5 +1,10 @@
 # PostgreSQL real — execução opcional
 
+Integração operacional de 24/11/2026: head esperado atualizado para
+`20261124_0011_parceiros`. A qualificação histórica abaixo continua descrevendo
+a versão anterior; o resultado atual e a nova migration estão documentados em
+[integração backend/frontend](../outputs/ChicoSense-integracao-backend-frontend.md).
+
 **Qualificado em PostgreSQL 17.11 local (29/10/2026): 757 aprovados, zero falhas/skips.**
 Os 12 casos PostgreSQL e três repetições de nove testes concorrentes passaram.
 Fora do ambiente opcional configurado, skip continua significando pendência.

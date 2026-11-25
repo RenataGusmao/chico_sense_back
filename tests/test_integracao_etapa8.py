@@ -53,6 +53,11 @@ def integrated(world,monkeypatch):
     from app.models.logistica import Caixa
     from app.models.integracoes import LeituraExterna
     w=world
+    from app.models.parceiro_comercial import ParceiroComercial
+    ParceiroComercial.__table__.create(w['db'].get_bind())
+    w['db'].add(ParceiroComercial(transportadora_id=w['transport'].id,empresa_id=w['producer'].id,
+        aprovado_por_id=w['users']['ADMIN'].id,atualizado_por_id=w['users']['ADMIN'].id,
+        ativo=True,justificativa='Aprovacao explicita da fixture integrada'))
     models=(Caixa,Medicao,LeituraExterna,FonteSessaoIoT,SincronizacaoIoT,RegistroSessaoIoT,
         __import__('app.models.historico_iot',fromlist=['OcorrenciaIoT']).OcorrenciaIoT,
         AnaliseEtileno,Alerta,Ocorrencia,ConfiguracaoAmbiental,AvaliacaoPreventiva,AlertaSessao,
@@ -192,7 +197,7 @@ def test_all_new_monitoring_routes_declare_and_enforce_bearer_auth(world):
             response=world['client'].request(method,url,json={} if method in ('post','put','patch') else None)
             assert response.status_code==401,(method,path,response.text)
             checked.append((method,path))
-    assert len(checked)==30
+    assert len(checked)==32
 
 
 def test_validation_errors_and_cors_do_not_expose_request_secrets(world):

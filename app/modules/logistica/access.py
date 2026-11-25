@@ -60,7 +60,11 @@ class LogisticaAccess:
             self.company(data.transportadora_id,True); self.trip_references(data)
             return service.create(data)
         if model is Carga:
-            self.resource(Viagem,parent_id,True)
+            trip = self.resource(Viagem,parent_id,True)
+            from app.modules.empresas.parceiros import ParceirosService
+            partners = ParceirosService(self.db,self.user)
+            partners.exigir(trip.transportadora_id,data.produtor_id)
+            partners.exigir(trip.transportadora_id,data.cliente_id)
             return service.create(data,viagem_id=parent_id)
         self.resource(Carga,parent_id,True)
         return service.create(data,carga_id=parent_id)

@@ -11,7 +11,7 @@ from app.modules.monitoramento.routes import ERROS
 from app.modules.monitoramento.historico_service import HistoricoIoTService
 from app.modules.monitoramento.historico_consulta import HistoricoConsultaService
 from app.modules.monitoramento.historico_schemas import (
-    SincronizacaoCreate, SincronizacaoResponse, HistoricoResponse, EstadoSincronizacaoResponse, QualidadeResponse,
+    SincronizacaoCreate, SincronizacaoResponse, HistoricoResponse, EstadoSincronizacaoResponse, QualidadeResponse, IntervalosQualidadeResponse,
 )
 
 router=APIRouter(prefix='/api/v1/monitoramentos',tags=['Historico IoT'],responses=ERROS)
@@ -54,7 +54,7 @@ def estado(sessao_id:UUID,limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=
 @router.get('/{sessao_id}/leituras',response_model=HistoricoResponse,
             summary='Consultar leituras e marcadores invalidos em ordem cronologica')
 def leituras(sessao_id:UUID,limit:int=Query(100,ge=1,le=1000),offset:int=Query(0,ge=0),
-             tipo:str|None=Query(None,pattern='^(TEMPERATURA|UMIDADE)$'),revisao:int|None=Query(None,ge=1),
+             tipo:str|None=Query(None,pattern='^(TEMPERATURA|UMIDADE)$'),revisao:int|None=Query(None,ge=0),
              inicio:AwareDatetime|None=None,fim:AwareDatetime|None=None,svc=Depends(consultas)):
     """Janela inclusiva de amostras [inicio,fim], com amostra final apenas para fechar intervalos.
 
@@ -67,11 +67,31 @@ def leituras(sessao_id:UUID,limit:int=Query(100,ge=1,le=1000),offset:int=Query(0
 @router.get('/{sessao_id}/qualidade',response_model=QualidadeResponse,
             summary='Consultar lacunas e cobertura temporal, sem estimativa de etileno')
 def qualidade(sessao_id:UUID,intervalo_maximo_s:Decimal=Query(...,gt=0,max_digits=12,decimal_places=3),
-              revisao:int|None=Query(None,ge=1),inicio:AwareDatetime|None=None,fim:AwareDatetime|None=None,
+              revisao:int|None=Query(None,ge=0),inicio:AwareDatetime|None=None,fim:AwareDatetime|None=None,
+              incluir_intervalos:bool=True,
               svc=Depends(consultas)):
     """G e parametro operacional obrigatorio, sem valor padrao cientifico.
 
     Dois extremos utilizaveis, gaps integrais, sem interpolacao ou extrapolacao.
     Cobertura de aquisicao nao e cobertura de aplicabilidade do modelo cientifico.
     """
-    return svc.qualidade(sessao_id,intervalo_maximo_s,revisao,inicio,fim)
+    result = svc.qualidade(sessao_id,intervalo_maximo_s,revisao,inicio,fim)
+    if not incluir_intervalos:
+        for indicator in result['indicadores']:
+            indicator['intervalos_total'] = len(indicator.pop('intervalos', []))
+    return result
+
+
+@router.get('/{sessao_id}/qualidade/intervalos', response_model=IntervalosQualidadeResponse, summary='Paginar intervalos de cobertura sem alterar indicadores')
+def intervalos(sessao_id:UUID,intervalo_maximo_s:Decimal=Query(...,gt=0,max_digits=12,decimal_places=3),
+               revisao:int|None=Query(None,ge=0),inicio:AwareDatetime|None=None,fim:AwareDatetime|None=None,
+               limit:int=Query(20,ge=1,le=100),offset:int=Query(0,ge=0),svc=Depends(consultas)):
+    from itertools import islice
+    result = svc.qualidade(sessao_id,intervalo_maximo_s,revisao,inicio,fim)
+    indicators = sorted(result['indicadores'], key=lambda row: (row['tipo'], str(row.get('sensor_id'))))
+    total = sum(len(row.get('intervalos', [])) for row in indicators)
+    items = (dict(sensor_id=row.get('sensor_id'),tipo=row['tipo'],**item)
+             for row in indicators for item in row.get('intervalos', []))
+    return dict(sessao_id=sessao_id,revisao=result['revisao'],inicio=result['inicio'],fim=result['fim'],
+                intervalo_maximo_s=intervalo_maximo_s,total=total,limit=limit,offset=offset,
+                intervalos=list(islice(items,offset,offset+limit)))
