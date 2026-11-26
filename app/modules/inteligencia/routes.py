@@ -31,7 +31,7 @@ from app.modules.integracoes.thingspeak.exceptions import (
 
 
 router = APIRouter(
-    prefix="/ia",
+    prefix="/api/v1/ia",
     tags=["Inteligencia Artificial"],
     dependencies=[Depends(get_current_user)],
 )
@@ -110,7 +110,7 @@ async def thingspeak_ia():
 
         raise HTTPException(
             status_code=503,
-            detail="Canal ThingSpeak nao configurado.",
+            detail="Configuracao HTTP ThingSpeak invalida ou insegura.",
         ) from erro
 
     except ThingSpeakTimeoutError as erro:

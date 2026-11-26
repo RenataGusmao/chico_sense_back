@@ -1,9 +1,11 @@
 import json
 import math
+import warnings
 
 from functools import lru_cache
 
 import joblib
+import numpy as np
 import pandas as pd
 
 from app.modules.inteligencia.preparacao_dados import (
@@ -26,6 +28,7 @@ ARQUIVO_METADADOS = (
 )
 
 VERSAO = "1.0.0"
+TEMPERATURA_MAXIMA_MODELO = float(np.finfo(np.float32).max)
 
 LIMITACAO = (
     "Modelo experimental de deteccao de anomalias. "
@@ -46,19 +49,52 @@ def carregar_modelo():
             "Modelo treinado nao encontrado."
         )
 
-    pacote = joblib.load(ARQUIVO_MODELO)
+    try:
+        import sklearn
+        from sklearn.ensemble import IsolationForest
+        from sklearn.exceptions import InconsistentVersionWarning
 
-    if pacote["features"] != FEATURES:
+        metadados = obter_metadados()
+        if (
+            metadados["features"] != FEATURES
+            or metadados["versao_modelo"] != VERSAO
+            or metadados["versao_scikit_learn"] != sklearn.__version__
+        ):
+            raise ValueError("Metadados incompativeis.")
+
+        with warnings.catch_warnings():
+            warnings.simplefilter("error", InconsistentVersionWarning)
+            pacote = joblib.load(ARQUIVO_MODELO)
+
+        modelo = pacote["modelo"]
+        limite = float(pacote["limite"])
+        if (
+            pacote["features"] != FEATURES
+            or not isinstance(modelo, IsolationForest)
+            or list(modelo.feature_names_in_) != FEATURES
+            or not modelo.estimators_
+            or not math.isfinite(limite)
+            or limite != float(metadados["limite_anomalia"])
+        ):
+            raise ValueError("Artefato incompativel.")
+    except ModeloIndisponivelError:
+        raise
+    except Exception as erro:
         raise ModeloIndisponivelError(
-            "Features incompativeis com o modelo."
-        )
+            "Nao foi possivel carregar um modelo compativel."
+        ) from erro
 
     return pacote
 
 
 def obter_status():
 
-    disponivel = ARQUIVO_MODELO.is_file()
+    try:
+        carregar_modelo()
+    except ModeloIndisponivelError:
+        disponivel = False
+    else:
+        disponivel = True
 
     return {
         "disponivel": disponivel,
@@ -150,7 +186,7 @@ def analisar_medicoes(medicoes):
             if not dados[coluna].map(math.isfinite).all():
                 raise ValueError("Valores nao finitos.")
 
-        if (dados["temperatura"] < -273.15).any():
+        if not dados["temperatura"].between(-273.15, TEMPERATURA_MAXIMA_MODELO).all():
             raise ValueError("Temperatura invalida.")
 
         if not dados["umidade"].between(0, 100).all():
@@ -197,11 +233,14 @@ def analisar_medicoes(medicoes):
 
     limite = float(pacote["limite"])
 
-    score = float(
-        -modelo.score_samples(
-            ultima[FEATURES]
-        )[0]
-    )
+    try:
+        score = float(-modelo.score_samples(ultima[FEATURES])[0])
+        if not math.isfinite(score):
+            raise ValueError("Score nao finito.")
+    except (AttributeError, IndexError, TypeError, ValueError) as erro:
+        raise ModeloIndisponivelError(
+            "Modelo indisponivel para inferencia."
+        ) from erro
 
     anomalia = bool(score > limite)
 
@@ -260,12 +299,16 @@ def obter_historico():
             "Resultados historicos nao encontrados."
         )
 
-    with open(
-        arquivo,
-        encoding="utf-8",
-    ) as leitura:
-
-        resumo = json.load(leitura)
+    try:
+        with arquivo.open(encoding="utf-8") as leitura:
+            resumo = json.load(leitura)
+        if not isinstance(resumo, dict):
+            raise ValueError("Resumo invalido.")
+        json.dumps(resumo, allow_nan=False)
+    except (OSError, ValueError) as erro:
+        raise ModeloIndisponivelError(
+            "Resultados historicos invalidos ou indisponiveis."
+        ) from erro
 
     return {
         "origem": "HISTORICO_THINGSPEAK",

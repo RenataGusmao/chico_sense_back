@@ -3,20 +3,32 @@ from __future__ import annotations
 import math
 from datetime import datetime, timezone
 
+from starlette.concurrency import run_in_threadpool
+
+from app.modules.integracoes.thingspeak.exceptions import ThingSpeakConfigurationError
+from app.modules.integracoes.thingspeak.http_security import validate_http_config
 from app.modules.integracoes.thingspeak.service import (
     ThingSpeakService,
 )
 
-from app.modules.inteligencia.service import analisar_medicoes
+from app.modules.inteligencia.preparacao_dados import INTERVALO_MAXIMO, JANELA_MOVEL
+from app.modules.inteligencia.service import TEMPERATURA_MAXIMA_MODELO, analisar_medicoes
 
 
 LIMITE_ATUALIZACAO_SEGUNDOS = 120
-INTERVALO_MAXIMO_SEGUNDOS = 60
-QUANTIDADE_MEDICOES = 5
+INTERVALO_MAXIMO_SEGUNDOS = INTERVALO_MAXIMO
+QUANTIDADE_MEDICOES = JANELA_MOVEL
 
 
 async def analisar_thingspeak():
-    servico = ThingSpeakService.from_settings()
+    try:
+        servico = ThingSpeakService.from_settings()
+        if servico.config.channel_id:
+            validate_http_config(servico)
+    except (TypeError, ValueError) as erro:
+        raise ThingSpeakConfigurationError(
+            "Configuracao HTTP ThingSpeak invalida ou insegura."
+        ) from erro
 
     canal = servico.config.channel_id
 
@@ -61,7 +73,7 @@ async def analisar_thingspeak():
             if not math.isfinite(umidade):
                 continue
 
-            if temperatura < -273.15:
+            if not -273.15 <= temperatura <= TEMPERATURA_MAXIMA_MODELO:
                 continue
 
             if not 0 <= umidade <= 100:
@@ -149,7 +161,8 @@ async def analisar_thingspeak():
             )
             return resposta
 
-    resultado = analisar_medicoes(medicoes)
+    resultado = await run_in_threadpool(analisar_medicoes, medicoes)
+    resultado["origem"] = "THINGSPEAK"
 
     resposta["status"] = resultado["status"]
     resposta["resultado"] = resultado
