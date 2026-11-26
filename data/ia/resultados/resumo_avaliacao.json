@@ -1,0 +1,15 @@
+{
+    "algoritmo": "Isolation Forest",
+    "versao_modelo": "1.0.0",
+    "origem_dados": "Historico real ThingSpeak",
+    "sessao_avaliada": 12,
+    "total_avaliado": 466,
+    "registros_sinalizados": 32,
+    "registros_nao_sinalizados": 434,
+    "percentual_sinalizado": 6.867,
+    "limite_anomalia": 0.6101586908029178,
+    "score_minimo": 0.4937061527795586,
+    "score_maximo": 0.7373732683601089,
+    "score_medio": 0.5367843773654831,
+    "limitacao": "Dados historicos sem rotulos de anomalias. Os resultados representam comportamentos estatisticamente atipicos, nao comprovacao de risco ou dano a carga."
+}

@@ -1,0 +1,13 @@
+modelo,id,cenario,esperado,obtido,score,resultado
+Modelo A - 2 atributos,CT-IA-001,Condicoes estaveis,NAO_SINALIZADO,NAO_SINALIZADO,0.536951,APROVADO
+Modelo A - 2 atributos,CT-IA-002,Aumento brusco de temperatura,ANOMALIA_DETECTADA,ANOMALIA_DETECTADA,0.685463,APROVADO
+Modelo A - 2 atributos,CT-IA-003,Aumento brusco de umidade,ANOMALIA_DETECTADA,ANOMALIA_DETECTADA,0.71396,APROVADO
+Modelo A - 2 atributos,CT-IA-004,Aumento simultaneo de temperatura e umidade,ANOMALIA_DETECTADA,ANOMALIA_DETECTADA,0.734976,APROVADO
+Modelo A - 2 atributos,CT-IA-005,Reducao brusca de temperatura,ANOMALIA_DETECTADA,NAO_SINALIZADO,0.538909,DIVERGENTE
+Modelo A - 2 atributos,CT-IA-006,Variacao ambiental gradual,NAO_SINALIZADO,NAO_SINALIZADO,0.501705,APROVADO
+Modelo B - 6 atributos,CT-IA-001,Condicoes estaveis,NAO_SINALIZADO,NAO_SINALIZADO,0.447677,APROVADO
+Modelo B - 6 atributos,CT-IA-002,Aumento brusco de temperatura,ANOMALIA_DETECTADA,NAO_SINALIZADO,0.608996,DIVERGENTE
+Modelo B - 6 atributos,CT-IA-003,Aumento brusco de umidade,ANOMALIA_DETECTADA,ANOMALIA_DETECTADA,0.648787,APROVADO
+Modelo B - 6 atributos,CT-IA-004,Aumento simultaneo de temperatura e umidade,ANOMALIA_DETECTADA,ANOMALIA_DETECTADA,0.756739,APROVADO
+Modelo B - 6 atributos,CT-IA-005,Reducao brusca de temperatura,ANOMALIA_DETECTADA,NAO_SINALIZADO,0.562241,DIVERGENTE
+Modelo B - 6 atributos,CT-IA-006,Variacao ambiental gradual,NAO_SINALIZADO,NAO_SINALIZADO,0.439025,APROVADO

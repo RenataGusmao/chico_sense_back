@@ -59,8 +59,11 @@ class ThingSpeakClient:
             params["results"] = results
 
         payload = await self._get_json(f"/channels/{channel_id}/feeds.json", params=params)
+        raw_feeds = payload.get("feeds")
+        if not isinstance(raw_feeds, list) or not all(isinstance(feed, dict) for feed in raw_feeds):
+            raise ThingSpeakInvalidResponseError("Invalid ThingSpeak feeds response.")
         try:
-            feeds = [ThingSpeakFeed.from_api_payload(feed) for feed in payload.get("feeds", [])]
+            feeds = [ThingSpeakFeed.from_api_payload(feed) for feed in raw_feeds]
             channel = payload.get("channel")
             return ThingSpeakFeedsResponse(
                 channel=ThingSpeakChannelMetadata.model_validate(channel) if channel else None,

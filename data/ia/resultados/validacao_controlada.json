@@ -1,0 +1,99 @@
+{
+    "total_testes": 9,
+    "aprovados": 7,
+    "divergentes": 2,
+    "origem": "Cenarios simulados",
+    "limitacao": "A concordancia com cenarios simulados nao representa acuracia em operacao real.",
+    "testes": [
+        {
+            "id": "CT-IA-001",
+            "cenario": "Condicoes estaveis",
+            "origem": "SIMULADO",
+            "esperado": "NAO_SINALIZADO",
+            "obtido": "NAO_SINALIZADO",
+            "score": 0.447677,
+            "limite": 0.610159,
+            "resultado": "APROVADO"
+        },
+        {
+            "id": "CT-IA-002",
+            "cenario": "Aumento brusco de temperatura",
+            "origem": "SIMULADO",
+            "esperado": "ANOMALIA_DETECTADA",
+            "obtido": "NAO_SINALIZADO",
+            "score": 0.608996,
+            "limite": 0.610159,
+            "resultado": "DIVERGENTE"
+        },
+        {
+            "id": "CT-IA-003",
+            "cenario": "Aumento brusco de umidade",
+            "origem": "SIMULADO",
+            "esperado": "ANOMALIA_DETECTADA",
+            "obtido": "ANOMALIA_DETECTADA",
+            "score": 0.648787,
+            "limite": 0.610159,
+            "resultado": "APROVADO"
+        },
+        {
+            "id": "CT-IA-004",
+            "cenario": "Aumento simultaneo de temperatura e umidade",
+            "origem": "SIMULADO",
+            "esperado": "ANOMALIA_DETECTADA",
+            "obtido": "ANOMALIA_DETECTADA",
+            "score": 0.756739,
+            "limite": 0.610159,
+            "resultado": "APROVADO"
+        },
+        {
+            "id": "CT-IA-005",
+            "cenario": "Reducao brusca de temperatura",
+            "origem": "SIMULADO",
+            "esperado": "ANOMALIA_DETECTADA",
+            "obtido": "NAO_SINALIZADO",
+            "score": 0.562241,
+            "limite": 0.610159,
+            "resultado": "DIVERGENTE"
+        },
+        {
+            "id": "CT-IA-006",
+            "cenario": "Variacao ambiental gradual",
+            "origem": "SIMULADO",
+            "esperado": "NAO_SINALIZADO",
+            "obtido": "NAO_SINALIZADO",
+            "score": 0.439025,
+            "limite": 0.610159,
+            "resultado": "APROVADO"
+        },
+        {
+            "id": "CT-IA-007",
+            "cenario": "Historico insuficiente",
+            "origem": "SIMULADO",
+            "esperado": "DADOS_INSUFICIENTES",
+            "obtido": "DADOS_INSUFICIENTES",
+            "score": null,
+            "limite": 0.610159,
+            "resultado": "APROVADO"
+        },
+        {
+            "id": "CT-IA-008",
+            "cenario": "Interrupcao entre medicoes",
+            "origem": "SIMULADO",
+            "esperado": "DADOS_INSUFICIENTES",
+            "obtido": "DADOS_INSUFICIENTES",
+            "score": null,
+            "limite": 0.610159,
+            "resultado": "APROVADO"
+        },
+        {
+            "id": "CT-IA-009",
+            "cenario": "Umidade invalida",
+            "origem": "SIMULADO",
+            "esperado": "DADOS_INVALIDOS",
+            "obtido": "DADOS_INVALIDOS",
+            "score": null,
+            "limite": 0.610159,
+            "resultado": "APROVADO"
+        }
+    ]
+}
