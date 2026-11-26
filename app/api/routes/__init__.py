@@ -41,3 +41,7 @@ from app.modules.monitoramento.catalogo_routes import router as catalogo_router
 from app.modules.monitoramento.resumo_routes import router as resumo_router
 api_router.include_router(catalogo_router)
 api_router.include_router(resumo_router)
+
+# Inteligencia Artificial - Deteccao de anomalias ambientais
+from app.modules.inteligencia.routes import router as inteligencia_router
+api_router.include_router(inteligencia_router)

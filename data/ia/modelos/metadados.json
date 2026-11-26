@@ -1,0 +1,22 @@
+{
+    "algoritmo": "Isolation Forest",
+    "tipo": "Machine Learning Nao Supervisionado",
+    "versao_modelo": "1.0.0",
+    "versao_scikit_learn": "1.9.1",
+    "numero_arvores": 200,
+    "random_state": 42,
+    "percentil_calibracao": 95,
+    "limite_anomalia": 0.6101586908029178,
+    "registros_treinamento": 1706,
+    "registros_calibracao": 617,
+    "features": [
+        "temperatura",
+        "umidade",
+        "variacao_temperatura",
+        "variacao_umidade",
+        "media_temperatura",
+        "media_umidade"
+    ],
+    "origem": "Historico ThingSpeak - canal 3493148",
+    "limitacao": "Modelo experimental sem rotulos reais de anomalias ou danos a carga."
+}

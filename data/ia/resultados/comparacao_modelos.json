@@ -1,0 +1,83 @@
+{
+    "objetivo": "Avaliar o impacto do Feature Engineering na deteccao de anomalias.",
+    "metodologia": "Mesmas bases, algoritmo, numero de arvores, semente e percentil de calibracao.",
+    "limitacao": "Comparacao exploratoria com dados sem rotulos reais e cenarios simulados previamente utilizados. Nao representa uma nova validacao independente.",
+    "modelos": [
+        {
+            "modelo": "Modelo A - 2 atributos",
+            "quantidade_features": 2,
+            "features": [
+                "temperatura",
+                "umidade"
+            ],
+            "limite": 0.6374321336303482,
+            "treinamento": {
+                "registros": 1706,
+                "sinalizados": 48,
+                "percentual_sinalizado": 2.8136,
+                "score_medio": 0.470387,
+                "score_minimo": 0.388791,
+                "score_maximo": 0.732414
+            },
+            "calibracao": {
+                "registros": 617,
+                "sinalizados": 30,
+                "percentual_sinalizado": 4.8622,
+                "score_medio": 0.579568,
+                "score_minimo": 0.411963,
+                "score_maximo": 0.724902
+            },
+            "avaliacao": {
+                "registros": 466,
+                "sinalizados": 217,
+                "percentual_sinalizado": 46.5665,
+                "score_medio": 0.634422,
+                "score_minimo": 0.496583,
+                "score_maximo": 0.722946
+            },
+            "testes_simulados": 6,
+            "aprovados": 5,
+            "divergentes": 1
+        },
+        {
+            "modelo": "Modelo B - 6 atributos",
+            "quantidade_features": 6,
+            "features": [
+                "temperatura",
+                "umidade",
+                "variacao_temperatura",
+                "variacao_umidade",
+                "media_temperatura",
+                "media_umidade"
+            ],
+            "limite": 0.6101586908029178,
+            "treinamento": {
+                "registros": 1706,
+                "sinalizados": 46,
+                "percentual_sinalizado": 2.6964,
+                "score_medio": 0.426114,
+                "score_minimo": 0.357637,
+                "score_maximo": 0.736112
+            },
+            "calibracao": {
+                "registros": 617,
+                "sinalizados": 31,
+                "percentual_sinalizado": 5.0243,
+                "score_medio": 0.494383,
+                "score_minimo": 0.425249,
+                "score_maximo": 0.719519
+            },
+            "avaliacao": {
+                "registros": 466,
+                "sinalizados": 32,
+                "percentual_sinalizado": 6.867,
+                "score_medio": 0.536784,
+                "score_minimo": 0.493706,
+                "score_maximo": 0.737373
+            },
+            "testes_simulados": 6,
+            "aprovados": 4,
+            "divergentes": 2
+        }
+    ]
+}
